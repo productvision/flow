@@ -1,5 +1,5 @@
 app.controller('ContactCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
-  $http.get('js/app/contact/contacts.json').then(function (resp) {
+  $http.get('module/core/js/app/contact/contacts.json').then(function (resp) {
     $scope.items = resp.data.items;
     $scope.item = $filter('orderBy')($scope.items, 'first')[0];
     $scope.item.selected = true;
