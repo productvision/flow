@@ -16,71 +16,76 @@
  *
  * @example <input ui-jq="datepicker" ui-options="{showOn:'click'},secondParameter,thirdParameter" ui-refresh="iChange">
  */
-angular.module('ui.jq', ['ui.load']).
-  value('uiJqConfig', {}).
-  directive('uiJq', ['uiJqConfig', 'JQ_CONFIG', 'uiLoad', '$timeout', function uiJqInjectingFunction(uiJqConfig, JQ_CONFIG, uiLoad, $timeout) {
+angular
+    .module('ui.jq', [
+        'ui.load',
+        'core.loader'
+    ])
+    .value('uiJqConfig', {})
+    .directive('uiJq', [
+        '$timeout', 'AutoloaderProvider', 'uiJqConfig', 'uiLoad',
+        function ($timeout, AutoloaderProvider, uiJqConfig, uiLoad) {
+            return {
+                restrict: 'A',
+                compile: function uiJqCompilingFunction(tElm, tAttrs) {
+                    var assets = AutoloaderProvider.getAssets();
 
-  return {
-    restrict: 'A',
-    compile: function uiJqCompilingFunction(tElm, tAttrs) {
+                    if (!angular.isFunction(tElm[tAttrs.uiJq]) && !assets[tAttrs.uiJq]) {
+                        throw new Error('ui-jq: The "' + tAttrs.uiJq + '" function does not exist');
+                    }
+                    var options = uiJqConfig && uiJqConfig[tAttrs.uiJq];
 
-      if (!angular.isFunction(tElm[tAttrs.uiJq]) && !JQ_CONFIG[tAttrs.uiJq]) {
-        throw new Error('ui-jq: The "' + tAttrs.uiJq + '" function does not exist');
-      }
-      var options = uiJqConfig && uiJqConfig[tAttrs.uiJq];
+                    return function uiJqLinkingFunction(scope, elm, attrs) {
+                        function getOptions() {
+                            var linkOptions = [];
 
-      return function uiJqLinkingFunction(scope, elm, attrs) {
+                            // If ui-options are passed, merge (or override) them onto global defaults and pass to the jQuery method
+                            if (attrs.uiOptions) {
+                                linkOptions = scope.$eval('[' + attrs.uiOptions + ']');
+                                if (angular.isObject(options) && angular.isObject(linkOptions[0])) {
+                                    linkOptions[0] = angular.extend({}, options, linkOptions[0]);
+                                }
+                            } else if (options) {
+                                linkOptions = [options];
+                            }
+                            return linkOptions;
+                        }
 
-        function getOptions(){
-          var linkOptions = [];
+                        // If change compatibility is enabled, the form input's "change" event will trigger an "input" event
+                        if (attrs.ngModel && elm.is('select,input,textarea')) {
+                            elm.bind('change', function () {
+                                elm.trigger('input');
+                            });
+                        }
 
-          // If ui-options are passed, merge (or override) them onto global defaults and pass to the jQuery method
-          if (attrs.uiOptions) {
-            linkOptions = scope.$eval('[' + attrs.uiOptions + ']');
-            if (angular.isObject(options) && angular.isObject(linkOptions[0])) {
-              linkOptions[0] = angular.extend({}, options, linkOptions[0]);
-            }
-          } else if (options) {
-            linkOptions = [options];
-          }
-          return linkOptions;
-        }
+                        // Call jQuery method and pass relevant options
+                        function callPlugin() {
+                            $timeout(function () {
+                                elm[attrs.uiJq].apply(elm, getOptions());
+                            }, 0, false);
+                        }
 
-        // If change compatibility is enabled, the form input's "change" event will trigger an "input" event
-        if (attrs.ngModel && elm.is('select,input,textarea')) {
-          elm.bind('change', function() {
-            elm.trigger('input');
-          });
-        }
+                        function refresh() {
+                            // If ui-refresh is used, re-fire the the method upon every change
+                            if (attrs.uiRefresh) {
+                                scope.$watch(attrs.uiRefresh, function () {
+                                    callPlugin();
+                                });
+                            }
+                        }
 
-        // Call jQuery method and pass relevant options
-        function callPlugin() {
-          $timeout(function() {
-            elm[attrs.uiJq].apply(elm, getOptions());
-          }, 0, false);
-        }
+                        if (assets[attrs.uiJq]) {
+                            uiLoad.load(assets[attrs.uiJq]).then(function () {
+                                callPlugin();
+                                refresh();
+                            }).catch(function () {
 
-        function refresh(){
-          // If ui-refresh is used, re-fire the the method upon every change
-          if (attrs.uiRefresh) {
-            scope.$watch(attrs.uiRefresh, function() {
-              callPlugin();
-            });
-          }
-        }
-
-        if ( JQ_CONFIG[attrs.uiJq] ) {
-          uiLoad.load(JQ_CONFIG[attrs.uiJq]).then(function() {
-            callPlugin();
-            refresh();
-          }).catch(function() {
-            
-          });
-        } else {
-          callPlugin();
-          refresh();
-        }
-      };
-    }
-  };
-}]);
+                            });
+                        } else {
+                            callPlugin();
+                            refresh();
+                        }
+                    };
+                }
+            };
+        }]);

@@ -19,5 +19,6 @@ angular.module('app', [
     'pascalprecht.translate',
 
     'core.loader',
-    'grolba.music'
+    'grolba.music',
+    'grolba.mail'
 ]);
