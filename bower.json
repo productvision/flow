@@ -1,0 +1,56 @@
+{
+  "name": "flow",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Tobias Oberrauch <to@gew.io>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.5.0",
+    "font-awesome": "~4.5.0",
+    "simple-line-icons": "~2.2.3",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4",
+    "angular": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-aria": "~1.4.8",
+    "angular-cookies": "~1.4.8",
+    "angular-messages": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "angular-sanitize": "~1.4.8",
+    "angular-touch": "~1.4.8",
+    "angular-material": "~1.0.1",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.14.3",
+    "oclazyload": "~1.0.9",
+    "angular-translate": "~2.8.1",
+    "angular-translate-loader-static-files": "~2.8.1",
+    "angular-translate-storage-cookie": "~2.8.1",
+    "angular-translate-storage-local": "~2.8.1",
+    "angular-storage": "~0.5.0",
+    "ngstorage": "ng-storage#~0.4.2",
+    "angular-ui-utils": "~3.0.0"
+  },
+  "resolutions": {
+    "angular": ">= 1.0.8"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
