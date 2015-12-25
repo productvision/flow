@@ -4,15 +4,41 @@ var app =
     angular
         .module('app')
         .config([
-            '$ocLazyLoadProvider', 'AutoloaderProvider',
-            function ($ocLazyLoadProvider, AutoloaderProvider) {
-            // We configure ocLazyLoad to use the lib script.js as the async loader
-            $ocLazyLoadProvider.config({
-                debug: false,
-                events: true,
-                modules: AutoloaderProvider.getModules()
-            });
-        }])
+            '$ocLazyLoadProvider', 'AutoloaderProvider', 'MenuProvider',
+            function ($ocLazyLoadProvider, AutoloaderProvider, MenuProvider) {
+                // We configure ocLazyLoad to use the lib script.js as the async loader
+                $ocLazyLoadProvider.config({
+                    debug: false,
+                    events: true,
+                    modules: AutoloaderProvider.getModules()
+                });
+
+                MenuProvider.add('navigation', {
+                    label: 'Dashboard',
+                    iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
+                    children: [{
+                        sref: 'app.dashboard-v1',
+                        label: 'Dashboard v1'
+                    }, {
+                        sref: 'app.dashboard-v2',
+                        label: 'Dashboard v2'
+                    }]
+                });
+                MenuProvider.add('navigation', {
+                    label: 'Calendar',
+                    translation: 'aside.nav.CALENDAR',
+                    iconClass: 'glyphicon glyphicon-calendar icon text-primary-dker',
+                    sref: 'app.calendar'
+                });
+                MenuProvider.add('navigation', {
+                    label: 'Email',
+                    translation: 'aside.nav.EMAIL',
+                    iconClass: 'glyphicon glyphicon-envelope icon text-info-lter',
+                    sref: 'app.mail.list',
+                    badge: 9
+                });
+            }
+        ])
         .config([
             '$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
             function ($controllerProvider, $compileProvider, $filterProvider, $provide) {

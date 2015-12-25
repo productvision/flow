@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/module/grolba/music/public/css/videogular.css">
     <!-- endinject -->
 </head>
-<body data-ng-controller="AppCtrl">
+<body data-ng-controller="AppController">
 <div class="app" id="app"
      data-ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}"
      ui-view></div>
@@ -61,6 +61,7 @@
 <!-- inject:js -->
 <script src="/module/core/app/module.js"></script>
 <script src="/module/core/loader/module.js"></script>
+<script src="/module/core/menu/module.js"></script>
 <script src="/module/core/app/config/config.js"></script>
 <script src="/module/core/app/config/main.js"></script>
 <script src="/module/core/app/src/controllers/bootstrap.js"></script>
@@ -93,8 +94,9 @@
 <script src="/module/core/app/src/directives/ui-scroll.js"></script>
 <script src="/module/core/app/src/directives/ui-shift.js"></script>
 <script src="/module/core/app/src/directives/ui-toggleclass.js"></script>
-<script src="/module/core/app/src/services/ui-load.js"></script>
 <script src="/module/core/app/src/filters/fromNow.js"></script>
+<script src="/module/core/app/src/services/ui-load.js"></script>
+<script src="/module/core/menu/src/services/menu.js"></script>
 <script src="/module/core/loader/src/services/autoloader.js"></script>
 <script src="/module/core/app/src/app/calendar/calendar.js"></script>
 <script src="/module/core/app/src/app/contact/contact.js"></script>
@@ -102,16 +104,16 @@
 <script src="/module/core/app/src/app/map/map.js"></script>
 <script src="/module/core/app/src/app/map/ui-map.js"></script>
 <script src="/module/core/app/src/app/note/note.js"></script>
+<script src="/module/core/app/src/app/todo/todo.js"></script>
 <script src="/module/core/app/src/app/weather/angular-skycons.js"></script>
 <script src="/module/core/app/src/app/weather/ctrl.js"></script>
 <script src="/module/core/app/src/app/weather/skycons.js"></script>
-<script src="/module/core/app/src/app/todo/todo.js"></script>
 <script src="/module/grolba/mail/module.js"></script>
 <script src="/module/grolba/music/module.js"></script>
 <script src="/module/grolba/mail/config/config.js"></script>
 <script src="/module/grolba/music/config/config.js"></script>
-<script src="/module/grolba/mail/src/services/mail.js"></script>
 <script src="/module/grolba/mail/src/controllers/index.js"></script>
+<script src="/module/grolba/mail/src/services/mail.js"></script>
 <script src="/module/grolba/music/src/controllers/index.js"></script>
 <!-- endinject -->
 
