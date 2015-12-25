@@ -4,6 +4,14 @@ var app =
     angular
         .module('app')
         .config([
+            '$httpProvider',
+            function ($httpProvider) {
+                $httpProvider.defaults.useXDomain = true;
+
+                delete $httpProvider.defaults.headers.common['X-Requested-With'];
+            }
+        ])
+        .config([
             '$ocLazyLoadProvider', 'AutoloaderProvider', 'ConfigProvider', 'MenuProvider',
             function ($ocLazyLoadProvider, AutoloaderProvider, ConfigProvider, MenuProvider) {
                 $ocLazyLoadProvider.config({

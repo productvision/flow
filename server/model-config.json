@@ -7,5 +7,9 @@
   "Space": {
     "dataSource": "memory",
     "public": true
+  },
+  "User": {
+    "dataSource": "memory",
+    "public": true
   }
 }
