@@ -10,16 +10,18 @@ gulp.src('./index.html')
         name: 'bower'
     }))
     .pipe(inject(gulp.src([
-        './js/app.js',
-        './js/config**.js',
-        './js/main.js',
-        './js/services/**/*.js',
-        './js/directives/**/*.js',
-        './js/controllers/**/*.js',
-        './js/filters/**/*.js',
-        './js/app/**/*.js',
+        './module/core/app.js',
+        './module/core/config/**/*.js',
+        './module/core/js/services/**/*.js',
+        './module/core/js/directives/**/*.js',
+        './module/core/js/controllers/**/*.js',
+        './module/core/js/filters/**/*.js',
+        './module/core/js/app/**/*.js',
 
-        './css/**/*.css'
+        './module/core/css/**/*.css',
+
+        './module/grolba/*/module.js',
+        './module/grolba/**/*.{js,css}'
     ]), {
         read: false
     }))
