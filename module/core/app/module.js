@@ -17,5 +17,7 @@ angular.module('app', [
     'ui.jq',
     'oc.lazyLoad',
     'pascalprecht.translate',
+
+    'core.loader',
     'grolba.music'
 ]);

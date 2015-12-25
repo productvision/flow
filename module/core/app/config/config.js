@@ -217,17 +217,17 @@ var app =
                     .state('app.dashboard-v1', {
                         url: '/dashboard-v1',
                         templateUrl: 'tpl/app_dashboard_v1.html',
-                        resolve: load(['module/core/js/controllers/chart.js'])
+                        resolve: load(['module/core/app/src/controllers/chart.js'])
                     })
                     .state('app.dashboard-v2', {
                         url: '/dashboard-v2',
                         templateUrl: 'tpl/app_dashboard_v2.html',
-                        resolve: load(['module/core/js/controllers/chart.js'])
+                        resolve: load(['module/core/app/src/controllers/chart.js'])
                     })
                     .state('app.dashboard-v3', {
                         url: '/dashboard-v3',
                         templateUrl: 'tpl/app_dashboard_v3.html',
-                        resolve: load(['module/core/js/controllers/chart.js'])
+                        resolve: load(['module/core/app/src/controllers/chart.js'])
                     })
                     .state('app.ui', {
                         url: '/ui',
@@ -260,7 +260,7 @@ var app =
                     .state('app.ui.scroll', {
                         url: '/scroll',
                         templateUrl: 'tpl/ui_scroll.html',
-                        resolve: load('module/core/js/controllers/scroll.js')
+                        resolve: load('module/core/app/src/controllers/scroll.js')
                     })
                     .state('app.ui.portlet', {
                         url: '/portlet',
@@ -273,29 +273,29 @@ var app =
                     .state('app.ui.tree', {
                         url: '/tree',
                         templateUrl: 'tpl/ui_tree.html',
-                        resolve: load(['angularBootstrapNavTree', 'module/core/js/controllers/tree.js'])
+                        resolve: load(['angularBootstrapNavTree', 'module/core/app/src/controllers/tree.js'])
                     })
                     .state('app.ui.toaster', {
                         url: '/toaster',
                         templateUrl: 'tpl/ui_toaster.html',
-                        resolve: load(['toaster', 'module/core/js/controllers/toaster.js'])
+                        resolve: load(['toaster', 'module/core/app/src/controllers/toaster.js'])
                     })
                     .state('app.ui.jvectormap', {
                         url: '/jvectormap',
                         templateUrl: 'tpl/ui_jvectormap.html',
-                        resolve: load('module/core/js/controllers/vectormap.js')
+                        resolve: load('module/core/app/src/controllers/vectormap.js')
                     })
                     .state('app.ui.googlemap', {
                         url: '/googlemap',
                         templateUrl: 'tpl/ui_googlemap.html',
-                        resolve: load(['module/core/js/app/map/load-google-maps.js', 'module/core/js/app/map/ui-map.js', 'module/core/js/app/map/map.js'], function () {
+                        resolve: load(['module/core/app/src/app/map/load-google-maps.js', 'module/core/app/src/app/map/ui-map.js', 'module/core/app/src/app/map/map.js'], function () {
                             return loadGoogleMaps();
                         })
                     })
                     .state('app.chart', {
                         url: '/chart',
                         templateUrl: 'tpl/ui_chart.html',
-                        resolve: load('module/core/js/controllers/chart.js')
+                        resolve: load('module/core/app/src/controllers/chart.js')
                     })
                     // table
                     .state('app.table', {
@@ -317,34 +317,34 @@ var app =
                     .state('app.table.grid', {
                         url: '/grid',
                         templateUrl: 'tpl/table_grid.html',
-                        resolve: load(['ngGrid', 'module/core/js/controllers/grid.js'])
+                        resolve: load(['ngGrid', 'module/core/app/src/controllers/grid.js'])
                     })
                     .state('app.table.uigrid', {
                         url: '/uigrid',
                         templateUrl: 'tpl/table_uigrid.html',
-                        resolve: load(['ui.grid', 'module/core/js/controllers/uigrid.js'])
+                        resolve: load(['ui.grid', 'module/core/app/src/controllers/uigrid.js'])
                     })
                     .state('app.table.editable', {
                         url: '/editable',
                         templateUrl: 'tpl/table_editable.html',
                         controller: 'XeditableCtrl',
-                        resolve: load(['xeditable', 'module/core/js/controllers/xeditable.js'])
+                        resolve: load(['xeditable', 'module/core/app/src/controllers/xeditable.js'])
                     })
                     .state('app.table.smart', {
                         url: '/smart',
                         templateUrl: 'tpl/table_smart.html',
-                        resolve: load(['smart-table', 'module/core/js/controllers/table.js'])
+                        resolve: load(['smart-table', 'module/core/app/src/controllers/table.js'])
                     })
                     // form
                     .state('app.form', {
                         url: '/form',
                         template: '<div ui-view class="fade-in"></div>',
-                        resolve: load('module/core/js/controllers/form.js')
+                        resolve: load('module/core/app/src/controllers/form.js')
                     })
                     .state('app.form.components', {
                         url: '/components',
                         templateUrl: 'tpl/form_components.html',
-                        resolve: load(['ngBootstrap', 'daterangepicker', 'module/core/js/controllers/form.components.js'])
+                        resolve: load(['ngBootstrap', 'daterangepicker', 'module/core/app/src/controllers/form.components.js'])
                     })
                     .state('app.form.elements', {
                         url: '/elements',
@@ -361,36 +361,36 @@ var app =
                     .state('app.form.fileupload', {
                         url: '/fileupload',
                         templateUrl: 'tpl/form_fileupload.html',
-                        resolve: load(['angularFileUpload', 'module/core/js/controllers/file-upload.js'])
+                        resolve: load(['angularFileUpload', 'module/core/app/src/controllers/file-upload.js'])
                     })
                     .state('app.form.imagecrop', {
                         url: '/imagecrop',
                         templateUrl: 'tpl/form_imagecrop.html',
-                        resolve: load(['ngImgCrop', 'module/core/js/controllers/imgcrop.js'])
+                        resolve: load(['ngImgCrop', 'module/core/app/src/controllers/imgcrop.js'])
                     })
                     .state('app.form.select', {
                         url: '/select',
                         templateUrl: 'tpl/form_select.html',
                         controller: 'SelectCtrl',
-                        resolve: load(['ui.select', 'module/core/js/controllers/select.js'])
+                        resolve: load(['ui.select', 'module/core/app/src/controllers/select.js'])
                     })
                     .state('app.form.slider', {
                         url: '/slider',
                         templateUrl: 'tpl/form_slider.html',
                         controller: 'SliderCtrl',
-                        resolve: load(['vr.directives.slider', 'module/core/js/controllers/slider.js'])
+                        resolve: load(['vr.directives.slider', 'module/core/app/src/controllers/slider.js'])
                     })
                     .state('app.form.editor', {
                         url: '/editor',
                         templateUrl: 'tpl/form_editor.html',
                         controller: 'EditorCtrl',
-                        resolve: load(['textAngular', 'module/core/js/controllers/editor.js'])
+                        resolve: load(['textAngular', 'module/core/app/src/controllers/editor.js'])
                     })
                     .state('app.form.xeditable', {
                         url: '/xeditable',
                         templateUrl: 'tpl/form_xeditable.html',
                         controller: 'XeditableCtrl',
-                        resolve: load(['xeditable', 'module/core/js/controllers/xeditable.js'])
+                        resolve: load(['xeditable', 'module/core/app/src/controllers/xeditable.js'])
                     })
                     // pages
                     .state('app.page', {
@@ -433,12 +433,12 @@ var app =
                     .state('access.signin', {
                         url: '/signin',
                         templateUrl: 'tpl/page_signin.html',
-                        resolve: load(['module/core/js/controllers/signin.js'])
+                        resolve: load(['module/core/app/src/controllers/signin.js'])
                     })
                     .state('access.signup', {
                         url: '/signup',
                         templateUrl: 'tpl/page_signup.html',
-                        resolve: load(['module/core/js/controllers/signup.js'])
+                        resolve: load(['module/core/app/src/controllers/signup.js'])
                     })
                     .state('access.forgotpwd', {
                         url: '/forgotpwd',
@@ -454,29 +454,11 @@ var app =
                         url: '/calendar',
                         templateUrl: 'tpl/app_calendar.html',
                         // use resolve to load other dependences
-                        resolve: load(['moment', 'fullcalendar', 'ui.calendar', 'module/core/js/app/calendar/calendar.js'])
+                        resolve: load(['moment', 'fullcalendar', 'ui.calendar', 'module/core/app/src/app/calendar/calendar.js'])
                     })
 
                     // mail
-                    .state('app.mail', {
-                        abstract: true,
-                        url: '/mail',
-                        templateUrl: 'tpl/mail.html',
-                        // use resolve to load other dependences
-                        resolve: load(['module/core/js/app/mail/mail.js', 'module/core/js/app/mail/mail-service.js', 'moment'])
-                    })
-                    .state('app.mail.list', {
-                        url: '/inbox/{fold}',
-                        templateUrl: 'tpl/mail.list.html'
-                    })
-                    .state('app.mail.detail', {
-                        url: '/{mailId:[0-9]{1,4}}',
-                        templateUrl: 'tpl/mail.detail.html'
-                    })
-                    .state('app.mail.compose', {
-                        url: '/compose',
-                        templateUrl: 'tpl/mail.new.html'
-                    })
+
 
                     .state('layout', {
                         abstract: true,
@@ -493,7 +475,7 @@ var app =
                                 templateUrl: 'tpl/layout_footer_fullwidth.html'
                             }
                         },
-                        resolve: load(['module/core/js/controllers/vectormap.js'])
+                        resolve: load(['module/core/app/src/controllers/vectormap.js'])
                     })
                     .state('layout.mobile', {
                         url: '/mobile',
@@ -516,7 +498,7 @@ var app =
                                 templateUrl: 'tpl/layout_footer_fullwidth.html'
                             }
                         },
-                        resolve: load(['module/core/js/controllers/tab.js'])
+                        resolve: load(['module/core/app/src/controllers/tab.js'])
                     })
                     .state('apps', {
                         abstract: true,
@@ -526,22 +508,22 @@ var app =
                     .state('apps.note', {
                         url: '/note',
                         templateUrl: 'tpl/apps_note.html',
-                        resolve: load(['module/core/js/app/note/note.js', 'moment'])
+                        resolve: load(['module/core/app/src/app/note/note.js', 'moment'])
                     })
                     .state('apps.contact', {
                         url: '/contact',
                         templateUrl: 'tpl/apps_contact.html',
-                        resolve: load(['module/core/js/app/contact/contact.js'])
+                        resolve: load(['module/core/app/src/app/contact/contact.js'])
                     })
                     .state('app.weather', {
                         url: '/weather',
                         templateUrl: 'tpl/apps_weather.html',
-                        resolve: load(['module/core/js/app/weather/skycons.js', 'angular-skycons', 'module/core/js/app/weather/ctrl.js', 'moment'])
+                        resolve: load(['module/core/app/src/app/weather/skycons.js', 'angular-skycons', 'module/core/app/src/app/weather/ctrl.js', 'moment'])
                     })
                     .state('app.todo', {
                         url: '/todo',
                         templateUrl: 'tpl/apps_todo.html',
-                        resolve: load(['module/core/js/app/todo/todo.js', 'moment'])
+                        resolve: load(['module/core/app/src/app/todo/todo.js', 'moment'])
                     })
                     .state('app.todo.list', {
                         url: '/{fold}'
@@ -549,13 +531,13 @@ var app =
                     .state('app.note', {
                         url: '/note',
                         templateUrl: 'tpl/apps_note_material.html',
-                        resolve: load(['module/core/js/app/note/note.js', 'moment'])
+                        resolve: load(['module/core/app/src/app/note/note.js', 'moment'])
                     })
 
                     .state('app.material', {
                         url: '/material',
                         template: '<div ui-view class="wrapper-md"></div>',
-                        resolve: load(['module/core/js/controllers/material.js'])
+                        resolve: load(['module/core/app/src/controllers/material.js'])
                     })
                     .state('app.material.button', {
                         url: '/button',
@@ -626,7 +608,7 @@ var app =
             '$translateProvider',
             function ($translateProvider) {
                 $translateProvider.useStaticFilesLoader({
-                    prefix: './module/core/l10n/',
+                    prefix: './module/core/app/translations/',
                     suffix: '.json'
                 });
                 $translateProvider.preferredLanguage('en');

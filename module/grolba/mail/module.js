@@ -1,4 +1,4 @@
 angular
-    .module('grolba.music', [
+    .module('grolba.mail', [
         'core.loader'
     ]);
