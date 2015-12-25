@@ -4,11 +4,19 @@ angular
     .module('core.menu')
     .provider('Menu', [
         function () {
-            var menu = {};
+            var config = {
+                menu: {}
+            };
 
-            this.add = function (type, menuItem, position) {
-                if (!menu.hasOwnProperty(type)) {
-                    menu[type] = [];
+            this.setMenu = function setMenu(type, menu) {
+                if (!config.menu.hasOwnProperty(type)) {
+                    config.menu[type] = [];
+                }
+                config.menu[type] = menu;
+            };
+            this.addItem = function addItem(type, menuItem, position) {
+                if (!config.menu.hasOwnProperty(type)) {
+                    config.menu[type] = [];
                 }
                 if (!menuItem.hasOwnProperty('position')) {
                     if (!position) {
@@ -17,8 +25,8 @@ angular
                     menuItem.position = position;
                 }
 
-                menu[type].push(menuItem);
-                menu[type].sort(function (a, b) {
+                config.menu[type].push(menuItem);
+                config.menu[type].sort(function (a, b) {
                     return a.position > b.position;
                 });
             };
@@ -30,10 +38,10 @@ angular
                             type = 'navigation';
                         }
 
-                        if (!menu.hasOwnProperty(type)) {
+                        if (!config.menu.hasOwnProperty(type)) {
                             return [];
                         }
-                        return menu[type];
+                        return config.menu[type];
                     }
                 };
             };

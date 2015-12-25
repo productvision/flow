@@ -4,40 +4,15 @@
 
 angular.module('app')
     .controller('AppController', [
-        '$scope', '$translate', '$localStorage', '$window', 'Menu',
-        function ($scope, $translate, $localStorage, $window, Menu) {
+        '$scope', '$translate', '$localStorage', '$window', 'Config', 'Menu',
+        function ($scope, $translate, $localStorage, $window, Config, Menu) {
             // add 'ie' classes to html
             var isIE = !!navigator.userAgent.match(/MSIE/i);
             isIE && angular.element($window.document.body).addClass('ie');
             isSmartDevice($window) && angular.element($window.document.body).addClass('smart');
 
             // config
-            $scope.app = {
-                name: 'Angulr',
-                version: '2.1.0',
-                // for chart colors
-                color: {
-                    primary: '#7266ba',
-                    info: '#23b7e5',
-                    success: '#27c24c',
-                    warning: '#fad733',
-                    danger: '#f05050',
-                    light: '#e8eff0',
-                    dark: '#3a3f51',
-                    black: '#1c2b36'
-                },
-                settings: {
-                    themeID: 1,
-                    navbarHeaderColor: 'bg-black',
-                    navbarCollapseColor: 'bg-white-only',
-                    asideColor: 'bg-black',
-                    headerFixed: true,
-                    asideFixed: false,
-                    asideFolded: false,
-                    asideDock: false,
-                    container: false
-                }
-            };
+            $scope.app = Config.all();
 
             // save settings to local storage
             if (angular.isDefined($localStorage.settings)) {
