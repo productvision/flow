@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "sources": [
+      "../common/models"
+    ]
+  },
+  "Space": {
+    "dataSource": "memory",
+    "public": true
+  }
+}

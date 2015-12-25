@@ -12,6 +12,9 @@
     "gulp": "^3.9.0",
     "gulp-connect": "^2.3.1",
     "gulp-inject": "^3.0.0",
+    "loopback": "^3.0.0-alpha.1",
+    "loopback-boot": "^2.16.0",
+    "loopback-component-explorer": "^2.1.1",
     "main-bower-files": "^2.11.0"
   }
 }
