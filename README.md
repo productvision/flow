@@ -1,7 +1,6 @@
 # Todo
 - Rollen und Benutzer anlegen
 - Login testen
-- 
 
 ## Rollen: Benutzer
 - Wifoe: Diethelm Rumpel
