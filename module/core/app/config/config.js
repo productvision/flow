@@ -38,7 +38,7 @@ angular
         '$stateProvider', '$urlRouterProvider', 'AutoloaderProvider',
         function ($stateProvider, $urlRouterProvider, AutoloaderProvider) {
             $urlRouterProvider
-                .otherwise('/app/dashboard');
+                .otherwise('/app/dictionary');
 
             $stateProvider
                 .state('app', {

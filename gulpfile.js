@@ -20,8 +20,8 @@ gulp.src('./index.html')
         './module/core/app/module.js',
         './module/core/app/**/*.{js,css}',
 
-        './module/grolba/*/module.js',
-        './module/grolba/**/*.{js,css}'
+        './module/**/module.js',
+        './module/**/*.{js,css}'
     ]), {
         read: false
     }))

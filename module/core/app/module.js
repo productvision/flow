@@ -28,5 +28,7 @@ angular.module('app', [
     'grolba.mail',
     'grolba.music',
     'grolba.note',
-    'grolba.todo'
+    'grolba.todo',
+
+    'simplicity.dictionary'
 ]);
