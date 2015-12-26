@@ -17,7 +17,7 @@ angular
                 modules: AutoloaderProvider.getModules()
             });
 
-            var config = ConfigProvider.loadConfig('tecis');
+            var config = ConfigProvider.loadConfig('dictionary');
 
             MenuProvider.setMenu('navigation', config.getNavigation());
         }

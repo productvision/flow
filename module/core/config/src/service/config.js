@@ -58,7 +58,7 @@ angular
                     }]
                 }
             ];
-            var spaces = {
+            var customers = {
                 tecis: {
                     name: 'Tecis',
                     version: '2.1.0',
@@ -85,14 +85,6 @@ angular
                     },
                     navigation: navigation
                 },
-                gew: {
-                    name: 'Gew',
-                    navigation: navigation
-                },
-                dictionary: {
-                    name: 'Wörterbuch',
-                    navigation: [dashboard]
-                },
                 neptun: {
                     name: 'Neptun Markt',
                     navigation: [dashboard]
@@ -100,14 +92,27 @@ angular
                 gymify: {
                     name: 'Gymfiy',
                     navigation: [dashboard]
+                },
+                gew: {
+                    name: 'Gew',
+                    navigation: navigation
                 }
             };
+
+            var spaces = {
+                dictionary: {
+                    name: 'Wörterbuch',
+                    navigation: [dashboard]
+                }
+            };
+            var spaceId = null;
 
             this.loadConfig = function (id) {
                 if (!spaces.hasOwnProperty(id)) {
                     throw new Error('There is no config with id ' + id);
                 }
                 currentConfig = new Config(spaces[id]);
+                spaceId = id;
 
                 return currentConfig;
             };
@@ -115,6 +120,9 @@ angular
             this.$get = function () {
                 currentConfig.getSpaces = function () {
                     return spaces;
+                };
+                currentConfig.getSpaceId = function () {
+                    return spaceId;
                 };
 
                 return currentConfig;

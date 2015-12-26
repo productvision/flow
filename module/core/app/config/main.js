@@ -13,6 +13,7 @@ angular
             isSmartDevice($window) && angular.element($window.document.body).addClass('smart');
 
             $scope.app = Config.all();
+            $scope.currentSpace = Config.getSpaceId();
             $scope.spaces = Config.getSpaces();
 
             // save settings to local storage
