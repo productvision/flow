@@ -17,7 +17,7 @@ angular
                 modules: AutoloaderProvider.getModules()
             });
 
-            var config = ConfigProvider.loadConfig('dictionary');
+            var config = ConfigProvider.loadConfig('corporateManual');
 
             MenuProvider.setMenu('navigation', config.getNavigation());
         }

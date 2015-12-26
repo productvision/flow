@@ -15,7 +15,8 @@
             </div>
         </li>
         <li data-ng-repeat="menuItem in menu.getItems('navigation')" class="dropdown">
-            <a href data-ui-sref="{{ menuItem.sref }}" class="dropdown-toggle" data-toggle="dropdown" data-ng-if="!menuItem.children">
+            <a href data-ui-sref="{{ menuItem.sref }}" class="dropdown-toggle" data-toggle="dropdown"
+               data-ng-if="!menuItem.children">
                 <span>{{ menuItem.label }}</span>
             </a>
 
@@ -43,9 +44,11 @@
             <div class="input-group">
                 <input type="text" data-ng-model="selected"
                        data-typeahead="state for state in states | filter:$viewValue | limitTo:8"
-                       class="form-control input-sm bg-light no-border rounded padder" placeholder="Search projects...">
+                       class="form-control input-sm bg-light no-border padder" placeholder="Search projects...">
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-sm bg-light rounded"><i class="fa fa-search"></i></button>
+                <button type="submit" class="btn btn-sm bg-light">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
               </span>
             </div>
         </div>

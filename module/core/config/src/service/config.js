@@ -45,6 +45,27 @@ angular
                             sref: 'app.dictionary'
                         }
                     ]
+                },
+                corporateManual: {
+                    name: 'Corporate Manual',
+                    navigation: [
+                        {
+                            label: 'Startseite',
+                            iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
+                            sref: 'app.dashboard'
+                        },
+                        {
+                            label: 'Wording',
+                            iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
+                            sref: 'app.dictionary'
+                        },
+                        {
+                            label: 'Formeln',
+                            iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
+                            sref: 'app.dictionary'
+
+                        }
+                    ]
                 }
             };
             var spaceId = null;
