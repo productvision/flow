@@ -1,4 +1,5 @@
-angular.module('app')
+angular
+    .module('app')
     .directive('uiFullscreen', [
         '$document', 'AutoloaderProvider', 'uiLoad',
         function ($document, AutoloaderProvider, uiLoad) {

@@ -3,7 +3,7 @@
 /* Controllers */
 
   // bootstrap controller
-  app.controller('AccordionDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('AccordionDemoCtrl', ['$scope', function($scope) {
     $scope.oneAtATime = true;
 
     $scope.groups = [
@@ -30,7 +30,7 @@
     };
   }])
   ; 
-  app.controller('AlertDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('AlertDemoCtrl', ['$scope', function($scope) {
     $scope.alerts = [
       { type: 'success', msg: 'Well done! You successfully read this important alert message.' },
       { type: 'info', msg: 'Heads up! This alert needs your attention, but it is not super important.' },
@@ -46,7 +46,7 @@
     };
   }])
   ; 
-  app.controller('ButtonsDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('ButtonsDemoCtrl', ['$scope', function($scope) {
     $scope.singleModel = 1;
 
     $scope.radioModel = 'Middle';
@@ -58,7 +58,7 @@
     };
   }])
   ; 
-  app.controller('CarouselDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('CarouselDemoCtrl', ['$scope', function($scope) {
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
     $scope.addSlide = function() {
@@ -72,7 +72,7 @@
     }
   }])
   ; 
-  app.controller('DropdownDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('DropdownDemoCtrl', ['$scope', function($scope) {
     $scope.items = [
       'The first choice!',
       'And another choice for you.',
@@ -94,7 +94,7 @@
     };
   }])
   ; 
-  app.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', function($scope, $modalInstance, items) {
+   angular.module('app').controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'items', function($scope, $modalInstance, items) {
     $scope.items = items;
     $scope.selected = {
       item: $scope.items[0]
@@ -109,7 +109,7 @@
     };
   }])
   ; 
-  app.controller('ModalDemoCtrl', ['$scope', '$modal', '$log', function($scope, $modal, $log) {
+   angular.module('app').controller('ModalDemoCtrl', ['$scope', '$modal', '$log', function($scope, $modal, $log) {
     $scope.items = ['item1', 'item2', 'item3'];
     $scope.open = function (size) {
       var modalInstance = $modal.open({
@@ -131,7 +131,7 @@
     };
   }])
   ; 
-  app.controller('PaginationDemoCtrl', ['$scope', '$log', function($scope, $log) {
+   angular.module('app').controller('PaginationDemoCtrl', ['$scope', '$log', function($scope, $log) {
     $scope.totalItems = 64;
     $scope.currentPage = 4;
 
@@ -148,12 +148,12 @@
     $scope.bigCurrentPage = 1;
   }])
   ; 
-  app.controller('PopoverDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('PopoverDemoCtrl', ['$scope', function($scope) {
     $scope.dynamicPopover = 'Hello, World!';
     $scope.dynamicPopoverTitle = 'Title';
   }])
   ; 
-  app.controller('ProgressDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('ProgressDemoCtrl', ['$scope', function($scope) {
     $scope.max = 200;
 
     $scope.random = function() {
@@ -192,14 +192,14 @@
     $scope.randomStacked();
   }])
   ; 
-  app.controller('TabsDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('TabsDemoCtrl', ['$scope', function($scope) {
     $scope.tabs = [
       { title:'Dynamic Title 1', content:'Dynamic content 1' },
       { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
     ];
   }])
   ; 
-  app.controller('RatingDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('RatingDemoCtrl', ['$scope', function($scope) {
     $scope.rate = 7;
     $scope.max = 10;
     $scope.isReadonly = false;
@@ -210,13 +210,13 @@
     };
   }])
   ; 
-  app.controller('TooltipDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('TooltipDemoCtrl', ['$scope', function($scope) {
     $scope.dynamicTooltip = 'Hello, World!';
     $scope.dynamicTooltipText = 'dynamic';
     $scope.htmlTooltip = 'I\'ve been made <b>bold</b>!';
   }])
   ; 
-  app.controller('TypeaheadDemoCtrl', ['$scope', '$http', function($scope, $http) {
+   angular.module('app').controller('TypeaheadDemoCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.selected = undefined;
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
     // Any function returning a promise object can be used to load values asynchronously
@@ -236,7 +236,7 @@
     };
   }])
   ; 
-  app.controller('DatepickerDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('DatepickerDemoCtrl', ['$scope', function($scope) {
     $scope.today = function() {
       $scope.dt = new Date();
     };
@@ -274,7 +274,7 @@
     $scope.format = $scope.formats[0];
   }])
   ; 
-  app.controller('TimepickerDemoCtrl', ['$scope', function($scope) {
+   angular.module('app').controller('TimepickerDemoCtrl', ['$scope', function($scope) {
     $scope.mytime = new Date();
 
     $scope.hstep = 1;

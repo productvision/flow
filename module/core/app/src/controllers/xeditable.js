@@ -1,4 +1,4 @@
-app.controller('XeditableCtrl', ['$scope', '$filter', '$http', 'editableOptions', 'editableThemes', 
+ angular.module('app').controller('XeditableCtrl', ['$scope', '$filter', '$http', 'editableOptions', 'editableThemes',
   function($scope, $filter, $http, editableOptions, editableThemes){
     editableThemes.bs3.inputClass = 'input-sm';
     editableThemes.bs3.buttonsClass = 'btn-sm';

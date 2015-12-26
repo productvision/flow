@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('app')
+    .module('core.config')
     .provider('Config', [
         function () {
             function Config(config) {

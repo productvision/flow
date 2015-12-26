@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     bowerFiles = require('main-bower-files'),
     inject = require('gulp-inject');
 
+
 gulp.src('./index.html')
     .pipe(inject(gulp.src(bowerFiles(), {
         read: false
@@ -10,8 +11,14 @@ gulp.src('./index.html')
         name: 'bower'
     }))
     .pipe(inject(gulp.src([
-        './module/core/*/module.js',
-        './module/core/**/*.{js,css}',
+        './module/core/config/module.js',
+        './module/core/config/**/*.{js,css}',
+        './module/core/loader/module.js',
+        './module/core/loader/**/*.{js,css}',
+        './module/core/menu/module.js',
+        './module/core/menu/**/*.{js,css}',
+        './module/core/app/module.js',
+        './module/core/app/**/*.{js,css}',
 
         './module/grolba/*/module.js',
         './module/grolba/**/*.{js,css}'

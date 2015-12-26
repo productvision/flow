@@ -1,4 +1,4 @@
-app.controller('UiGridDemoCtrl', ['$scope', 'uiGridConstants', function($scope, uiGridConstants) {
+ angular.module('app').controller('UiGridDemoCtrl', ['$scope', 'uiGridConstants', function($scope, uiGridConstants) {
     $scope.gridOptionsSimple = {
         rowHeight: 36,
         data: [

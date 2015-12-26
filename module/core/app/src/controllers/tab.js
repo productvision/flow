@@ -1,5 +1,5 @@
 // tab controller
-app.controller('CustomTabController', ['$scope', function($scope) {
+ angular.module('app').controller('CustomTabController', ['$scope', function($scope) {
   $scope.tabs = [true, false, false];
   $scope.tab = function(index){
     angular.forEach($scope.tabs, function(i, v) {

@@ -1,4 +1,4 @@
-app.controller('AbnTestController', function($scope, $timeout) {
+ angular.module('app').controller('AbnTestController', function($scope, $timeout) {
     var apple_selected, tree, treedata_avm, treedata_geography;
     $scope.my_tree_handler = function(branch) {
       var _ref;

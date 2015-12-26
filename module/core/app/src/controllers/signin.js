@@ -2,7 +2,7 @@
 
 /* Controllers */
 // signin controller
-app.controller('SigninFormController', [
+ angular.module('app').controller('SigninFormController', [
     '$scope', '$http', '$state',
     function ($scope, $http, $state) {
         $scope.user = {};

@@ -1,4 +1,4 @@
-app.controller('SliderCtrl', function($scope) {
+ angular.module('app').controller('SliderCtrl', function($scope) {
   $scope.cost = 40;
   $scope.range = {
     min: 30,

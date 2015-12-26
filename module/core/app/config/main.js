@@ -2,7 +2,8 @@
 
 /* Controllers */
 
-angular.module('app')
+angular
+    .module('app')
     .controller('AppController', [
         '$scope', '$translate', '$localStorage', '$window', 'Config', 'Menu',
         function ($scope, $translate, $localStorage, $window, Config, Menu) {

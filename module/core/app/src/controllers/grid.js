@@ -1,4 +1,4 @@
-app.controller('GridDemoCtrl', ['$scope', '$http', function($scope, $http) {
+ angular.module('app').controller('GridDemoCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.filterOptions = {
         filterText: "",
         useExternalFilter: true

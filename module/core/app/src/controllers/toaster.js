@@ -1,4 +1,4 @@
-app.controller('ToasterDemoCtrl', ['$scope', 'toaster', function($scope, toaster) {
+ angular.module('app').controller('ToasterDemoCtrl', ['$scope', 'toaster', function($scope, toaster) {
     $scope.toaster = {
         type: 'success',
         title: 'Title',

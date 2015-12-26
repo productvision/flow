@@ -1,4 +1,4 @@
-app.controller('ScrollController', ['$scope', '$timeout', function($scope, $timeout) {
+ angular.module('app').controller('ScrollController', ['$scope', '$timeout', function($scope, $timeout) {
 	$scope.datasource = {
 		get : function(index, count, success) {
             return $timeout(function() {

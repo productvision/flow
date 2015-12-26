@@ -1,4 +1,4 @@
-app.controller('ImgCropCtrl', ['$scope', function($scope) {
+ angular.module('app').controller('ImgCropCtrl', ['$scope', function($scope) {
     $scope.myImage='';
     $scope.myCroppedImage='';
     $scope.cropType="circle";

@@ -1,7 +1,7 @@
 'use strict';
 
 // jVectorMap controller
-app.controller('JVectorMapDemoCtrl', ['$scope', function($scope) {
+ angular.module('app').controller('JVectorMapDemoCtrl', ['$scope', function($scope) {
     $scope.world_markers = [
       {latLng: [41.90, 12.45], name: 'Vatican City'},
       {latLng: [43.73, 7.41], name: 'Monaco'},
