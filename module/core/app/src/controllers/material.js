@@ -221,7 +221,7 @@ app.controller('MDDialogCtrl', function($scope, $mdDialog) {
   $scope.showAdvanced = function(ev) {
     $mdDialog.show({
       controller: DialogController,
-      templateUrl: 'tpl/material/dialog.tmpl.html',
+      templateUrl: 'view/material/dialog.tmpl.html',
       targetEvent: ev,
     })
     .then(function(answer) {
@@ -515,7 +515,7 @@ app.controller('MDToastCtrl', function($scope, $mdToast, $animate) {
   $scope.showCustomToast = function() {
     $mdToast.show({
       controller: 'ToastCtrl',
-      templateUrl: 'tpl/material/toast.tmpl.html',
+      templateUrl: 'view/material/toast.tmpl.html',
       hideDelay: 6000,
       parent:'#toast',
       position: $scope.getToastPosition()
