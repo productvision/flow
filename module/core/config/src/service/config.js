@@ -38,12 +38,13 @@ angular
             var spaces = {
                 dictionary: {
                     name: 'Wörterbuch',
-                    navigation: [{
-                        label: 'Startseite',
-                        iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
-                        sref: 'app.dictionary'
-
-                    }]
+                    navigation: [
+                        {
+                            label: 'Startseite',
+                            iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
+                            sref: 'app.dictionary'
+                        }
+                    ]
                 }
             };
             var spaceId = null;

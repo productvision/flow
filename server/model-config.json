@@ -4,11 +4,19 @@
       "../config/models"
     ]
   },
+  "ACL": {
+    "dataSource": "memory",
+    "public": true
+  },
   "Space": {
     "dataSource": "memory",
     "public": true
   },
   "User": {
+    "dataSource": "memory",
+    "public": true
+  },
+  "Module": {
     "dataSource": "memory",
     "public": true
   }

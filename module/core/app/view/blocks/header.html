@@ -1,21 +1,5 @@
 <div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
     <ul class="nav navbar-nav hidden-sm">
-        <!--<li class="dropdown">-->
-            <!--<a href class="dropdown-toggle" data-toggle="dropdown">-->
-                <!--<span>Tecis</span>-->
-                <!--<span class="caret"></span>-->
-            <!--</a>-->
-
-            <!--<div class="dropdown-menu dropdown-menu-spaces wrapper bg-white">-->
-                <!--<div class="m-t-xs m-b-xs">Spaces</div>-->
-                <!--<ul class="list-unstyled l-h-2x">-->
-                    <!--<li data-ng-repeat="(spaceId, space) in spaces">-->
-                        <!--<a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>{{ space.name }}</a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li class="dropdown-separator">/</li>-->
         <li>
             <a href class="dropdown-toggle navbar-brand" data-toggle="dropdown">
                 <span>{{ app.name }}</span>
@@ -23,7 +7,6 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-spaces wrapper bg-white">
-                <!--<div class="m-t-xs m-b-xs">Bereich</div>-->
                 <ul class="list-unstyled l-h-2x">
                     <li data-ng-repeat="(spaceId, space) in spaces">
                         <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>{{ space.name }}</a>
@@ -31,7 +14,6 @@
                 </ul>
             </div>
         </li>
-        <!--<li class="dropdown-separator">/</li>-->
         <li data-ng-repeat="menuItem in menu.getItems('navigation')" class="dropdown">
             <a href data-ui-sref="{{ menuItem.sref }}" class="dropdown-toggle" data-toggle="dropdown" data-ng-if="!menuItem.children">
                 <span>{{ menuItem.label }}</span>
@@ -49,11 +31,10 @@
                 </ul>
             </div>
         </li>
+        <li>
+            <a href data-ng-click="openModuleModal()">+</a>
+        </li>
     </ul>
-    <!-- / link and dropdown -->
-
-
-
 
     <!-- search form -->
     <form class="navbar-form navbar-form-sm navbar-left shift" data-ui-shift="prependTo" target=".navbar-collapse"

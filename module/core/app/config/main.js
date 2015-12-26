@@ -5,8 +5,8 @@
 angular
     .module('app')
     .controller('AppController', [
-        '$scope', '$localStorage', '$window', 'Config', 'Menu',
-        function ($scope, $localStorage, $window, Config, Menu) {
+        '$localStorage', '$scope', '$translate', '$uibModal', '$window', 'Config', 'Menu',
+        function ($localStorage, $scope, $translate, $uibModal, $window, Config, Menu) {
             // add 'ie' classes to html
             var isIE = !!navigator.userAgent.match(/MSIE/i);
             isIE && angular.element($window.document.body).addClass('ie');
@@ -15,6 +15,21 @@ angular
             $scope.app = Config.all();
             $scope.currentSpace = Config.getSpaceId();
             $scope.spaces = Config.getSpaces();
+
+            $scope.openModuleModal = function () {
+                var modal = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'module/core/app/view/module-modal.html',
+                    controller: 'core.app.ModuleModalController'
+                });
+                modal.result.then(function (item) {
+                    // write somewhere
+                    // inject to $stateProvider with id, url, tpl and ctrl
+                    // add to navigation
+                }, function () {
+                    console.log('Modal dismissed at: ' + new Date());
+                });
+            };
 
             // save settings to local storage
             if (angular.isDefined($localStorage.settings)) {
@@ -42,14 +57,12 @@ angular
                 de_DE: 'German',
                 it_IT: 'Italian'
             };
-            //$scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
-            //$scope.setLang = function (langKey) {
-            //     set the current lang
-                //$scope.selectLang = $scope.langs[langKey];
-                // You can change the language during runtime
-                //$translate.use(langKey);
-                //$scope.lang.isopen = !$scope.lang.isopen;
-            //};
+            $scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
+            $scope.setLang = function (langKey) {
+                $scope.selectLang = $scope.langs[langKey];
+                $translate.use(langKey);
+                $scope.lang.isopen = !$scope.lang.isopen;
+            };
 
             function isSmartDevice($window) {
                 // Adapted from http://www.detectmobilebrowsers.com

@@ -315,17 +315,17 @@ angular
 
         }
     ])
-    //.config([
-    //    '$translateProvider',
-    //    function ($translateProvider) {
-    //        $translateProvider.useStaticFilesLoader({
-    //            prefix: './module/core/app/translations/',
-    //            suffix: '.json'
-    //        });
-    //        $translateProvider.preferredLanguage('de');
-    //        $translateProvider.useLocalStorage();
-    //    }
-    //])
+    .config([
+        '$translateProvider',
+        function ($translateProvider) {
+            $translateProvider.useStaticFilesLoader({
+                prefix: './module/core/app/translations/',
+                suffix: '.json'
+            });
+            $translateProvider.preferredLanguage('de');
+            $translateProvider.useLocalStorage();
+        }
+    ])
     .run([
         '$rootScope', '$state', '$stateParams',
         function ($rootScope, $state, $stateParams) {

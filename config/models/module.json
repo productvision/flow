@@ -1,6 +1,6 @@
 {
-  "name": "Space",
-  "plural": "spaces",
+  "name": "Module",
+  "plural": "modules",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,16 +10,13 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "config": {
+      "type": "object"
     }
   },
   "validations": [],
-  "relations": {
-    "modules": {
-      "type": "hasMany",
-      "model": "Module",
-      "foreignKey": "spaceId"
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "READ",
