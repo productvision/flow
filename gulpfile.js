@@ -12,14 +12,6 @@ gulp.src('./index.html')
     .pipe(inject(gulp.src([
         './module/core/*/module.js',
         './module/core/**/*.{js,css}',
-        //'./module/core/*/config/**/*.js',
-        //'./module/core/js/services/**/*.js',
-        //'./module/core/js/directives/**/*.js',
-        //'./module/core/js/controllers/**/*.js',
-        //'./module/core/js/filters/**/*.js',
-        //'./module/core/js/app/**/*.js',
-        //
-        //'./module/core/css/**/*.css',
 
         './module/grolba/*/module.js',
         './module/grolba/**/*.{js,css}'

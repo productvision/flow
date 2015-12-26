@@ -20,9 +20,9 @@ var app =
                     modules: AutoloaderProvider.getModules()
                 });
 
-                var config = ConfigProvider.setId('tecis');
+                var config = ConfigProvider.loadConfig('dictionary');
 
-                MenuProvider.setMenu('navigation', config.navigation);
+                MenuProvider.setMenu('navigation', config.getNavigation());
             }
         ])
         .config([
@@ -419,7 +419,7 @@ var app =
                     prefix: './module/core/app/translations/',
                     suffix: '.json'
                 });
-                $translateProvider.preferredLanguage('en');
+                $translateProvider.preferredLanguage('de');
                 $translateProvider.useLocalStorage();
             }
         ])

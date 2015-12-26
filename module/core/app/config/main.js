@@ -11,8 +11,8 @@ angular.module('app')
             isIE && angular.element($window.document.body).addClass('ie');
             isSmartDevice($window) && angular.element($window.document.body).addClass('smart');
 
-            // config
             $scope.app = Config.all();
+            $scope.spaces = Config.getSpaces();
 
             // save settings to local storage
             if (angular.isDefined($localStorage.settings)) {
@@ -32,10 +32,16 @@ angular.module('app')
             }, true);
 
             // angular translate
-            $scope.lang = {isopen: false};
-            $scope.langs = {en: 'English', de_DE: 'German', it_IT: 'Italian'};
+            $scope.lang = {
+                isopen: false
+            };
+            $scope.langs = {
+                en: 'English',
+                de_DE: 'German',
+                it_IT: 'Italian'
+            };
             $scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
-            $scope.setLang = function (langKey, $event) {
+            $scope.setLang = function (langKey) {
                 // set the current lang
                 $scope.selectLang = $scope.langs[langKey];
                 // You can change the language during runtime
