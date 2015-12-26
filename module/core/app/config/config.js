@@ -40,36 +40,14 @@ var app =
         .config([
             '$stateProvider', '$urlRouterProvider', 'AutoloaderProvider',
             function ($stateProvider, $urlRouterProvider, AutoloaderProvider) {
-                var layout = "tpl/app.html";
-                if (window.location.href.indexOf("material") > 0) {
-                    layout = "tpl/blocks/material.layout.html";
-                    $urlRouterProvider
-                        .otherwise('/app/dashboard-v3');
-                } else {
-                    $urlRouterProvider
-                        .otherwise('/app/dashboard-v1');
-                }
+                $urlRouterProvider
+                    .otherwise('/app/dashboard');
 
                 $stateProvider
                     .state('app', {
                         abstract: true,
                         url: '/app',
-                        templateUrl: layout
-                    })
-                    .state('app.dashboard-v1', {
-                        url: '/dashboard-v1',
-                        templateUrl: 'tpl/app_dashboard_v1.html',
-                        resolve: AutoloaderProvider.load(['module/core/app/src/controllers/chart.js'])
-                    })
-                    .state('app.dashboard-v2', {
-                        url: '/dashboard-v2',
-                        templateUrl: 'tpl/app_dashboard_v2.html',
-                        resolve: AutoloaderProvider.load(['module/core/app/src/controllers/chart.js'])
-                    })
-                    .state('app.dashboard-v3', {
-                        url: '/dashboard-v3',
-                        templateUrl: 'tpl/app_dashboard_v3.html',
-                        resolve: AutoloaderProvider.load(['module/core/app/src/controllers/chart.js'])
+                        templateUrl: "module/core/app/view/layout.html"
                     })
                     .state('app.ui', {
                         url: '/ui',
@@ -133,11 +111,6 @@ var app =
                         resolve: AutoloaderProvider.load(['module/core/app/src/app/map/load-google-maps.js', 'module/core/app/src/app/map/ui-map.js', 'module/core/app/src/app/map/map.js'], function () {
                             return loadGoogleMaps();
                         })
-                    })
-                    .state('app.chart', {
-                        url: '/chart',
-                        templateUrl: 'tpl/ui_chart.html',
-                        resolve: AutoloaderProvider.load('module/core/app/src/controllers/chart.js')
                     })
                     // table
                     .state('app.table', {
@@ -291,17 +264,6 @@ var app =
                         templateUrl: 'tpl/page_404.html'
                     })
 
-                    // fullCalendar
-                    .state('app.calendar', {
-                        url: '/calendar',
-                        templateUrl: 'tpl/app_calendar.html',
-                        // use resolve to load other dependences
-                        resolve: AutoloaderProvider.load(['moment', 'fullcalendar', 'ui.calendar', 'module/core/app/src/app/calendar/calendar.js'])
-                    })
-
-                    // mail
-
-
                     .state('layout', {
                         abstract: true,
                         url: '/layout',
@@ -347,67 +309,11 @@ var app =
                         url: '/apps',
                         templateUrl: 'tpl/layout.html'
                     })
-                    .state('apps.note', {
-                        url: '/note',
-                        templateUrl: 'tpl/apps_note.html',
-                        resolve: AutoloaderProvider.load(['module/core/app/src/app/note/note.js', 'moment'])
-                    })
-                    .state('apps.contact', {
-                        url: '/contact',
-                        templateUrl: 'tpl/apps_contact.html',
-                        resolve: AutoloaderProvider.load(['module/core/app/src/app/contact/contact.js'])
-                    })
+
                     .state('app.weather', {
                         url: '/weather',
                         templateUrl: 'tpl/apps_weather.html',
                         resolve: AutoloaderProvider.load(['module/core/app/src/app/weather/skycons.js', 'angular-skycons', 'module/core/app/src/app/weather/ctrl.js', 'moment'])
-                    })
-                    .state('app.todo', {
-                        url: '/todo',
-                        templateUrl: 'tpl/apps_todo.html',
-                        resolve: AutoloaderProvider.load(['module/core/app/src/app/todo/todo.js', 'moment'])
-                    })
-                    .state('app.todo.list', {
-                        url: '/{fold}'
-                    })
-                    .state('app.note', {
-                        url: '/note',
-                        templateUrl: 'tpl/apps_note_material.html',
-                        resolve: AutoloaderProvider.load(['module/core/app/src/app/note/note.js', 'moment'])
-                    })
-
-                    .state('app.material', {
-                        url: '/material',
-                        template: '<div ui-view class="wrapper-md"></div>',
-                        resolve: AutoloaderProvider.load(['module/core/app/src/controllers/material.js'])
-                    })
-                    .state('app.material.button', {
-                        url: '/button',
-                        templateUrl: 'tpl/material/button.html'
-                    })
-                    .state('app.material.color', {
-                        url: '/color',
-                        templateUrl: 'tpl/material/color.html'
-                    })
-                    .state('app.material.icon', {
-                        url: '/icon',
-                        templateUrl: 'tpl/material/icon.html'
-                    })
-                    .state('app.material.card', {
-                        url: '/card',
-                        templateUrl: 'tpl/material/card.html'
-                    })
-                    .state('app.material.form', {
-                        url: '/form',
-                        templateUrl: 'tpl/material/form.html'
-                    })
-                    .state('app.material.list', {
-                        url: '/list',
-                        templateUrl: 'tpl/material/list.html'
-                    })
-                    .state('app.material.ngmaterial', {
-                        url: '/ngmaterial',
-                        templateUrl: 'tpl/material/ngmaterial.html'
                     });
 
             }

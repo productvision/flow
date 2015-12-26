@@ -21,7 +21,7 @@ app.controller('SigninFormController', [
                     if (!response.data.user) {
                         $scope.authError = 'Email or Password not right';
                     } else {
-                        $state.go('app.dashboard-v1');
+                        $state.go('app.dashboard');
                     }
                 },
                 error: function () {

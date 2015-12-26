@@ -1,0 +1,21 @@
+.dropdown-menu {
+    top: 105%;
+    border: 0 none;
+    padding: 0;
+}
+.dropdown-menu-spaces {
+    left: 14px;
+}
+
+.dropdown-menu-spaces div {
+    padding: 3px 10px;
+}
+
+.dropdown-menu-spaces li a {
+    display: block;
+    padding: 3px 10px;
+}
+
+.dropdown-menu-spaces li a:hover {
+    background-color: darkgrey;
+}

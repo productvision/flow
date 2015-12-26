@@ -4,8 +4,6 @@ const explorer = require('loopback-component-explorer');
 const app = loopback();
 const bodyParser = require('body-parser');
 
-
-
 app.use(bodyParser.urlencoded({
     extended: true
 }));

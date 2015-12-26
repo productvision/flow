@@ -21,6 +21,11 @@ angular.module('app', [
     'core.loader',
     'core.menu',
 
+    'grolba.calendar',
+    'grolba.contact',
+    'grolba.dashboard',
+    'grolba.mail',
     'grolba.music',
-    'grolba.mail'
+    'grolba.note',
+    'grolba.todo'
 ]);

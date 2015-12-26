@@ -28,10 +28,10 @@ angular
             var dashboard = {
                 label: 'Dashboard',
                 iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
-                sref: 'app.dashboard-v1',
+                sref: 'app.dashboard',
                 children: [{
                     label: 'Dashboard',
-                    sref: 'app.dashboard-v1'
+                    sref: 'app.dashboard'
                 }]
             };
             var navigation = [

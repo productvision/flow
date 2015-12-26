@@ -1,7 +1,7 @@
 {
   "_meta": {
     "sources": [
-      "../common/models"
+      "../config/models"
     ]
   },
   "Space": {
