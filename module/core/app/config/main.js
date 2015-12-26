@@ -5,8 +5,8 @@
 angular
     .module('app')
     .controller('AppController', [
-        '$scope', '$translate', '$localStorage', '$window', 'Config', 'Menu',
-        function ($scope, $translate, $localStorage, $window, Config, Menu) {
+        '$scope', '$localStorage', '$window', 'Config', 'Menu',
+        function ($scope, $localStorage, $window, Config, Menu) {
             // add 'ie' classes to html
             var isIE = !!navigator.userAgent.match(/MSIE/i);
             isIE && angular.element($window.document.body).addClass('ie');
@@ -41,14 +41,14 @@ angular
                 de_DE: 'German',
                 it_IT: 'Italian'
             };
-            $scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
-            $scope.setLang = function (langKey) {
-                // set the current lang
-                $scope.selectLang = $scope.langs[langKey];
+            //$scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
+            //$scope.setLang = function (langKey) {
+            //     set the current lang
+                //$scope.selectLang = $scope.langs[langKey];
                 // You can change the language during runtime
-                $translate.use(langKey);
-                $scope.lang.isopen = !$scope.lang.isopen;
-            };
+                //$translate.use(langKey);
+                //$scope.lang.isopen = !$scope.lang.isopen;
+            //};
 
             function isSmartDevice($window) {
                 // Adapted from http://www.detectmobilebrowsers.com

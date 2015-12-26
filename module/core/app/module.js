@@ -2,8 +2,11 @@
 
 
 angular.module('app', [
+    'core.loader',
+    'core.config',
+    'core.menu',
+
     'ngAnimate',
-    'ngAria',
     'ngCookies',
     'ngMessages',
     'ngResource',
@@ -11,16 +14,13 @@ angular.module('app', [
     'ngTouch',
     'ngStorage',
     'ui.router',
-    'ui.bootstrap',
     'ui.utils',
     'ui.load',
-    'ui.jq',
     'oc.lazyLoad',
     'pascalprecht.translate',
-
-    'core.config',
-    'core.loader',
-    'core.menu',
+    //'ngAria',
+    //'ui.bootstrap',
+    //'ui.jq',
 
     'grolba.calendar',
     'grolba.contact',

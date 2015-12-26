@@ -14,17 +14,17 @@
         <div class="col-sm-6 text-right hidden-xs">
           <div class="inline m-r text-left">
             <div class="m-b-xs">1290 <span class="text-muted">items</span></div>
-            <div ng-init="d3_1=[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ]" 
-              ui-jq="sparkline" 
-              ui-options="{{d3_1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
+            <div ng-init="d3_1=[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ]"
+              ui-jq="sparkline"
+              ui-options="{{d3_1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}"
               class="sparkline inline">loading...
             </div>
           </div>
           <div class="inline text-left">
             <div class="m-b-xs">$30,000 <span class="text-muted">revenue</span></div>
-            <div ng-init="d3_2=[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ]" 
-              ui-jq="sparkline" 
-              ui-options="{{d3_2}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
+            <div ng-init="d3_2=[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ]"
+              ui-jq="sparkline"
+              ui-options="{{d3_2}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}"
               class="sparkline inline">loading...
             </div>
           </div>
@@ -97,7 +97,7 @@
               [
                 { data: {{d0_1}}, label:'TV', points: { show: true, radius: 1}, splines: { show: {{showSpline}}, tension: 0.4, lineWidth: 1, fill: 0.8 } },
                 { data: {{d0_2}}, label:'Mag', points: { show: true, radius: 1}, splines: { show: {{showSpline}}, tension: 0.4, lineWidth: 1, fill: 0.8 } }
-              ], 
+              ],
               {
                 colors: ['{{app.color.info}}', '{{app.color.primary}}'],
                 series: { shadowSize: 3 },
@@ -123,7 +123,7 @@
           <div ui-jq="plot" ui-options="
             [
               { data: {{d4}}, lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
-            ], 
+            ],
             {
               colors: ['{{app.color.light}}'],
               series: { shadowSize: 3 },
@@ -227,7 +227,7 @@
                 </div>
                 <div class="text-muted font-bold text-xs m-t m-b">Started</div>
               </div>
-            </div>            
+            </div>
           </div>
         </div>
       </div>

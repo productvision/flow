@@ -17,7 +17,7 @@ angular
                 modules: AutoloaderProvider.getModules()
             });
 
-            var config = ConfigProvider.loadConfig('dictionary');
+            var config = ConfigProvider.loadConfig('tecis');
 
             MenuProvider.setMenu('navigation', config.getNavigation());
         }
@@ -315,17 +315,17 @@ angular
 
         }
     ])
-    .config([
-        '$translateProvider',
-        function ($translateProvider) {
-            //$translateProvider.useStaticFilesLoader({
-            //    prefix: './module/core/app/translations/',
-            //    suffix: '.json'
-            //});
-            //$translateProvider.preferredLanguage('de');
-            //$translateProvider.useLocalStorage();
-        }
-    ])
+    //.config([
+    //    '$translateProvider',
+    //    function ($translateProvider) {
+    //        $translateProvider.useStaticFilesLoader({
+    //            prefix: './module/core/app/translations/',
+    //            suffix: '.json'
+    //        });
+    //        $translateProvider.preferredLanguage('de');
+    //        $translateProvider.useLocalStorage();
+    //    }
+    //])
     .run([
         '$rootScope', '$state', '$stateParams',
         function ($rootScope, $state, $stateParams) {

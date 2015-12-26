@@ -40,14 +40,22 @@ angular
                     label: 'Calendar',
                     translation: 'aside.nav.CALENDAR',
                     iconClass: 'glyphicon glyphicon-calendar icon text-primary-dker',
-                    sref: 'app.calendar'
+                    sref: 'app.calendar',
+                    children: [{
+                        label: 'Calendar',
+                        sref: 'app.calendar'
+                    }]
                 },
                 {
                     label: 'Email',
                     translation: 'aside.nav.EMAIL',
                     iconClass: 'glyphicon glyphicon-envelope icon text-info-lter',
                     sref: 'app.mail.list',
-                    badge: 9
+                    badge: 9,
+                    children: [{
+                        label: 'Email',
+                        sref: 'app.mail.list'
+                    }]
                 }
             ];
             var spaces = {

@@ -11,7 +11,7 @@ angular
                         'moment',
                         'fullcalendar',
                         'ui.calendar',
-                        'module/core/app/src/app/calendar/calendar.js'
+                        'module/grolba/calendar/src/controllers/index.js'
                     ])
                 });
         }

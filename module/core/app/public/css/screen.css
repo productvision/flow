@@ -3,8 +3,9 @@
     border: 0 none;
     padding: 0;
 }
+
 .dropdown-menu-spaces {
-    left: 14px;
+    /*left: 14px;*/
 }
 
 .dropdown-menu-spaces div {
@@ -18,4 +19,9 @@
 
 .dropdown-menu-spaces li a:hover {
     background-color: darkgrey;
+}
+
+.dropdown-separator {
+    line-height: 50px;
+    font-weight: 700;
 }
