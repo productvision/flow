@@ -1,6 +1,11 @@
+# Philosophien
+- config-driven (xml, yml, json, js)
+- ui-driven (with express)
+
 # Todo
 - Rollen und Benutzer anlegen
 - Login testen
+- Backend kennt Spaces und gibt passende Daten zurück
 
 # DSL
 - user has many spaces has many modules

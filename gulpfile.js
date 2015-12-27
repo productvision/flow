@@ -12,6 +12,7 @@ gulp.src('./index.html')
     }))
     .pipe(inject(gulp.src([
         './config/config.js',
+        './config/spaces/**/*.js',
 
         './module/core/config/module.js',
         './module/core/config/**/*.{js,css}',
