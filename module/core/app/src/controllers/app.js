@@ -5,8 +5,8 @@
 angular
     .module('app')
     .controller('AppController', [
-        '$localStorage', '$scope', '$translate', '$uibModal', '$window', 'Config', 'Menu',
-        function ($localStorage, $scope, $translate, $uibModal, $window, Config, Menu) {
+        '$localStorage', '$rootScope', '$scope', '$state', '$translate', '$uibModal', '$window', 'Config', 'Menu',
+        function ($localStorage, $rootScope, $scope, $state, $translate, $uibModal, $window, Config, Menu) {
             // add 'ie' classes to html
             var isIE = !!navigator.userAgent.match(/MSIE/i);
             isIE && angular.element($window.document.body).addClass('ie');
@@ -72,6 +72,39 @@ angular
             }
 
             $scope.menu = Menu;
+
+            $scope.editor = {
+                model: {},
+                fields: [
+                    {
+                        key: 'view',
+                        type: 'select',
+                        templateOptions: {
+                            label: 'Ansicht',
+                            placeholder: 'Ansicht',
+                            options: [
+                                {
+                                    name: 'Standard',
+                                    value: 'module/core/skeleton/view/default.html'
+                                },
+                                {
+                                    name: 'Statische Seite',
+                                    value: 'module/core/skeleton/view/static-page.html'
+                                }
+                            ]
+                        }
+                    }
+                ],
+                options: {}
+            };
+
+            $scope.updateView = function () {
+                $state.transitionTo('app.dynamic', {
+                    templateUrl: $scope.editor.model.view
+                }, {
+                    reload: true, inherit: false, notify: true
+                });
+            };
 
         }]
     );

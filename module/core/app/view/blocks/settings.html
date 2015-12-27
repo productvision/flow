@@ -3,14 +3,10 @@
 </button>
 <div class="panel-heading">Settings</div>
 <div class="panel-body">
-    <h4>Model</h4>
-    <select>
-        <option></option>
-        <option>Todo</option>
-    </select>
-    <h4>View</h4>
-    <select>
-        <option></option>
-        <option>Static page</option>
-    </select>
+    <formly-form model="editor.model" fields="editor.fields" options="editor.options" form="form">
+        <button class="btn btn-primary submit-button" type="submit" data-ng-click="updateView()"
+                data-ng-disabled="form.$invalid">Aktualisieren
+        </button>
+        <button class="btn btn-warning" type="reset" data-ng-click="cancel()">Abbrechen</button>
+    </formly-form>
 </div>
