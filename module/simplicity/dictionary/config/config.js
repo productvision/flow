@@ -8,7 +8,7 @@ angular
                     url: '/dynamic',
                     templateUrl: function ($stateParams) {
                         var templateUrl = 'module/simplicity/dictionary/view/index.html';
-debugger;
+
                         if ($stateParams.hasOwnProperty('templateUrl')) {
                             templateUrl = $stateParams.templateUrl;
                         }
