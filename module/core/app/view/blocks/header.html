@@ -9,7 +9,8 @@
             <div class="dropdown-menu dropdown-menu-spaces wrapper bg-white">
                 <ul class="list-unstyled l-h-2x">
                     <li data-ng-repeat="(spaceId, space) in spaces">
-                        <a href data-ng-click="openSpace(spaceId)"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>{{ space.name }}</a>
+                        <a href data-ng-click="openSpace(spaceId)"><i
+                                class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>{{ space.name }}</a>
                     </li>
                 </ul>
             </div>
@@ -20,20 +21,19 @@
                 <span>{{ menuItem.label }}</span>
             </a>
 
-            <div data-ng-if="menuItem.children">
-                <a href class="dropdown-toggle" data-toggle="dropdown">
-                    <span>{{ menuItem.label }}</span>
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li data-ng-repeat="child in menuItem.children">
-                        <a href data-ui-sref="{{ child.sref }}">{{ child.label }}</a>
-                    </li>
-                </ul>
-            </div>
+            <a href class="dropdown-toggle" data-toggle="dropdown" data-ng-if="menuItem.children">
+                <span>{{ menuItem.label }}</span>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" data-ng-if="menuItem.children">
+                <li data-ng-repeat="child in menuItem.children">
+                    <a href data-ui-sref="{{ child.sref }}">{{ child.label }}</a>
+                </li>
+            </ul>
         </li>
         <li>
-            <a href data-ng-click="openModuleModal()">+</a>
+            <a href data-ng-click="openModuleModal()" data-toggle="tooltip" data-placement="bottom"
+               title="Tooltip on left">+</a>
         </li>
     </ul>
 
@@ -44,7 +44,7 @@
             <div class="input-group">
                 <input type="text" data-ng-model="selected"
                        data-typeahead="state for state in states | filter:$viewValue | limitTo:8"
-                       class="form-control input-sm bg-light no-border padder" placeholder="Search projects...">
+                       class="form-control input-sm bg-light no-border padder" placeholder="Suche…">
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-sm bg-light">
                     <i class="glyphicon glyphicon-search"></i>

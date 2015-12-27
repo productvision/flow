@@ -11,6 +11,8 @@ gulp.src('./index.html')
         name: 'bower'
     }))
     .pipe(inject(gulp.src([
+        './config/config.js',
+
         './module/core/config/module.js',
         './module/core/config/**/*.{js,css}',
         './module/core/loader/module.js',

@@ -2,38 +2,7 @@ angular
     .module('core.config')
     .factory('SpaceConfig', [
         function () {
-            return {
-                dictionary: {
-                    name: 'Wörterbuch',
-                    menu: [
-                        {
-                            label: 'Startseite',
-                            iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
-                            sref: 'app.dictionary'
-                        }
-                    ]
-                },
-                corporateManual: {
-                    name: 'Corporate Manual',
-                    menu: [
-                        {
-                            label: 'Startseite',
-                            iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
-                            sref: 'app.dashboard'
-                        },
-                        {
-                            label: 'Wording',
-                            iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
-                            sref: 'app.dictionary'
-                        },
-                        {
-                            label: 'Formeln',
-                            iconClass: 'glyphicon glyphicon-stats icon text-primary-dker',
-                            sref: 'app.dictionary'
-                        }
-                    ]
-                }
-            };
+            return window.config.spaces;
         }
     ])
     .factory('SpaceManager', [
@@ -67,7 +36,7 @@ angular
                 };
                 this.getCurrent = function () {
                     if (null === this.current) {
-                        this.load('dictionary');
+                        this.load(window.config.currentSpace);
                     }
                     return this.current;
                 };

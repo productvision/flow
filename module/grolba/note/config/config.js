@@ -4,7 +4,7 @@ angular
         '$stateProvider', 'AutoloaderProvider',
         function ($stateProvider, AutoloaderProvider) {
             $stateProvider
-                .state('apps.note', {
+                .state('app.note', {
                     url: '/note',
                     templateUrl: 'module/grolba/note/view/index.html',
                     resolve: AutoloaderProvider.load([

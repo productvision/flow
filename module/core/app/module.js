@@ -30,6 +30,7 @@ angular.module('app', [
     'grolba.music',
     'grolba.note',
     'grolba.todo',
+    'grolba.file',
 
     'simplicity.dictionary'
 ]);

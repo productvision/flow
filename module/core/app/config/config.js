@@ -44,7 +44,7 @@ angular
                 })
                 .state('app.ui', {
                     url: '/ui',
-                    template: '<div ui-view class="fade-in-up"></div>'
+                    template: '<div ui-view class="__fade-in-up"></div>'
                 })
                 .state('app.ui.buttons', {
                     url: '/buttons',
@@ -165,11 +165,6 @@ angular
                 .state('app.form.wizard', {
                     url: '/wizard',
                     templateUrl: 'view/form_wizard.html'
-                })
-                .state('app.form.fileupload', {
-                    url: '/fileupload',
-                    templateUrl: 'view/form_fileupload.html',
-                    resolve: AutoloaderProvider.load(['angularFileUpload', 'module/core/app/src/controllers/file-upload.js'])
                 })
                 .state('app.form.imagecrop', {
                     url: '/imagecrop',

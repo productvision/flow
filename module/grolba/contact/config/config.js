@@ -4,7 +4,7 @@ angular
         '$stateProvider', 'AutoloaderProvider',
         function ($stateProvider, AutoloaderProvider) {
             $stateProvider
-                .state('apps.contact', {
+                .state('app.contact', {
                     url: '/contact',
                     templateUrl: 'module/grolba/contact/view/index.html',
                     resolve: AutoloaderProvider.load([
