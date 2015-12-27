@@ -3,7 +3,8 @@
 - Login testen
 
 # DSL
-1. user has many spaces has many modules
+- user has many spaces has many modules
+- run flow on server with this config {}
 
 ## Rollen: Benutzer
 - Wifoe: Diethelm Rumpel
