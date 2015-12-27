@@ -2698,6 +2698,60 @@ module.factory(
           method: "HEAD"
         },
 
+        // INTERNAL. Use Space.modules.findById() instead.
+        "prototype$__findById__modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Space.modules.destroyById() instead.
+        "prototype$__destroyById__modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Space.modules.updateById() instead.
+        "prototype$__updateById__modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Space.modules.link() instead.
+        "prototype$__link__modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Space.modules.unlink() instead.
+        "prototype$__unlink__modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Space.modules.exists() instead.
+        "prototype$__exists__modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/rel/:fk",
+          method: "HEAD"
+        },
+
         // INTERNAL. Use Space.configs() instead.
         "prototype$__get__configs": {
           isArray: true,
@@ -2720,6 +2774,31 @@ module.factory(
         // INTERNAL. Use Space.configs.count() instead.
         "prototype$__count__configs": {
           url: urlBase + "/spaces/:id/configs/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Space.modules() instead.
+        "prototype$__get__modules": {
+          isArray: true,
+          url: urlBase + "/spaces/:id/modules",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Space.modules.create() instead.
+        "prototype$__create__modules": {
+          url: urlBase + "/spaces/:id/modules",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Space.modules.destroyAll() instead.
+        "prototype$__delete__modules": {
+          url: urlBase + "/spaces/:id/modules",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Space.modules.count() instead.
+        "prototype$__count__modules": {
+          url: urlBase + "/spaces/:id/modules/count",
           method: "GET"
         },
 
@@ -3234,6 +3313,98 @@ module.factory(
         // INTERNAL. Use SpaceConfig.space() instead.
         "::get::SpaceConfig::space": {
           url: urlBase + "/space-configs/:id/space",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Module.spaces.findById() instead.
+        "::findById::Module::spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Module.spaces.destroyById() instead.
+        "::destroyById::Module::spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Module.spaces.updateById() instead.
+        "::updateById::Module::spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Module.spaces.link() instead.
+        "::link::Module::spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Module.spaces.unlink() instead.
+        "::unlink::Module::spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Module.spaces.exists() instead.
+        "::exists::Module::spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/rel/:fk",
+          method: "HEAD"
+        },
+
+        // INTERNAL. Use Module.spaces() instead.
+        "::get::Module::spaces": {
+          isArray: true,
+          url: urlBase + "/modules/:id/spaces",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Module.spaces.create() instead.
+        "::create::Module::spaces": {
+          url: urlBase + "/modules/:id/spaces",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Module.spaces.createMany() instead.
+        "::createMany::Module::spaces": {
+          isArray: true,
+          url: urlBase + "/modules/:id/spaces",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Module.spaces.destroyAll() instead.
+        "::delete::Module::spaces": {
+          url: urlBase + "/modules/:id/spaces",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Module.spaces.count() instead.
+        "::count::Module::spaces": {
+          url: urlBase + "/modules/:id/spaces/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use SpaceModule.space() instead.
+        "::get::SpaceModule::space": {
+          url: urlBase + "/space-modules/:id/space",
           method: "GET"
         },
       }
@@ -3786,6 +3957,416 @@ module.factory(
         R.configs.updateById = function() {
           var TargetResource = $injector.get("Config");
           var action = TargetResource["::updateById::Space::configs"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name Loopback.Space.modules
+     * @header Loopback.Space.modules
+     * @object
+     * @description
+     *
+     * The object `Space.modules` groups methods
+     * manipulating `Module` instances related to `Space`.
+     *
+     * Call {@link Loopback.Space#modules Space.modules()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space#modules
+         * @methodOf Loopback.Space
+         *
+         * @description
+         *
+         * Queries modules of Space.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Module` object.)
+         * </em>
+         */
+        R.modules = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::get::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#count
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Counts modules of Space.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.modules.count = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::count::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#create
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Creates a new instance in modules of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Module` object.)
+         * </em>
+         */
+        R.modules.create = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::create::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#createMany
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Creates a new instance in modules of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Module` object.)
+         * </em>
+         */
+        R.modules.createMany = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::createMany::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#destroyAll
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Deletes all modules of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.modules.destroyAll = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::delete::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#destroyById
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Delete a related item by id for modules.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for modules
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.modules.destroyById = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::destroyById::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#exists
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Check the existence of modules relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for modules
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Module` object.)
+         * </em>
+         */
+        R.modules.exists = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::exists::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#findById
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Find a related item by id for modules.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for modules
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Module` object.)
+         * </em>
+         */
+        R.modules.findById = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::findById::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#link
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Add a related item by id for modules.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for modules
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Module` object.)
+         * </em>
+         */
+        R.modules.link = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::link::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#unlink
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Remove the modules relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for modules
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.modules.unlink = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::unlink::Space::modules"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Space.modules#updateById
+         * @methodOf Loopback.Space.modules
+         *
+         * @description
+         *
+         * Update a related item by id for modules.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for modules
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Module` object.)
+         * </em>
+         */
+        R.modules.updateById = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::updateById::Space::modules"];
           return action.apply(R, arguments);
         };
 
@@ -4493,6 +5074,85 @@ module.factory(
       { 'id': '@id' },
       {
 
+        // INTERNAL. Use Module.spaces.findById() instead.
+        "prototype$__findById__spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Module.spaces.destroyById() instead.
+        "prototype$__destroyById__spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Module.spaces.updateById() instead.
+        "prototype$__updateById__spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Module.spaces.link() instead.
+        "prototype$__link__spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Module.spaces.unlink() instead.
+        "prototype$__unlink__spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Module.spaces.exists() instead.
+        "prototype$__exists__spaces": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/modules/:id/spaces/rel/:fk",
+          method: "HEAD"
+        },
+
+        // INTERNAL. Use Module.spaces() instead.
+        "prototype$__get__spaces": {
+          isArray: true,
+          url: urlBase + "/modules/:id/spaces",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Module.spaces.create() instead.
+        "prototype$__create__spaces": {
+          url: urlBase + "/modules/:id/spaces",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Module.spaces.destroyAll() instead.
+        "prototype$__delete__spaces": {
+          url: urlBase + "/modules/:id/spaces",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Module.spaces.count() instead.
+        "prototype$__count__spaces": {
+          url: urlBase + "/modules/:id/spaces/count",
+          method: "GET"
+        },
+
         /**
          * @ngdoc method
          * @name Loopback.Module#create
@@ -4914,6 +5574,98 @@ module.factory(
           url: urlBase + "/modules/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use Space.modules.findById() instead.
+        "::findById::Space::modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Space.modules.destroyById() instead.
+        "::destroyById::Space::modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Space.modules.updateById() instead.
+        "::updateById::Space::modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Space.modules.link() instead.
+        "::link::Space::modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Space.modules.unlink() instead.
+        "::unlink::Space::modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Space.modules.exists() instead.
+        "::exists::Space::modules": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/spaces/:id/modules/rel/:fk",
+          method: "HEAD"
+        },
+
+        // INTERNAL. Use Space.modules() instead.
+        "::get::Space::modules": {
+          isArray: true,
+          url: urlBase + "/spaces/:id/modules",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Space.modules.create() instead.
+        "::create::Space::modules": {
+          url: urlBase + "/spaces/:id/modules",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Space.modules.createMany() instead.
+        "::createMany::Space::modules": {
+          isArray: true,
+          url: urlBase + "/spaces/:id/modules",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Space.modules.destroyAll() instead.
+        "::delete::Space::modules": {
+          url: urlBase + "/spaces/:id/modules",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Space.modules.count() instead.
+        "::count::Space::modules": {
+          url: urlBase + "/spaces/:id/modules/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use SpaceModule.module() instead.
+        "::get::SpaceModule::module": {
+          url: urlBase + "/space-modules/:id/module",
+          method: "GET"
+        },
       }
     );
 
@@ -5056,6 +5808,1092 @@ module.factory(
     */
     R.modelName = "Module";
 
+    /**
+     * @ngdoc object
+     * @name Loopback.Module.spaces
+     * @header Loopback.Module.spaces
+     * @object
+     * @description
+     *
+     * The object `Module.spaces` groups methods
+     * manipulating `Space` instances related to `Module`.
+     *
+     * Call {@link Loopback.Module#spaces Module.spaces()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module#spaces
+         * @methodOf Loopback.Module
+         *
+         * @description
+         *
+         * Queries spaces of Module.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Space` object.)
+         * </em>
+         */
+        R.spaces = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::get::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#count
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Counts spaces of Module.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.spaces.count = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::count::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#create
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Creates a new instance in spaces of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Space` object.)
+         * </em>
+         */
+        R.spaces.create = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::create::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#createMany
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Creates a new instance in spaces of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Space` object.)
+         * </em>
+         */
+        R.spaces.createMany = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::createMany::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#destroyAll
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Deletes all spaces of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.spaces.destroyAll = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::delete::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#destroyById
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Delete a related item by id for spaces.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for spaces
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.spaces.destroyById = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::destroyById::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#exists
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Check the existence of spaces relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for spaces
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Space` object.)
+         * </em>
+         */
+        R.spaces.exists = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::exists::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#findById
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Find a related item by id for spaces.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for spaces
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Space` object.)
+         * </em>
+         */
+        R.spaces.findById = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::findById::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#link
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Add a related item by id for spaces.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for spaces
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Space` object.)
+         * </em>
+         */
+        R.spaces.link = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::link::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#unlink
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Remove the spaces relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for spaces
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.spaces.unlink = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::unlink::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Module.spaces#updateById
+         * @methodOf Loopback.Module.spaces
+         *
+         * @description
+         *
+         * Update a related item by id for spaces.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for spaces
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Space` object.)
+         * </em>
+         */
+        R.spaces.updateById = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::updateById::Module::spaces"];
+          return action.apply(R, arguments);
+        };
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name Loopback.SpaceModule
+ * @header Loopback.SpaceModule
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `SpaceModule` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "SpaceModule",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/space-modules/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use SpaceModule.module() instead.
+        "prototype$__get__module": {
+          url: urlBase + "/space-modules/:id/module",
+          method: "GET"
+        },
+
+        // INTERNAL. Use SpaceModule.space() instead.
+        "prototype$__get__space": {
+          url: urlBase + "/space-modules/:id/space",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#create
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/space-modules",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#createMany
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/space-modules",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#upsert
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/space-modules",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#exists
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/space-modules/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#findById
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/space-modules/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#find
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/space-modules",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#findOne
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/space-modules/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#updateAll
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/space-modules/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#deleteById
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/space-modules/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#count
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/space-modules/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#prototype$updateAttributes
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/space-modules/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#createChangeStream
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/space-modules/change-stream",
+          method: "POST"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#updateOrCreate
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#update
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#destroyById
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#removeById
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SpaceModule` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name Loopback.SpaceModule#modelName
+    * @propertyOf Loopback.SpaceModule
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `SpaceModule`.
+    */
+    R.modelName = "SpaceModule";
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#module
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Fetches belongsTo relation module.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Module` object.)
+         * </em>
+         */
+        R.module = function() {
+          var TargetResource = $injector.get("Module");
+          var action = TargetResource["::get::SpaceModule::module"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.SpaceModule#space
+         * @methodOf Loopback.SpaceModule
+         *
+         * @description
+         *
+         * Fetches belongsTo relation space.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Space` object.)
+         * </em>
+         */
+        R.space = function() {
+          var TargetResource = $injector.get("Space");
+          var action = TargetResource["::get::SpaceModule::space"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);

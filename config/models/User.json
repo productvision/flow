@@ -5,7 +5,13 @@
   "idInjection": true,
   "properties": {},
   "validations": [],
-  "relations": {},
+  "relations": {
+    "config": {
+      "type": "hasOne",
+      "model": "Config",
+      "foreignKey": "customerId"
+    }
+  },
   "acls": [
     {
       "accessType": "READ",

@@ -10,6 +10,16 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "models": {
+      "type": "array"
+    },
+    "menu": {
+      "type": "array"
     }
   },
   "validations": [],
@@ -24,7 +34,7 @@
       "type": "hasMany",
       "model": "Module",
       "foreignKey": "spaceId",
-      "through": "SpaceModuleConfig"
+      "through": "SpaceModule"
     }
   },
   "acls": [

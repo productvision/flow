@@ -4,12 +4,14 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lb-ng server/server.js module/core/app/src/services/loopback.js -m Loopback -u http://localhost:3000/api"
   },
   "author": "Tobias Oberrauch <to@gew.io>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.2",
+    "glob": "^6.0.2",
     "gulp": "^3.9.0",
     "gulp-connect": "^2.3.1",
     "gulp-inject": "^3.0.0",

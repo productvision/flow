@@ -1,9 +1,13 @@
 {
-  "name": "SpaceModuleConfig",
+  "name": "SpaceModule",
+  "plural": "space-modules",
   "base": "PersistedModel",
   "properties": {
     "config": {
       "type": "object"
+    },
+    "type": {
+      "type": "string"
     }
   },
   "validations": [],

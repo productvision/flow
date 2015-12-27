@@ -4,19 +4,8 @@
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "slug": {
-      "type": "string",
-      "required": true
-    },
-    "menu": {
-      "type": "array"
-    },
-    "models": {
-      "type": "array"
+    "customerId": {
+      "type": "number"
     }
   },
   "validations": [],

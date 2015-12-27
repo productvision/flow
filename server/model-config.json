@@ -27,5 +27,9 @@
   "Module": {
     "dataSource": "memory",
     "public": true
+  },
+  "SpaceModule": {
+    "dataSource": "memory",
+    "public": true
   }
 }

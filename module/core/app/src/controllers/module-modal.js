@@ -13,8 +13,8 @@ angular
                     key: 'type',
                     type: 'select',
                     templateOptions: {
-                        label: 'Modul',
-                        placeholder: 'Modul',
+                        label: 'Template',
+                        placeholder: 'Template wählen...',
                         options: [
                             {
                                 name: 'Statische Seite',
@@ -29,14 +29,6 @@ angular
                     templateOptions: {
                         label: 'Modulname',
                         placeholder: 'Modulname'
-                    }
-                },
-                {
-                    key: 'config',
-                    type: 'textarea',
-                    templateOptions: {
-                        label: 'Konfiguration',
-                        placeholder: 'Konfiguration'
                     }
                 }
             ];

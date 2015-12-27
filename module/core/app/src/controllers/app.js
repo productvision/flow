@@ -5,14 +5,16 @@
 angular
     .module('app')
     .controller('AppController', [
-        '$localStorage', '$rootScope', '$scope', '$state', '$timeout', '$translate', '$uibModal', '$window', 'Config',
-        function ($localStorage, $rootScope, $scope, $state, $timeout, $translate, $uibModal, $window, Config) {
+        '$localStorage', '$rootScope', '$scope', '$state', '$timeout', '$translate', '$uibModal', '$window',
+        'Space', 'SpaceConfig', 'SpaceModule',
+        function ($localStorage, $rootScope, $scope, $state, $timeout, $translate, $uibModal, $window,
+                  Space, SpaceConfig, SpaceModule) {
 
             function applySettings() {
                 if (angular.isDefined($localStorage.settings)) {
-                    $scope.space.settings = $localStorage.settings;
+                    $rootScope.space.settings = $localStorage.settings;
                 } else {
-                    $localStorage.settings = $scope.space.settings;
+                    $localStorage.settings = $rootScope.space.settings;
                 }
             }
 
@@ -22,23 +24,23 @@ angular
                 isSmartDevice($window) && angular.element($window.document.body).addClass('smart');
             }
 
-            Config.find({}, function (spaces) {
+            Space.find({}, function (spaces) {
                 $timeout(function () {
-                    $scope.space = spaces[0];
-                    $scope.spaces = spaces;
+                    $rootScope.space = spaces[0];
+                    $rootScope.spaces = spaces;
 
                     applyBodyClasses();
                     applySettings();
 
                     $scope.$watch('app.settings', function () {
-                        if ($scope.space.settings.asideDock && $scope.space.settings.asideFixed) {
+                        if ($rootScope.space.settings.asideDock && $rootScope.space.settings.asideFixed) {
                             // aside dock and fixed must set the header fixed.
-                            $scope.space.settings.headerFixed = true;
+                            $rootScope.space.settings.headerFixed = true;
                         }
                         // for box layout, add background image
-                        $scope.space.settings.container ? angular.element('html').addClass('bg') : angular.element('html').removeClass('bg');
+                        $rootScope.space.settings.container ? angular.element('html').addClass('bg') : angular.element('html').removeClass('bg');
                         // save to local storage
-                        $localStorage.settings = $scope.space.settings;
+                        $localStorage.settings = $rootScope.space.settings;
                     }, true);
                 });
             }, function () {
@@ -52,9 +54,15 @@ angular
                     controller: 'core.app.ModuleModalController'
                 });
                 modal.result.then(function (item) {
-                    // write somewhere
-                    // inject to $stateProvider with id, url, tpl and ctrl
-                    // add to navigation
+                    //var module = new SpaceModule({
+                    //    spaceId: $rootScope.space.id,
+                    //    name: item.name,
+                    //    config: {},
+                    //    type: item.type
+                    //});
+                    //module.$save();
+                    //
+                    //console.log(module);
                 }, function () {
                     console.log('Modal dismissed at: ' + new Date());
                 });
@@ -117,7 +125,7 @@ angular
             };
 
             $scope.openSpace = function (spaceId) {
-                $scope.space = $scope.spaces[spaceId];
+                $rootScope.space = $rootScope.spaces[spaceId];
                 applySettings();
             };
 

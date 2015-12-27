@@ -20,8 +20,8 @@
     "spaces": {
       "type": "hasMany",
       "model": "Space",
-      "foreignKey": "configId",
-      "through": "SpaceModuleConfig"
+      "foreignKey": "moduleId",
+      "through": "SpaceModule"
     }
   },
   "acls": [
