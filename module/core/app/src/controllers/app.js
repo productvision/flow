@@ -5,14 +5,14 @@
 angular
     .module('app')
     .controller('AppController', [
-        '$localStorage', '$rootScope', '$scope', '$state', '$translate', '$uibModal', '$window', 'SpaceManager',
-        function ($localStorage, $rootScope, $scope, $state, $translate, $uibModal, $window, SpaceManager) {
+        '$localStorage', '$rootScope', '$scope', '$state', '$timeout', '$translate', '$uibModal', '$window', 'Config',
+        function ($localStorage, $rootScope, $scope, $state, $timeout, $translate, $uibModal, $window, Config) {
 
             function applySettings() {
                 if (angular.isDefined($localStorage.settings)) {
-                    $scope.app.settings = $localStorage.settings;
+                    $scope.space.settings = $localStorage.settings;
                 } else {
-                    $localStorage.settings = $scope.app.settings;
+                    $localStorage.settings = $scope.space.settings;
                 }
             }
 
@@ -22,17 +22,28 @@ angular
                 isSmartDevice($window) && angular.element($window.document.body).addClass('smart');
             }
 
-            function updateView() {
-                $scope.app = SpaceManager.getCurrent().getConfig();
-                $scope.currentSpace = SpaceManager.getCurrent();
-                $scope.currentSpaceId = SpaceManager.getCurrent().getId();
-                $scope.spaces = SpaceManager.getConfig();
-            }
+            Config.find({}, function (spaces) {
+                $timeout(function () {
+                    $scope.space = spaces[0];
+                    $scope.spaces = spaces;
 
-            updateView();
-            applyBodyClasses();
-            applySettings();
+                    applyBodyClasses();
+                    applySettings();
 
+                    $scope.$watch('app.settings', function () {
+                        if ($scope.space.settings.asideDock && $scope.space.settings.asideFixed) {
+                            // aside dock and fixed must set the header fixed.
+                            $scope.space.settings.headerFixed = true;
+                        }
+                        // for box layout, add background image
+                        $scope.space.settings.container ? angular.element('html').addClass('bg') : angular.element('html').removeClass('bg');
+                        // save to local storage
+                        $localStorage.settings = $scope.space.settings;
+                    }, true);
+                });
+            }, function () {
+                debugger;
+            });
 
             $scope.openModuleModal = function () {
                 var modal = $uibModal.open({
@@ -48,17 +59,6 @@ angular
                     console.log('Modal dismissed at: ' + new Date());
                 });
             };
-
-            $scope.$watch('app.settings', function () {
-                if ($scope.app.settings.asideDock && $scope.app.settings.asideFixed) {
-                    // aside dock and fixed must set the header fixed.
-                    $scope.app.settings.headerFixed = true;
-                }
-                // for box layout, add background image
-                $scope.app.settings.container ? angular.element('html').addClass('bg') : angular.element('html').removeClass('bg');
-                // save to local storage
-                $localStorage.settings = $scope.app.settings;
-            }, true);
 
             // angular translate
             $scope.lang = {
@@ -88,19 +88,18 @@ angular
                 model: {},
                 fields: [
                     {
-                        key: 'view',
+                        key: 'model',
                         type: 'select',
                         templateOptions: {
-                            label: 'Ansicht',
-                            placeholder: 'Ansicht',
+                            label: 'Datenquelle',
                             options: [
                                 {
-                                    name: 'Standard',
-                                    value: 'module/core/skeleton/view/default.html'
+                                    name: 'Interne Datenbank',
+                                    value: 'memory'
                                 },
                                 {
-                                    name: 'Statische Seite',
-                                    value: 'module/core/skeleton/view/static-page.html'
+                                    name: 'Rest API',
+                                    value: 'rest'
                                 }
                             ]
                         }
@@ -118,8 +117,7 @@ angular
             };
 
             $scope.openSpace = function (spaceId) {
-                SpaceManager.load(spaceId);
-                updateView();
+                $scope.space = $scope.spaces[spaceId];
                 applySettings();
             };
 

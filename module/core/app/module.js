@@ -3,7 +3,6 @@
 
 angular.module('app', [
     'core.loader',
-    'core.config',
 
     'ngAnimate',
     'ngCookies',
@@ -32,5 +31,7 @@ angular.module('app', [
     'grolba.todo',
     'grolba.file',
 
-    'simplicity.dictionary'
+    'simplicity.dictionary',
+
+    'Loopback'
 ]);

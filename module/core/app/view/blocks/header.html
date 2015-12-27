@@ -1,8 +1,8 @@
-<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+<div class="collapse pos-rlt navbar-collapse box-shadow {{space.settings.navbarCollapseColor}}">
     <ul class="nav navbar-nav hidden-sm">
         <li>
             <a href class="dropdown-toggle navbar-brand" data-toggle="dropdown">
-                <span>{{ app.name }}</span>
+                <span>{{ space.name }}</span>
                 <span class="caret"></span>
             </a>
 
@@ -15,7 +15,7 @@
                 </ul>
             </div>
         </li>
-        <li data-ng-repeat="menuItem in app.menu" class="dropdown">
+        <li data-ng-repeat="menuItem in space.menu" class="dropdown">
             <a href data-ui-sref="{{ menuItem.sref }}" class="dropdown-toggle" data-toggle="dropdown"
                data-ng-if="!menuItem.children">
                 <span>{{ menuItem.label }}</span>

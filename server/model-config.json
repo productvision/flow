@@ -4,7 +4,15 @@
       "../config/models"
     ]
   },
+  "User": {
+    "dataSource": "memory",
+    "public": true
+  },
   "ACL": {
+    "dataSource": "memory",
+    "public": true
+  },
+  "Config": {
     "dataSource": "memory",
     "public": true
   },
@@ -12,7 +20,7 @@
     "dataSource": "memory",
     "public": true
   },
-  "User": {
+  "SpaceConfig": {
     "dataSource": "memory",
     "public": true
   },

@@ -318,8 +318,22 @@ angular
         }
     ])
     .run([
-        '$rootScope', '$state', '$stateParams',
-        function ($rootScope, $state, $stateParams) {
+        '$rootScope', '$state', '$stateParams', 'Config',
+        function ($rootScope, $state, $stateParams, Config) {
+            //$rootScope.config = Config.find({
+            //        filter: {
+            //            where: {
+            //                slug: 'dictionary'
+            //            }
+            //        }
+            //    },
+            //    function (list) {
+            //        debugger;
+            //    },
+            //    function (errorResponse) {
+            //        debugger;
+            //    }
+            //);
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
         }

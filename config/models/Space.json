@@ -14,10 +14,17 @@
   },
   "validations": [],
   "relations": {
+    "configs": {
+      "type": "hasMany",
+      "model": "Config",
+      "foreignKey": "spaceId",
+      "through": "SpaceConfig"
+    },
     "modules": {
       "type": "hasMany",
       "model": "Module",
-      "foreignKey": "spaceId"
+      "foreignKey": "spaceId",
+      "through": "SpaceModuleConfig"
     }
   },
   "acls": [

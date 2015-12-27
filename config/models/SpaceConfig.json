@@ -1,0 +1,23 @@
+{
+  "name": "SpaceConfig",
+  "plural": "space-configs",
+  "base": "PersistedModel",
+  "properties": {
+    "config": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "config": {
+      "type": "belongsTo",
+      "model": "Config",
+      "foreignKey": "configId"
+    },
+    "space": {
+      "type": "belongsTo",
+      "model": "Space",
+      "foreignKey": "spaceId"
+    }
+  }
+}

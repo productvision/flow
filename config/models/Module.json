@@ -16,7 +16,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "spaces": {
+      "type": "hasMany",
+      "model": "Space",
+      "foreignKey": "configId",
+      "through": "SpaceModuleConfig"
+    }
+  },
   "acls": [
     {
       "accessType": "READ",
