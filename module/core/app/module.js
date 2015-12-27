@@ -4,7 +4,6 @@
 angular.module('app', [
     'core.loader',
     'core.config',
-    'core.menu',
 
     'ngAnimate',
     'ngCookies',

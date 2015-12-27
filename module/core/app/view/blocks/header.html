@@ -9,12 +9,12 @@
             <div class="dropdown-menu dropdown-menu-spaces wrapper bg-white">
                 <ul class="list-unstyled l-h-2x">
                     <li data-ng-repeat="(spaceId, space) in spaces">
-                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>{{ space.name }}</a>
+                        <a href data-ng-click="openSpace(spaceId)"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>{{ space.name }}</a>
                     </li>
                 </ul>
             </div>
         </li>
-        <li data-ng-repeat="menuItem in menu.getItems('navigation')" class="dropdown">
+        <li data-ng-repeat="menuItem in app.menu" class="dropdown">
             <a href data-ui-sref="{{ menuItem.sref }}" class="dropdown-toggle" data-toggle="dropdown"
                data-ng-if="!menuItem.children">
                 <span>{{ menuItem.label }}</span>

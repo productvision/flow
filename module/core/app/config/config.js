@@ -9,17 +9,13 @@ angular
         }
     ])
     .config([
-        '$ocLazyLoadProvider', 'AutoloaderProvider', 'ConfigProvider', 'MenuProvider',
-        function ($ocLazyLoadProvider, AutoloaderProvider, ConfigProvider, MenuProvider) {
+        '$ocLazyLoadProvider', 'AutoloaderProvider',
+        function ($ocLazyLoadProvider, AutoloaderProvider) {
             $ocLazyLoadProvider.config({
                 debug: false,
                 events: true,
                 modules: AutoloaderProvider.getModules()
             });
-
-            var config = ConfigProvider.loadConfig('corporateManual');
-
-            MenuProvider.setMenu('navigation', config.getNavigation());
         }
     ])
     .config([
