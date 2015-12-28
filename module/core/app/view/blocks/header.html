@@ -34,9 +34,15 @@
             </ul>
         </li>
         <li>
-            <a href data-ng-click="openModuleModal()" title="Hier können Sie ein neues Modul hinzufügen"
+            <a href class="dropdown-toggle navbar-brand" data-toggle="dropdown"
+               title="Hier können Sie ein neues Modul hinzufügen"
                data-ng-mouseover="showNotice('Hier können Sie ein neues Modul hinzufügen')"
                data-ng-mouseout="showNotice('')">+</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href data-ng-click="openModuleModal()">Modul erstellen</a>
+                </li>
+            </ul>
         </li>
     </ul>
     <div class="navbar-right" id="notices">

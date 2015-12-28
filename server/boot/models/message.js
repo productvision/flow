@@ -49,7 +49,6 @@ module.exports = function (app) {
             "folder": ["important"]
         }
     ], function () {
-        console.log(arguments);
     });
 
 };
