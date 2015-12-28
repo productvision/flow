@@ -25,7 +25,7 @@ angular.module('app', [
     'grolba.calendar',
     'grolba.contact',
     'grolba.dashboard',
-    'grolba.mail',
+    'grolba.messenger',
     'grolba.music',
     'grolba.note',
     'grolba.todo',

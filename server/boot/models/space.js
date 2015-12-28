@@ -2,6 +2,49 @@ module.exports = function (app, config) {
     var Space = app.models.Space;
 
     Space.create({
+        slug: 'team',
+        name: 'Team',
+        menu: [
+            {
+                label: 'Startseite',
+                sref: 'app.dashboard'
+            },
+            {
+                label: 'Nachrichten',
+                sref: 'app.messenger.list'
+            },
+            {
+                label: 'Kalender',
+                sref: 'app.calendar'
+            },
+            {
+                label: 'Notizen',
+                sref: 'app.note'
+            },
+            {
+                label: 'Kunden',
+                sref: 'app.contact'
+            },
+            {
+                label: 'Dateien',
+                sref: 'app.form.fileupload'
+            },
+            {
+                label: 'Kampagnen',
+                sref: 'app.todo'
+            },
+            {
+                label: 'Netwerke',
+                sref: 'app.network'
+            }
+        ]
+    }, function (err, space) {
+        require('./space-config')(app, config, space);
+    });
+
+    return;
+
+    Space.create({
         slug: 'dictionary',
         name: 'Wörterbuch',
         sref: 'app.dictionary'
@@ -35,46 +78,6 @@ module.exports = function (app, config) {
         require('./space-config')(app, config, space);
     });
 
-    Space.create({
-        slug: 'team',
-        name: 'Team',
-        menu: [
-            {
-                label: 'Startseite',
-                sref: 'app.dashboard'
-            },
-            {
-                label: 'Nachrichten',
-                sref: 'app.mail.list'
-            },
-            {
-                label: 'Kalender',
-                sref: 'app.calendar'
-            },
-            {
-                label: 'Notizen',
-                sref: 'app.note'
-            },
-            {
-                label: 'Kunden',
-                sref: 'app.contact'
-            },
-            {
-                label: 'Dateien',
-                sref: 'app.form.fileupload'
-            },
-            {
-                label: 'Kampagnen',
-                sref: 'app.todo'
-            },
-            {
-                label: 'Netwerke',
-                sref: 'app.network'
-            }
-        ]
-    }, function (err, space) {
-        require('./space-config')(app, config, space);
-    });
 
     Space.create({
         slug: 'gamingcoach',
@@ -278,7 +281,7 @@ module.exports = function (app, config) {
                     },
                     {
                         label: 'Berichte',
-                        sref: 'app.dashboard'
+                        sref: 'app.chart'
                     }
                 ]
             },

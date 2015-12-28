@@ -1,4 +1,4 @@
 angular
-    .module('grolba.mail', [
+    .module('grolba.messenger', [
         'core.loader'
     ]);

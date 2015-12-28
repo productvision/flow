@@ -31,5 +31,9 @@
   "SpaceModule": {
     "dataSource": "memory",
     "public": true
+  },
+  "Message": {
+    "dataSource": "memory",
+    "public": true
   }
 }

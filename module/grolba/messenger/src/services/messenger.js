@@ -1,5 +1,5 @@
 angular
-    .module('grolba.mail')
+    .module('grolba.messenger')
     .factory('mails', ['$http', function ($http) {
         var path = 'module/grolba/mail/data/mails.json';
         var mails = $http.get(path).then(function (resp) {

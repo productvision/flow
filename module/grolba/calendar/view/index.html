@@ -1,11 +1,4 @@
 <div data-ng-controller="grolba.calendar.IndexController">
-    <div class="wrapper-md bg-light b-b">
-        <button type="button" class="btn btn-default btn-addon pull-right m-t-n-xs" data-ui-toggle-class="show"
-                target="#aside">
-            <i class="fa fa-bars"></i> List
-        </button>
-        <h1 class="m-n font-thin h3">Fullcalendar</h1>
-    </div>
     <div class="hbox hbox-auto-xs hbox-auto-sm">
         <div class="col wrapper-md">
             <div class="clearfix m-b">
@@ -20,6 +13,12 @@
                         <button class="btn btn-sm btn-default" data-ng-click="changeView('agendaWeek')">Week</button>
                         <button class="btn btn-sm btn-default" data-ng-click="changeView('month')">Month</button>
                     </div>
+                </div>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default btn-addon m-t-n-xs" data-ui-toggle-class="show"
+                            target="#aside">
+                        <i class="fa fa-bars"></i> List
+                    </button>
                 </div>
             </div>
             <div class="pos-rlt">

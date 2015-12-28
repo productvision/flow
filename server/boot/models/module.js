@@ -23,9 +23,9 @@ module.exports = function (app) {
             controller: 'grolba.file.IndexController'
         },
         {
-            label: 'Mail',
+            label: 'Nachrichten',
             templateUrl: 'module/grolba/mail/view/index.html',
-            controller: 'grolba.mail.IndexController'
+            controller: 'grolba.messenger.IndexController'
         },
         {
             label: 'Musik',

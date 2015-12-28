@@ -3,6 +3,7 @@ module.exports = function (app) {
     var Config = app.models.Config;
 
     require('./models/module')(app);
+    require('./models/message')(app);
 
     User.create({
         "email": "to@gew.io",

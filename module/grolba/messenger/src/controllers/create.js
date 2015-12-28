@@ -1,6 +1,6 @@
 angular
-    .module('grolba.mail')
-    .controller('grolba.mail.CreateController', [
+    .module('grolba.messenger')
+    .controller('grolba.messenger.CreateController', [
         '$scope',
         function ($scope) {
             $scope.mail = {

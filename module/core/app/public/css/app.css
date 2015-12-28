@@ -733,6 +733,7 @@ body {
 }
 
 .app-content {
+    position: relative;
     height: 100%;
 }
 
