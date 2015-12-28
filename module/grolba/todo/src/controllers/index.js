@@ -1,19 +1,6 @@
 angular
     .module('grolba.todo')
-    .factory('todoStorage', function () {
-        var STORAGE_ID = 'todos';
-
-        return {
-            get: function () {
-                return JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
-            },
-
-            put: function (todos) {
-                localStorage.setItem(STORAGE_ID, JSON.stringify(todos));
-            }
-        };
-    })
-    .controller('TodoController', ['$scope', '$location', '$filter', 'todoStorage', function ($scope, $location, $filter, todoStorage) {
+    .controller('grolba.todo.IndexController', ['$scope', '$location', '$filter', 'todoStorage', function ($scope, $location, $filter, todoStorage) {
         var todos = $scope.todos = todoStorage.get();
 
         $scope.newTodo = '';
@@ -103,3 +90,21 @@ angular
         };
     }]);
 
+
+
+
+angular
+    .module('grolba.todo')
+    .factory('todoStorage', function () {
+        var STORAGE_ID = 'todos';
+
+        return {
+            get: function () {
+                return JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
+            },
+
+            put: function (todos) {
+                localStorage.setItem(STORAGE_ID, JSON.stringify(todos));
+            }
+        };
+    });

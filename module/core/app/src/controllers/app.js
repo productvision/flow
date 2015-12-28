@@ -44,7 +44,7 @@ angular
             $rootScope.space = spaces[0];
             $rootScope.spaces = spaces;
 
-            $scope.openModuleModal = function () {
+            $rootScope.openModuleModal = function () {
                 var modal = $uibModal.open({
                     animation: true,
                     templateUrl: 'module/core/app/view/module-modal.html',

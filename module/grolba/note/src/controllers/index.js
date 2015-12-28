@@ -1,6 +1,6 @@
 angular
     .module('grolba.note')
-    .controller('NoteController', [
+    .controller('grolba.note.IndexController', [
         '$scope', '$http',
         function ($scope, $http) {
             $http.get('module/grolba/note/data/notes.json').then(function (resp) {

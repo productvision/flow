@@ -1,6 +1,6 @@
 angular
     .module('grolba.contact')
-    .controller('ContactController', [
+    .controller('grolba.contact.IndexController', [
         '$scope', '$http', '$filter',
         function ($scope, $http, $filter) {
             $http.get('module/grolba/contact/data/contacts.json').then(function (resp) {

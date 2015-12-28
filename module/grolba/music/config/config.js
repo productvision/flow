@@ -6,7 +6,7 @@ angular
             $stateProvider
                 .state('music', {
                     url: '/music',
-                    templateUrl: 'module/grolba/music/view/music.html',
+                    templateUrl: 'module/grolba/music/view/index.html',
                     controller: 'grolba.music.IndexController',
                     resolve: AutoloaderProvider.load([
                         'com.2fdevs.videogular',
@@ -20,27 +20,27 @@ angular
                 })
                 .state('music.home', {
                     url: '/home',
-                    templateUrl: 'module/grolba/music/view/music.home.html'
+                    templateUrl: 'module/grolba/music/view/home.html'
                 })
                 .state('music.genres', {
                     url: '/genres',
-                    templateUrl: 'module/grolba/music/view/music.genres.html'
+                    templateUrl: 'module/grolba/music/view/genres.html'
                 })
                 .state('music.detail', {
                     url: '/detail',
-                    templateUrl: 'module/grolba/music/view/music.detail.html'
+                    templateUrl: 'module/grolba/music/view/detail.html'
                 })
                 .state('music.mtv', {
                     url: '/mtv',
-                    templateUrl: 'module/grolba/music/view/music.mtv.html'
+                    templateUrl: 'module/grolba/music/view/mtv.html'
                 })
                 .state('music.mtvdetail', {
                     url: '/mtvdetail',
-                    templateUrl: 'module/grolba/music/view/music.mtv.detail.html'
+                    templateUrl: 'module/grolba/music/view/mtv.detail.html'
                 })
                 .state('music.playlist', {
                     url: '/playlist/{fold}',
-                    templateUrl: 'module/grolba/music/view/music.playlist.html'
+                    templateUrl: 'module/grolba/music/view/playlist.html'
                 });
         }
     ])

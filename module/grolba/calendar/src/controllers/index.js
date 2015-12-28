@@ -1,6 +1,6 @@
 angular
     .module('grolba.calendar')
-    .controller('CalendarController', [
+    .controller('grolba.calendar.IndexController', [
         '$scope',
         function ($scope) {
 

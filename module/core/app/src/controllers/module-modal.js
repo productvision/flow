@@ -3,7 +3,14 @@ angular
     .controller('core.app.ModuleModalController', [
         '$scope', '$uibModalInstance', 'modules',
         function ($scope, $uibModalInstance, modules) {
-            $scope.model = {};
+            var id = Math.random().toString(36).substring(7);
+
+            $scope.model = {
+                moduleId: 7,
+                name: id,
+                slug: id,
+                addToMenu: true
+            };
             $scope.onSubmit = function () {
                 console.log(JSON.stringify($scope.model), null, 2);
             };
@@ -24,6 +31,14 @@ angular
                     }
                 },
                 {
+                    key: 'name',
+                    type: 'input',
+                    templateOptions: {
+                        label: 'Modulname',
+                        placeholder: 'Modulname'
+                    }
+                },
+                {
                     key: 'slug',
                     type: 'input',
                     templateOptions: {
@@ -32,13 +47,6 @@ angular
                     }
                 },
                 {
-                    key: 'name',
-                    type: 'input',
-                    templateOptions: {
-                        label: 'Modulname',
-                        placeholder: 'Modulname'
-                    }
-                }, {
                     key: 'addToMenu',
                     type: 'checkbox',
                     templateOptions: {

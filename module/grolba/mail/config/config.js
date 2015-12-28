@@ -7,7 +7,7 @@ angular
                 .state('app.mail', {
                     abstract: true,
                     url: '/mail',
-                    templateUrl: 'module/grolba/mail/view/mail.html',
+                    templateUrl: 'module/grolba/mail/view/index.html',
                     resolve: AutoloaderProvider.load([
                         'module/grolba/mail/src/controllers/index.js',
                         'module/grolba/mail/src/services/mail.js',
@@ -16,15 +16,15 @@ angular
                 })
                 .state('app.mail.list', {
                     url: '/inbox/{fold}',
-                    templateUrl: 'module/grolba/mail/view/mail.list.html'
+                    templateUrl: 'module/grolba/mail/view/list.html'
                 })
                 .state('app.mail.detail', {
                     url: '/{mailId:[0-9]{1,4}}',
-                    templateUrl: 'module/grolba/mail/view/mail.detail.html'
+                    templateUrl: 'module/grolba/mail/view/detail.html'
                 })
-                .state('app.mail.compose', {
-                    url: '/compose',
-                    templateUrl: 'module/grolba/mail/view/mail.new.html'
+                .state('app.mail.create', {
+                    url: '/create',
+                    templateUrl: 'module/grolba/mail/view/create.html'
                 });
         }
     ])
