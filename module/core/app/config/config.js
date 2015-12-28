@@ -341,11 +341,8 @@ angular
     .run([
         '$rootScope',
         function ($rootScope) {
-            $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
-                debugger;
-            });
-
-            //$rootScope.$state = $state;
-            //$rootScope.$stateParams = $stateParams;
+            $rootScope.showNotice = function (message) {
+                angular.element('#notices .text').text(message);
+            };
         }
     ]);
