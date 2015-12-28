@@ -1,0 +1,2 @@
+angular
+    .module('editor.ui', []);

@@ -22,6 +22,8 @@ angular.module('app', [
     'formly',
     'formlyBootstrap',
 
+    'editor.ui',
+
     'grolba.calendar',
     'grolba.contact',
     'grolba.dashboard',
@@ -32,6 +34,8 @@ angular.module('app', [
     'grolba.file',
     'grolba.network',
     'grolba.dictionary',
+    'grolba.issue',
+    'grolba.goal',
 
     'Loopback'
 ]);

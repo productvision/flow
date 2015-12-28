@@ -5,38 +5,59 @@ module.exports = function (app, config) {
         slug: 'team',
         name: 'Team',
         menu: [
+            //{
+            //    label: 'Dashboard',
+            //    sref: 'app.dashboard'
+            //},
             {
-                label: 'Übersicht',
-                sref: 'app.dashboard'
+                label: 'Ziele',
+                sref: 'app.goal'
             },
             {
-                label: 'Kunden',
-                sref: 'app.contact'
+                label: 'Vorgänge',
+                sref: 'app.issue'
             },
             {
-                label: 'Netwerke',
+                label: 'Personen',
+                children: [
+                    {
+                        label: 'Übersicht',
+                        sref: 'app.contact'
+                    },
+                    {
+                        label: 'Kundenkontakte',
+                        sref: 'app.contact'
+                    },
+                    {
+                        label: 'Kunden',
+                        sref: 'app.contact'
+                    },
+                    {
+                        label: 'Partner',
+                        sref: 'app.contact'
+                    }
+                ]
+            },
+            {
+                label: 'Netzwerk',
                 sref: 'app.network'
-            },
-            {
-                label: 'Kampagnen',
-                sref: 'app.todo'
-            },
-            {
-                label: 'Nachrichten',
-                sref: 'app.messenger.list'
-            },
-            {
-                label: 'Kalender',
-                sref: 'app.calendar'
-            },
-            {
-                label: 'Notizen',
-                sref: 'app.note'
-            },
-            {
-                label: 'Dateien',
-                sref: 'app.form.fileupload'
             }
+            //{
+            //    label: 'Nachrichten',
+            //    sref: 'app.messenger.list'
+            //},
+            //{
+            //    label: 'Kalender',
+            //    sref: 'app.calendar'
+            //},
+            //{
+            //    label: 'Notizen',
+            //    sref: 'app.note'
+            //},
+            //{
+            //    label: 'Dateien',
+            //    sref: 'app.form.fileupload'
+            //}
         ]
     }, function (err, space) {
         require('./space-config')(app, config, space);

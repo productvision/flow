@@ -7,7 +7,6 @@ angular
     .controller('AppController', [
         '$rootScope', '$scope', '$state', '$uibModal', 'LazyState', 'SpaceModule', 'modules', 'spaces', 'spaceModules',
         function ($rootScope, $scope, $state, $uibModal, LazyState, SpaceModule, modules, spaces, spaceModules) {
-
             function addState(spaceModule) {
                 if (!spaceModule.addToMenu) {
                     return;
@@ -29,7 +28,7 @@ angular
 
                 var stateConfig = {
                     url: '/' + spaceModule.slug,
-                    templateUrl: module.templateUrl
+                    templateUrl: module.view
                 };
                 if (module.controller) {
                     stateConfig.controller = module.controller;
@@ -76,30 +75,6 @@ angular
                 }, function () {
                     console.log('Modal dismissed at: ' + new Date());
                 });
-            };
-
-            $scope.editor = {
-                model: {},
-                fields: [
-                    {
-                        key: 'model',
-                        type: 'select',
-                        templateOptions: {
-                            label: 'Datenquelle',
-                            options: [
-                                {
-                                    name: 'Interne Datenbank',
-                                    value: 'memory'
-                                },
-                                {
-                                    name: 'Rest API',
-                                    value: 'rest'
-                                }
-                            ]
-                        }
-                    }
-                ],
-                options: {}
             };
 
             $scope.updateView = function () {

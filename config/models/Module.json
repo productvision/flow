@@ -11,15 +11,18 @@
       "type": "string",
       "required": true
     },
-    "templateUrl": {
+    "view": {
       "type": "string",
       "required": true
     },
     "controller": {
       "type": "string"
     },
-    "models": {
-      "type": "array"
+    "model": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object"
     }
   },
   "validations": [],

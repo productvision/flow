@@ -1,6 +1,7 @@
 <div class="collapse pos-rlt navbar-collapse box-shadow">
     <ul class="nav navbar-nav hidden-sm">
-        <li>
+        <li class="navbar-brand" data-ng-if="spaces.length == 1">{{ space.name }}</li>
+        <li data-ng-if="spaces.length > 1">
             <a href class="dropdown-toggle navbar-brand" data-toggle="dropdown">
                 <span>{{ space.name }}</span>
                 <span class="caret"></span>

@@ -27,12 +27,7 @@ angular
                                 name: module.label,
                                 value: module.id
                             };
-                        }),
-
-                        //optionsAttr: 'bs-options',
-                        //ngOptions: 'option[to.valueProp] as option in to.options',
-                        //valueProp: 'id',
-                        //labelProp: 'label'
+                        })
                     }
                 },
                 {
@@ -40,11 +35,7 @@ angular
                     type: 'input',
                     templateOptions: {
                         label: 'Modulname',
-                        placeholder: 'Modulname',
-                        onKeypress: function($viewValue, $modelValue, scope) {
-                            debugger;
-                            console.log('The key was pressed!', $viewValue);
-                        }
+                        placeholder: 'Modulname'
                     }
                 },
                 {
@@ -52,10 +43,7 @@ angular
                     type: 'input',
                     templateOptions: {
                         label: window.location.host + '/',
-                        placeholder: 'Url eingeben',
-                        onFocus: function() {
-                            debugger;
-                        }
+                        placeholder: 'Url eingeben'
                     }
                 },
                 {

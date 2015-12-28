@@ -7,5 +7,8 @@
     <div class="app-content-body fade-in" ui-view></div>
 </div>
 
-<div data-ng-include=" 'module/core/app/view/blocks/settings.html' " class="settings panel panel-default">
+<div class="settings panel panel-default">
+    <a href data-ui-sref="app.editor.detail({id: 'app.network'})" class="btn btn-default no-shadow pos-abt">
+        <i class="glyphicon glyphicon-edit"></i>
+    </a>
 </div>
