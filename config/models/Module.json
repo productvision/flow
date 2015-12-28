@@ -7,12 +7,19 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "label": {
       "type": "string",
       "required": true
     },
-    "config": {
-      "type": "object"
+    "templateUrl": {
+      "type": "string",
+      "required": true
+    },
+    "controller": {
+      "type": "string"
+    },
+    "models": {
+      "type": "array"
     }
   },
   "validations": [],

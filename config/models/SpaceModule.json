@@ -3,11 +3,13 @@
   "plural": "space-modules",
   "base": "PersistedModel",
   "properties": {
-    "config": {
-      "type": "object"
+    "name": {
+      "type": "string",
+      "required": true
     },
-    "type": {
-      "type": "string"
+    "slug": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

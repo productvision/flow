@@ -37,6 +37,12 @@ angular
                 .otherwise('/app/dictionary');
 
             $stateProvider
+                .state('module', {
+                    abstract: true,
+                    url: '/module',
+                    templateUrl: "module/core/app/view/layout.html"
+                })
+
                 .state('app', {
                     abstract: true,
                     url: '/app',
@@ -292,12 +298,6 @@ angular
                     },
                     resolve: AutoloaderProvider.load(['module/core/app/src/controllers/tab.js'])
                 })
-                .state('apps', {
-                    abstract: true,
-                    url: '/apps',
-                    templateUrl: 'view/layout.html'
-                })
-
                 .state('app.weather', {
                     url: '/weather',
                     templateUrl: 'view/apps_weather.html',

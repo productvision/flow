@@ -1,26 +1,34 @@
 angular
     .module('app')
     .controller('core.app.ModuleModalController', [
-        '$scope', '$uibModalInstance',
-        function ($scope, $uibModalInstance) {
-            $scope.model = {
-            };
+        '$scope', '$uibModalInstance', 'modules',
+        function ($scope, $uibModalInstance, modules) {
+            $scope.model = {};
             $scope.onSubmit = function () {
                 console.log(JSON.stringify($scope.model), null, 2);
             };
+
             $scope.fields = [
                 {
-                    key: 'type',
+                    key: 'moduleId',
                     type: 'select',
                     templateOptions: {
-                        label: 'Template',
-                        placeholder: 'Template wählen...',
-                        options: [
-                            {
-                                name: 'Statische Seite',
-                                value: 'static-page'
-                            }
-                        ]
+                        label: 'Modul',
+                        placeholder: 'Modul wählen...',
+                        options: jQuery.map(modules, function (module) {
+                            return {
+                                name: module.label,
+                                value: module.id
+                            };
+                        })
+                    }
+                },
+                {
+                    key: 'slug',
+                    type: 'input',
+                    templateOptions: {
+                        label: window.location.host + '/',
+                        placeholder: 'Url eingeben'
                     }
                 },
                 {

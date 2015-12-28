@@ -51,18 +51,23 @@ angular
                 var modal = $uibModal.open({
                     animation: true,
                     templateUrl: 'module/core/app/view/module-modal.html',
-                    controller: 'core.app.ModuleModalController'
+                    controller: 'core.app.ModuleModalController',
+                    resolve: {
+                        modules: [
+                            'Module',
+                            function (Module) {
+                                return Module.query().$promise;
+                            }
+                        ]
+                    }
                 });
                 modal.result.then(function (item) {
-                    //var module = new SpaceModule({
-                    //    spaceId: $rootScope.space.id,
-                    //    name: item.name,
-                    //    config: {},
-                    //    type: item.type
-                    //});
-                    //module.$save();
-                    //
-                    //console.log(module);
+                    item.spaceId = $rootScope.space.id;
+
+                    var module = new SpaceModule(item);
+                    module.$save();
+
+                    debugger;
                 }, function () {
                     console.log('Modal dismissed at: ' + new Date());
                 });
