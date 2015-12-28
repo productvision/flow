@@ -3,10 +3,7 @@ module.exports = function (app, config, space) {
 
     SpaceConfig.create({
         "configId": config.id,
-        "spaceId": space.id,
-        "config": {
-            "foo": "bar"
-        }
+        "spaceId": space.id
     }, function (err, spaceConfig) {
 
     });

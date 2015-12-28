@@ -30,8 +30,8 @@ angular.module('app', [
     'grolba.note',
     'grolba.todo',
     'grolba.file',
-
-    'simplicity.dictionary',
+    'grolba.network',
+    'grolba.dictionary',
 
     'Loopback'
 ]);

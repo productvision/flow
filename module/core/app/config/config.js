@@ -339,10 +339,17 @@ angular
         }
     ])
     .run([
-        '$rootScope',
-        function ($rootScope) {
+        '$rootScope', 'formlyConfig',
+        function ($rootScope, formlyConfig) {
             $rootScope.showNotice = function (message) {
                 angular.element('#notices .text').text(message);
             };
+
+            formlyConfig.extras.removeChromeAutoComplete = true;
+            formlyConfig.setType({
+                name: 'ui-select2',
+                extends: 'select',
+                templateUrl: 'module/core/app/view/form/type/select2.html'
+            });
         }
     ]);

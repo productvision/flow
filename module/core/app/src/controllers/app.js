@@ -111,7 +111,24 @@ angular
             };
 
             $scope.openSpace = function (spaceId) {
+                var space = $rootScope.spaces[spaceId];
+                var state;
+                if (space.hasOwnProperty('sref')) {
+                    state = space.sref;
+                }
+                if (space.hasOwnProperty('menu') && space.menu.length > 0) {
+                    var menuItem = space.menu[0];
+
+                    if (menuItem.hasOwnProperty('sref')) {
+                        state = menuItem.sref;
+                    }
+                }
+
                 $rootScope.space = $rootScope.spaces[spaceId];
+
+                if (state) {
+                    $state.go(state);
+                }
             };
 
         }]

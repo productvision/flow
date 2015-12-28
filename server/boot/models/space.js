@@ -4,12 +4,7 @@ module.exports = function (app, config) {
     Space.create({
         slug: 'dictionary',
         name: 'Wörterbuch',
-        menu: [
-            {
-                label: 'Startseite',
-                sref: 'app.dictionary'
-            }
-        ]
+        sref: 'app.dictionary'
     }, function (err, space) {
         require('./space-config')(app, config, space);
     });
@@ -20,7 +15,7 @@ module.exports = function (app, config) {
         menu: [
             {
                 label: 'Startseite',
-                sref: 'app.dictionary'
+                sref: 'app.dashboard'
             }
         ]
     }, function (err, space) {
@@ -33,7 +28,7 @@ module.exports = function (app, config) {
         menu: [
             {
                 label: 'Startseite',
-                sref: 'app.dictionary'
+                sref: 'app.dashboard'
             }
         ]
     }, function (err, space) {
@@ -74,7 +69,7 @@ module.exports = function (app, config) {
             },
             {
                 label: 'Netwerke',
-                sref: 'app.dashboard'
+                sref: 'app.network'
             }
         ]
     }, function (err, space) {
@@ -87,7 +82,7 @@ module.exports = function (app, config) {
         menu: [
             {
                 label: 'Startseite',
-                sref: 'app.dictionary'
+                sref: 'app.dashboard'
             }
         ],
         models: [
