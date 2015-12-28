@@ -7,6 +7,7 @@ angular
                 .state('app.note', {
                     url: '/note',
                     templateUrl: 'module/grolba/note/view/index.html',
+                    controller: 'grolba.note.IndexController',
                     resolve: AutoloaderProvider.load([
                         'module/grolba/note/src/controllers/index.js',
                         'moment'

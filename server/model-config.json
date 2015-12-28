@@ -35,5 +35,9 @@
   "Message": {
     "dataSource": "memory",
     "public": true
+  },
+  "Event": {
+    "dataSource": "memory",
+    "public": true
   }
 }

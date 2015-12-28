@@ -1,0 +1,28 @@
+{
+  "name": "Event",
+  "plural": "events",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "start": {
+      "type": "date"
+    },
+    "type": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "info": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": {}
+}

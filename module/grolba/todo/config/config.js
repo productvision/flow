@@ -7,6 +7,7 @@ angular
                 .state('app.todo', {
                     url: '/todo',
                     templateUrl: 'module/grolba/todo/view/index.html',
+                    controller: 'grolba.todo.IndexController',
                     resolve: AutoloaderProvider.load([
                         'module/grolba/todo/src/controllers/index.js',
                         'moment'

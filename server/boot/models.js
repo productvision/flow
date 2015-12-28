@@ -4,6 +4,7 @@ module.exports = function (app) {
 
     require('./models/module')(app);
     require('./models/message')(app);
+    require('./models/event')(app);
 
     User.create({
         "email": "to@gew.io",

@@ -14,6 +14,7 @@ angular
                 .state('app.form.fileupload', {
                     url: '/fileupload',
                     templateUrl: 'module/grolba/file/view/index.html',
+                    controller: 'grolba.file.IndexController',
                     resolve: AutoloaderProvider.load([
                         'angularFileUpload',
                         'module/grolba/file/src/controllers/index.js'

@@ -8,15 +8,16 @@ angular
                     abstract: true,
                     url: '/messenger',
                     templateUrl: 'module/grolba/messenger/view/index.html',
+                    controller: 'grolba.messenger.IndexController',
                     resolve: AutoloaderProvider.load([
                         'module/grolba/messenger/src/controllers/index.js',
-                        'module/grolba/messenger/src/services/messenger.js',
                         'moment'
                     ])
                 })
                 .state('app.messenger.list', {
                     url: '/inbox/{folder}',
                     templateUrl: 'module/grolba/messenger/view/list.html',
+                    controller: 'grolba.messenger.ListController',
                     resolve: {
                         messages: [
                             'Message',
@@ -29,6 +30,7 @@ angular
                 .state('app.messenger.detail', {
                     url: '/{messageId:[0-9]{1,4}}',
                     templateUrl: 'module/grolba/messenger/view/detail.html',
+                    controller: 'grolba.messenger.DetailController',
                     resolve: {
                         message: [
                             '$stateParams', 'Message',
@@ -40,7 +42,8 @@ angular
                 })
                 .state('app.messenger.create', {
                     url: '/create',
-                    templateUrl: 'module/grolba/messenger/view/create.html'
+                    templateUrl: 'module/grolba/messenger/view/create.html',
+                    controller: 'grolba.messenger.CreateController'
                 });
         }
     ]);
