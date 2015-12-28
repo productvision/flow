@@ -6,7 +6,7 @@ module.exports = function (app) {
     Module.create({
         label: 'Dashboard',
         templateUrl: 'module/grolba/dashboard/view/index.html',
-        controller: 'module/grolba/dashboard/src/controllers/index.js'
+        controller: 'grolba.dashboard.IndexController'
     }, function () {
 
     });

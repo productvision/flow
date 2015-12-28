@@ -38,6 +38,12 @@ angular
                         label: 'Modulname',
                         placeholder: 'Modulname'
                     }
+                }, {
+                    key: 'addToMenu',
+                    type: 'checkbox',
+                    templateOptions: {
+                        label: 'Zum Menü hinzufügen'
+                    }
                 }
             ];
             $scope.options = {

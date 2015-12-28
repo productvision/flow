@@ -46,7 +46,28 @@ angular
                 .state('app', {
                     abstract: true,
                     url: '/app',
-                    templateUrl: "module/core/app/view/layout.html"
+                    controller: 'AppController',
+                    templateUrl: "module/core/app/view/layout.html",
+                    resolve: {
+                        spaces: [
+                            'Space',
+                            function (Space) {
+                                return Space.find({}).$promise;
+                            }
+                        ],
+                        modules: [
+                            'Module',
+                            function (Module) {
+                                return Module.find({}).$promise;
+                            }
+                        ],
+                        spaceModules: [
+                            'SpaceModule',
+                            function (SpaceModule) {
+                                return SpaceModule.find({}).$promise;
+                            }
+                        ]
+                    }
                 })
                 .state('app.ui', {
                     url: '/ui',
@@ -318,23 +339,13 @@ angular
         }
     ])
     .run([
-        '$rootScope', '$state', '$stateParams', 'Config',
-        function ($rootScope, $state, $stateParams, Config) {
-            //$rootScope.config = Config.find({
-            //        filter: {
-            //            where: {
-            //                slug: 'dictionary'
-            //            }
-            //        }
-            //    },
-            //    function (list) {
-            //        debugger;
-            //    },
-            //    function (errorResponse) {
-            //        debugger;
-            //    }
-            //);
-            $rootScope.$state = $state;
-            $rootScope.$stateParams = $stateParams;
+        '$rootScope',
+        function ($rootScope) {
+            $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
+                debugger;
+            });
+
+            //$rootScope.$state = $state;
+            //$rootScope.$stateParams = $stateParams;
         }
     ]);

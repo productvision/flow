@@ -5,47 +5,44 @@
 angular
     .module('app')
     .controller('AppController', [
-        '$localStorage', '$rootScope', '$scope', '$state', '$timeout', '$translate', '$uibModal', '$window',
-        'Space', 'SpaceConfig', 'SpaceModule',
-        function ($localStorage, $rootScope, $scope, $state, $timeout, $translate, $uibModal, $window,
-                  Space, SpaceConfig, SpaceModule) {
+        '$rootScope', '$scope', '$state', '$uibModal', 'LazyState', 'SpaceModule', 'modules', 'spaces', 'spaceModules',
+        function ($rootScope, $scope, $state, $uibModal, LazyState, SpaceModule, modules, spaces, spaceModules) {
 
-            function applySettings() {
-                if (angular.isDefined($localStorage.settings)) {
-                    $rootScope.space.settings = $localStorage.settings;
-                } else {
-                    $localStorage.settings = $rootScope.space.settings;
+            function addState(spaceModule) {
+                if (!spaceModule.addToMenu) {
+                    return;
                 }
-            }
 
-            function applyBodyClasses() {
-                var isIE = !!navigator.userAgent.match(/MSIE/i);
-                isIE && angular.element($window.document.body).addClass('ie');
-                isSmartDevice($window) && angular.element($window.document.body).addClass('smart');
-            }
-
-            Space.find({}, function (spaces) {
-                $timeout(function () {
-                    $rootScope.space = spaces[0];
-                    $rootScope.spaces = spaces;
-
-                    applyBodyClasses();
-                    applySettings();
-
-                    $scope.$watch('app.settings', function () {
-                        if ($rootScope.space.settings.asideDock && $rootScope.space.settings.asideFixed) {
-                            // aside dock and fixed must set the header fixed.
-                            $rootScope.space.settings.headerFixed = true;
+                var module;
+                for (var index in modules) {
+                    if (modules.hasOwnProperty(index)) {
+                        module = modules[index];
+                        if (module.id === spaceModule.moduleId) {
+                            break;
                         }
-                        // for box layout, add background image
-                        $rootScope.space.settings.container ? angular.element('html').addClass('bg') : angular.element('html').removeClass('bg');
-                        // save to local storage
-                        $localStorage.settings = $rootScope.space.settings;
-                    }, true);
-                });
-            }, function () {
-                debugger;
-            });
+                    }
+                }
+
+                if (!module) {
+                    return;
+                }
+
+                var stateConfig = {
+                    url: '/' + spaceModule.slug,
+                    templateUrl: module.templateUrl
+                };
+                if (module.controller) {
+                    stateConfig.controller = module.controller;
+                }
+
+                LazyState.addState('module.' + spaceModule.slug, stateConfig);
+            }
+
+            jQuery.map(spaceModules, addState);
+
+
+            $rootScope.space = spaces[0];
+            $rootScope.spaces = spaces;
 
             $scope.openModuleModal = function () {
                 var modal = $uibModal.open({
@@ -64,38 +61,22 @@ angular
                 modal.result.then(function (item) {
                     item.spaceId = $rootScope.space.id;
 
-                    var module = new SpaceModule(item);
-                    module.$save();
+                    var spaceModule = new SpaceModule(item);
+                    spaceModule.$save();
 
-                    debugger;
+                    if (item.hasOwnProperty('addToMenu') && item.addToMenu) {
+                        $rootScope.space.menu.push({
+                            label: spaceModule.name,
+                            sref: 'module.' + spaceModule.slug
+                        });
+                        $rootScope.space.$save();
+
+                        addState(spaceModule);
+                    }
                 }, function () {
                     console.log('Modal dismissed at: ' + new Date());
                 });
             };
-
-            // angular translate
-            $scope.lang = {
-                isopen: false
-            };
-            $scope.langs = {
-                en: 'English',
-                de_DE: 'German',
-                it_IT: 'Italian'
-            };
-            $scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
-            $scope.setLang = function (langKey) {
-                $scope.selectLang = $scope.langs[langKey];
-                $translate.use(langKey);
-                $scope.lang.isopen = !$scope.lang.isopen;
-            };
-
-            function isSmartDevice($window) {
-                // Adapted from http://www.detectmobilebrowsers.com
-                var ua = $window['navigator']['userAgent'] || $window['navigator']['vendor'] || $window['opera'];
-                // Checks for iOs, Android, Blackberry, Opera Mini, and Windows mobile devices
-                return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
-            }
-
 
             $scope.editor = {
                 model: {},
@@ -131,7 +112,6 @@ angular
 
             $scope.openSpace = function (spaceId) {
                 $rootScope.space = $rootScope.spaces[spaceId];
-                applySettings();
             };
 
         }]
