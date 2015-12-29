@@ -42,7 +42,8 @@
     "angular-ui-utils": "~3.0.0",
     "api-check": "~7.5.5",
     "angular-formly": "~7.3.9",
-    "angular-formly-templates-bootstrap": "~6.2.0"
+    "angular-formly-templates-bootstrap": "~6.2.0",
+    "angular-ui-grid": "~3.0.7"
   },
   "overrides": {
     "bootstrap": {

@@ -3,8 +3,9 @@
   "plural": "space-configs",
   "base": "PersistedModel",
   "properties": {
-    "config": {
-      "type": "object"
+    "label": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

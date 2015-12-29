@@ -8082,6 +8082,1650 @@ module.factory(
     return R;
   }]);
 
+/**
+ * @ngdoc object
+ * @name Loopback.Goal
+ * @header Loopback.Goal
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Goal` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Goal",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/goals/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use Goal.keyResults.findById() instead.
+        "prototype$__findById__keyResults": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/goals/:id/keyResults/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Goal.keyResults.destroyById() instead.
+        "prototype$__destroyById__keyResults": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/goals/:id/keyResults/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Goal.keyResults.updateById() instead.
+        "prototype$__updateById__keyResults": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/goals/:id/keyResults/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Goal.keyResults() instead.
+        "prototype$__get__keyResults": {
+          isArray: true,
+          url: urlBase + "/goals/:id/keyResults",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Goal.keyResults.create() instead.
+        "prototype$__create__keyResults": {
+          url: urlBase + "/goals/:id/keyResults",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Goal.keyResults.destroyAll() instead.
+        "prototype$__delete__keyResults": {
+          url: urlBase + "/goals/:id/keyResults",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Goal.keyResults.count() instead.
+        "prototype$__count__keyResults": {
+          url: urlBase + "/goals/:id/keyResults/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#create
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/goals",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#createMany
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/goals",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#upsert
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/goals",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#exists
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/goals/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#findById
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/goals/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#find
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/goals",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#findOne
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/goals/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#updateAll
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/goals/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#deleteById
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/goals/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#count
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/goals/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#prototype$updateAttributes
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/goals/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#createChangeStream
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/goals/change-stream",
+          method: "POST"
+        },
+
+        // INTERNAL. Use KeyResult.goal() instead.
+        "::get::KeyResult::goal": {
+          url: urlBase + "/key-results/:id/goal",
+          method: "GET"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#updateOrCreate
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#update
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#destroyById
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#removeById
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name Loopback.Goal#modelName
+    * @propertyOf Loopback.Goal
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `Goal`.
+    */
+    R.modelName = "Goal";
+
+    /**
+     * @ngdoc object
+     * @name Loopback.Goal.keyResults
+     * @header Loopback.Goal.keyResults
+     * @object
+     * @description
+     *
+     * The object `Goal.keyResults` groups methods
+     * manipulating `KeyResult` instances related to `Goal`.
+     *
+     * Call {@link Loopback.Goal#keyResults Goal.keyResults()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal#keyResults
+         * @methodOf Loopback.Goal
+         *
+         * @description
+         *
+         * Queries keyResults of Goal.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        R.keyResults = function() {
+          var TargetResource = $injector.get("KeyResult");
+          var action = TargetResource["::get::Goal::keyResults"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal.keyResults#count
+         * @methodOf Loopback.Goal.keyResults
+         *
+         * @description
+         *
+         * Counts keyResults of Goal.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.keyResults.count = function() {
+          var TargetResource = $injector.get("KeyResult");
+          var action = TargetResource["::count::Goal::keyResults"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal.keyResults#create
+         * @methodOf Loopback.Goal.keyResults
+         *
+         * @description
+         *
+         * Creates a new instance in keyResults of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        R.keyResults.create = function() {
+          var TargetResource = $injector.get("KeyResult");
+          var action = TargetResource["::create::Goal::keyResults"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal.keyResults#createMany
+         * @methodOf Loopback.Goal.keyResults
+         *
+         * @description
+         *
+         * Creates a new instance in keyResults of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        R.keyResults.createMany = function() {
+          var TargetResource = $injector.get("KeyResult");
+          var action = TargetResource["::createMany::Goal::keyResults"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal.keyResults#destroyAll
+         * @methodOf Loopback.Goal.keyResults
+         *
+         * @description
+         *
+         * Deletes all keyResults of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.keyResults.destroyAll = function() {
+          var TargetResource = $injector.get("KeyResult");
+          var action = TargetResource["::delete::Goal::keyResults"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal.keyResults#destroyById
+         * @methodOf Loopback.Goal.keyResults
+         *
+         * @description
+         *
+         * Delete a related item by id for keyResults.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for keyResults
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.keyResults.destroyById = function() {
+          var TargetResource = $injector.get("KeyResult");
+          var action = TargetResource["::destroyById::Goal::keyResults"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal.keyResults#findById
+         * @methodOf Loopback.Goal.keyResults
+         *
+         * @description
+         *
+         * Find a related item by id for keyResults.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for keyResults
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        R.keyResults.findById = function() {
+          var TargetResource = $injector.get("KeyResult");
+          var action = TargetResource["::findById::Goal::keyResults"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Goal.keyResults#updateById
+         * @methodOf Loopback.Goal.keyResults
+         *
+         * @description
+         *
+         * Update a related item by id for keyResults.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for keyResults
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        R.keyResults.updateById = function() {
+          var TargetResource = $injector.get("KeyResult");
+          var action = TargetResource["::updateById::Goal::keyResults"];
+          return action.apply(R, arguments);
+        };
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name Loopback.KeyResult
+ * @header Loopback.KeyResult
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `KeyResult` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "KeyResult",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/key-results/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use KeyResult.goal() instead.
+        "prototype$__get__goal": {
+          url: urlBase + "/key-results/:id/goal",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#create
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/key-results",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#createMany
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/key-results",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#upsert
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/key-results",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#exists
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/key-results/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#findById
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/key-results/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#find
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/key-results",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#findOne
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/key-results/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#updateAll
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/key-results/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#deleteById
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/key-results/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#count
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/key-results/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#prototype$updateAttributes
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/key-results/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#createChangeStream
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/key-results/change-stream",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Goal.keyResults.findById() instead.
+        "::findById::Goal::keyResults": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/goals/:id/keyResults/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Goal.keyResults.destroyById() instead.
+        "::destroyById::Goal::keyResults": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/goals/:id/keyResults/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Goal.keyResults.updateById() instead.
+        "::updateById::Goal::keyResults": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/goals/:id/keyResults/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Goal.keyResults() instead.
+        "::get::Goal::keyResults": {
+          isArray: true,
+          url: urlBase + "/goals/:id/keyResults",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Goal.keyResults.create() instead.
+        "::create::Goal::keyResults": {
+          url: urlBase + "/goals/:id/keyResults",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Goal.keyResults.createMany() instead.
+        "::createMany::Goal::keyResults": {
+          isArray: true,
+          url: urlBase + "/goals/:id/keyResults",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Goal.keyResults.destroyAll() instead.
+        "::delete::Goal::keyResults": {
+          url: urlBase + "/goals/:id/keyResults",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Goal.keyResults.count() instead.
+        "::count::Goal::keyResults": {
+          url: urlBase + "/goals/:id/keyResults/count",
+          method: "GET"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#updateOrCreate
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#update
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#destroyById
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#removeById
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `KeyResult` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name Loopback.KeyResult#modelName
+    * @propertyOf Loopback.KeyResult
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `KeyResult`.
+    */
+    R.modelName = "KeyResult";
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.KeyResult#goal
+         * @methodOf Loopback.KeyResult
+         *
+         * @description
+         *
+         * Fetches belongsTo relation goal.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Goal` object.)
+         * </em>
+         */
+        R.goal = function() {
+          var TargetResource = $injector.get("Goal");
+          var action = TargetResource["::get::KeyResult::goal"];
+          return action.apply(R, arguments);
+        };
+
+    return R;
+  }]);
+
 
 module
   .factory('LoopBackAuth', function() {

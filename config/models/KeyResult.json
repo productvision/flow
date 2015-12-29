@@ -1,0 +1,38 @@
+{
+  "name": "KeyResult",
+  "plural": "key-results",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "goalId": {
+      "type": "number",
+      "required": true
+    },
+    "dueDate": {
+      "type": "date",
+      "required": true
+    },
+    "measurements": {
+      "type": "array",
+      "required": true
+    },
+    "expectedValue": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "goal": {
+      "type": "belongsTo",
+      "model": "Goal",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

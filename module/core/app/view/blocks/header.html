@@ -1,6 +1,11 @@
 <div class="collapse pos-rlt navbar-collapse box-shadow">
     <ul class="nav navbar-nav hidden-sm">
-        <li class="navbar-brand" data-ng-if="spaces.length == 1">{{ space.name }}</li>
+        <li data-ng-if="spaces.length == 1">
+            <a href data-ui-sref="app.dashboard" class="dropdown-toggle navbar-brand" data-toggle="dropdown">
+                <span>{{ space.name }}</span>
+            </a>
+        </li>
+
         <li data-ng-if="spaces.length > 1">
             <a href class="dropdown-toggle navbar-brand" data-toggle="dropdown">
                 <span>{{ space.name }}</span>

@@ -60,7 +60,7 @@ module.exports = function (app, config) {
             //}
         ]
     }, function (err, space) {
-        require('./space-config')(app, config, space);
+        require('./space-config')(app, config, space, 'Team Tecis');
     });
 
     return;

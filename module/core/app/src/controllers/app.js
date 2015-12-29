@@ -5,8 +5,13 @@
 angular
     .module('app')
     .controller('AppController', [
-        '$rootScope', '$scope', '$state', '$uibModal', 'LazyState', 'SpaceModule', 'modules', 'spaces', 'spaceModules',
-        function ($rootScope, $scope, $state, $uibModal, LazyState, SpaceModule, modules, spaces, spaceModules) {
+        '$rootScope', '$state', '$uibModal', 'LazyState', 'SpaceModule', 'modules', 'spaces', 'spaceModules',
+        function ($rootScope, $state, $uibModal, LazyState, SpaceModule, modules, spaces, spaceModules) {
+            $rootScope.currentStateName = $state.current.name;
+            $rootScope.$on("$stateChangeStart", function (event, toState) {
+                $rootScope.currentStateName = toState.name;
+            });
+
             function addState(spaceModule) {
                 if (!spaceModule.addToMenu) {
                     return;
@@ -77,15 +82,7 @@ angular
                 });
             };
 
-            $scope.updateView = function () {
-                $state.transitionTo('app.dynamic', {
-                    templateUrl: $scope.editor.model.view
-                }, {
-                    reload: true, inherit: false, notify: true
-                });
-            };
-
-            $scope.openSpace = function (spaceId) {
+            $rootScope.openSpace = function (spaceId) {
                 var space = $rootScope.spaces[spaceId];
                 var state;
                 if (space.hasOwnProperty('sref')) {

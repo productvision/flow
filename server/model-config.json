@@ -39,5 +39,13 @@
   "Event": {
     "dataSource": "memory",
     "public": true
+  },
+  "Goal": {
+    "dataSource": "memory",
+    "public": true
+  },
+  "KeyResult": {
+    "dataSource": "memory",
+    "public": true
   }
 }

@@ -1,14 +1,6 @@
 angular
     .module('app')
     .config([
-        '$httpProvider',
-        function ($httpProvider) {
-            $httpProvider.defaults.useXDomain = true;
-
-            delete $httpProvider.defaults.headers.common['X-Requested-With'];
-        }
-    ])
-    .config([
         '$ocLazyLoadProvider', 'AutoloaderProvider',
         function ($ocLazyLoadProvider, AutoloaderProvider) {
             $ocLazyLoadProvider.config({
@@ -19,22 +11,10 @@ angular
         }
     ])
     .config([
-        '$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
-        function ($controllerProvider, $compileProvider, $filterProvider, $provide) {
-            app.controller = $controllerProvider.register;
-            app.directive = $compileProvider.directive;
-            app.filter = $filterProvider.register;
-            app.factory = $provide.factory;
-            app.service = $provide.service;
-            app.constant = $provide.constant;
-            app.value = $provide.value;
-        }
-    ])
-    .config([
         '$stateProvider', '$urlRouterProvider', 'AutoloaderProvider',
         function ($stateProvider, $urlRouterProvider, AutoloaderProvider) {
             $urlRouterProvider
-                .otherwise('/app/dictionary');
+                .otherwise('/app/dashboard');
 
             $stateProvider
                 .state('module', {
@@ -49,6 +29,27 @@ angular
                     controller: 'AppController',
                     templateUrl: "module/core/app/view/layout.html",
                     resolve: {
+                        user: [
+                            'User',
+                            function (User) {
+                                return User.find(1).$promise;
+                            }
+                        ],
+                        spaceConfig: [
+                            'SpaceConfig', 'user',
+                            function (SpaceConfig, user) {
+                                return SpaceConfig.find({
+                                    userId: user.id
+                                }).$promise;
+                            }
+                        ],
+                        space: [
+                            'Space', 'spaceConfig',
+                            function (Space, spaceConfig) {
+                                return Space.find(spaceConfig.spaceId).$promise;
+                            }
+                        ],
+
                         spaces: [
                             'Space',
                             function (Space) {

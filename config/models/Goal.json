@@ -1,0 +1,22 @@
+{
+  "name": "Goal",
+  "plural": "goals",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "objective": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "keyResults": {
+      "type": "hasMany",
+      "model": "KeyResult",
+      "foreignKey": "goalId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
