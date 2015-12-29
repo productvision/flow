@@ -7,8 +7,8 @@
                 </div>
                 <div class="item m-l-n-xxs m-r-n-xxs">
                     <div class="center text-center w-full" style="margin-top:-60px">
-                        <div  data-ui-data-ui-refresh="x" data-ui-options="{
-                            percent: {{ x * 15 }},
+                        <div data-ui-jq="easyPieChart" data-ui-data-ui-refresh="x" data-ui-options="{
+                            percent: 30,
                             lineWidth: 60,
                             trackColor: 'rgba(255,255,255,0)',
                             barColor: 'rgba(35,183,229,0.7)',
@@ -35,7 +35,7 @@
                         <div><b>{{ keyResult.title }}</b></div>
                         <div><i>endet am {{ keyResult.dueDate | date:'dd.MM.yyyy' }}</i></div>
                         <div class="inline m-t-sm">
-                            <div data-ui-data-ui-options="{
+                            <div data-ui-jq="easyPieChart" data-ui-data-ui-refresh="x" data-ui-data-ui-options="{
                                   percent: 30,
                                   lineWidth: 3,
                                   trackColor: '{{app.color.light}}',
