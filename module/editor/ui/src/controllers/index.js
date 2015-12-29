@@ -1,30 +1,25 @@
 angular
     .module('editor.ui')
     .controller('editor.ui.IndexController', [
-        '$scope',
-        function ($scope) {
-            $scope.editor = {
-                model: {},
-                fields: [
-                    {
-                        key: 'model',
-                        type: 'select',
-                        templateOptions: {
-                            label: 'Datenquelle',
-                            options: [
-                                {
-                                    name: 'Interne Datenbank',
-                                    value: 'memory'
-                                },
-                                {
-                                    name: 'Rest API',
-                                    value: 'rest'
-                                }
-                            ]
-                        }
-                    }
-                ],
-                options: {}
+        '$scope', '$state', '$stateParams', 'module', 'spaceModule',
+        function ($scope, $state, $stateParams, module, spaceModule) {
+            $scope.module = module;
+            $scope.spaceModule = spaceModule;
+
+            $scope.form = {
+                model: {
+                    name: spaceModule.name,
+                    label: spaceModule.label,
+                    slug: spaceModule.slug
+                },
+                options: {},
+                fields: module.config,
+                submit: function () {
+
+                },
+                cancel: function () {
+
+                }
             };
         }
     ]);
