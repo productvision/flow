@@ -11,7 +11,32 @@ module.exports = function (app, config) {
             //},
             {
                 label: 'Ziele',
-                sref: 'app.goal'
+                children: [
+                    {
+                        label: 'Tabelle',
+                        sref: "app.goal({'view': 'grid'})"
+                    },
+                    {
+                        label: 'Widgets',
+                        sref: "app.goal({'view': 'widgets'})"
+                    },
+                    {
+                        label: 'Diagramme',
+                        sref: "app.goal({'view': 'charts'})"
+                    },
+                    {
+                        label: 'Kalender',
+                        sref: "app.goal({'view': 'calendar'})"
+                    },
+                    {
+                        label: 'Zeitleiste',
+                        sref: "app.goal({'view': 'timeline'})"
+                    },
+                    {
+                        label: 'Debug',
+                        sref: "app.goal({'view': 'debug'})"
+                    }
+                ]
             },
             {
                 label: 'Vorgänge',

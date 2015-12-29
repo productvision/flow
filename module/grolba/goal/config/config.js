@@ -5,8 +5,10 @@ angular
         function ($stateProvider) {
             $stateProvider
                 .state('app.goal', {
-                    url: '/goal',
-                    templateUrl: 'module/grolba/goal/view/index.html',
+                    url: '/goal/:view',
+                    templateUrl: function ($stateParams) {
+                        return 'module/grolba/goal/view/' + $stateParams.view + '.html';
+                    },
                     controller: 'grolba.goal.IndexController',
                     resolve: {
                         goals: [

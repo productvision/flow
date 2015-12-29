@@ -1,9 +1,11 @@
 angular
     .module('grolba.goal')
     .controller('grolba.goal.IndexController', [
-        '$filter', '$http', '$interval', '$scope', 'goals',
-        function ($filter, $http, $interval, $scope, goals) {
-            debugger;
+        '$scope', '$stateParams', 'goals',
+        function ($scope, $stateParams, goals) {
+            $scope.goals = goals;
+            $scope.view = $stateParams.view;
+
             $scope.gridOptions = {
                 enableFiltering: true,
                 enableGroupHeaderSelection: true,
