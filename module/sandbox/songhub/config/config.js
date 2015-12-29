@@ -1,9 +1,9 @@
 angular
     .module('sandbox.songhub')
     .config([
-        'ModuleProvider',
-        function (ModuleProvider) {
-            var moduleSchema = {
+        'ModuleProvider', 'SoftwareProvider',
+        function (ModuleProvider, SoftwareProvider) {
+            SoftwareProvider.addModuleSchema({
                 name: {
                     type: "string"
                 },
@@ -64,9 +64,7 @@ angular
                         }
                     }
                 }
-            };
-
-
+            });
             ModuleProvider.registerModule({
                 name: "Github",
                 entities: {
@@ -100,7 +98,11 @@ angular
                     }
                 }
             });
-            ModuleProvider.registerModule({
+
+            var songhub = SoftwareProvider.registerSoftware({
+                "name": "songhub"
+            });
+            songhub.registerModule({
                 name: "Songhub",
                 url: "songhub",
                 base: "Github",
@@ -115,5 +117,6 @@ angular
                     }
                 }
             });
+
         }
     ]);
