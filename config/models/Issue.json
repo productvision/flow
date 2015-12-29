@@ -1,0 +1,11 @@
+{
+  "name": "Issue",
+  "plural": "issues",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

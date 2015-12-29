@@ -47,5 +47,13 @@
   "KeyResult": {
     "dataSource": "memory",
     "public": true
+  },
+  "Issue": {
+    "dataSource": "memory",
+    "public": true
+  },
+  "IssueType": {
+    "dataSource": "memory",
+    "public": true
   }
 }

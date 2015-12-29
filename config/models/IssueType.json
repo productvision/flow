@@ -1,0 +1,15 @@
+{
+  "name": "IssueType",
+  "plural": "issue-types",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
