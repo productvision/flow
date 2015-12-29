@@ -1,0 +1,2 @@
+angular
+    .module('skeleton.crud', []);
