@@ -23,12 +23,12 @@ angular
     ])
     .value('uiJqConfig', {})
     .directive('uiJq', [
-        '$timeout', 'AutoloaderProvider', 'uiJqConfig', 'uiLoad',
-        function ($timeout, AutoloaderProvider, uiJqConfig, uiLoad) {
+        '$timeout', 'Autoloader', 'uiJqConfig', 'uiLoad',
+        function ($timeout, Autoloader, uiJqConfig, uiLoad) {
             return {
                 restrict: 'A',
                 compile: function uiJqCompilingFunction(tElm, tAttrs) {
-                    var assets = AutoloaderProvider.getAssets();
+                    var assets = Autoloader.getAssets();
 
                     if (!angular.isFunction(tElm[tAttrs.uiJq]) && !assets[tAttrs.uiJq]) {
                         throw new Error('ui-jq: The "' + tAttrs.uiJq + '" function does not exist');

@@ -50,7 +50,7 @@ angular
             };
             this.getAssets = function () {
                 return assets;
-            }
+            };
 
             var modules = [
                 {
@@ -219,7 +219,14 @@ angular
             };
 
             this.$get = function () {
-                return {};
+                return {
+                    getAssets: function () {
+                        return assets;
+                    },
+                    getModules: function () {
+                        return modules;
+                    }
+                };
             };
         }
     ]);
