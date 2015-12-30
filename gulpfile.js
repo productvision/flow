@@ -3,6 +3,22 @@ var gulp = require('gulp'),
     bowerFiles = require('main-bower-files'),
     inject = require('gulp-inject');
 
+var assets = [
+    './config/config.js',
+    './config/spaces/**/*.js',
+
+    './module/core/config/module.js',
+    './module/core/config/**/*.{js,css}',
+    './module/core/loader/module.js',
+    './module/core/loader/**/*.{js,css}',
+    './module/core/menu/module.js',
+    './module/core/menu/**/*.{js,css}',
+    './module/core/app/module.js',
+    './module/core/app/**/*.{js,css}',
+
+    './module/**/module.js',
+    './module/**/*.{js,css}'
+];
 
 gulp.src('./index.html')
     .pipe(inject(gulp.src(bowerFiles(), {
@@ -10,22 +26,7 @@ gulp.src('./index.html')
     }), {
         name: 'bower'
     }))
-    .pipe(inject(gulp.src([
-        './config/config.js',
-        './config/spaces/**/*.js',
-
-        './module/core/config/module.js',
-        './module/core/config/**/*.{js,css}',
-        './module/core/loader/module.js',
-        './module/core/loader/**/*.{js,css}',
-        './module/core/menu/module.js',
-        './module/core/menu/**/*.{js,css}',
-        './module/core/app/module.js',
-        './module/core/app/**/*.{js,css}',
-
-        './module/**/module.js',
-        './module/**/*.{js,css}'
-    ]), {
+    .pipe(inject(gulp.src(assets), {
         read: false
     }))
     .pipe(gulp.dest('.'));
@@ -44,7 +45,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./*.html'], ['html']);
+    gulp.watch(assets, ['html']);
 });
 
 gulp.task('default', ['connect', 'watch']);

@@ -1,3 +1,0 @@
-window.editor.registerModel('user', {
-    
-});

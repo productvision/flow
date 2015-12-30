@@ -1,10 +1,9 @@
 angular
     .module('app')
-    .provider('Module', [
+    .provider('ModuleFactory', [
         '$stateProvider',
         function ($stateProvider) {
             this.module = function (config) {
-debugger;
                 $stateProvider
                     .state(config.name, {
                         url: config.url,

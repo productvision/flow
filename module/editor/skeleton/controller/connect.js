@@ -1,3 +1,0 @@
-window.editor.registerController('connect', {
-
-});
