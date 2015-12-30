@@ -25,6 +25,12 @@ angular
                                 };
                                 if (Object.keys(replaceMap).indexOf(arg) > -1) {
                                     arg = replaceMap[arg];
+                                } else {
+                                    args = {
+                                        __noSuchMethod__: function (methodName, arg) {
+                                            console.log(methodName + ' called with ' + arg.join(', '));
+                                        }
+                                    };
                                 }
                                 return arg;
                             }));
