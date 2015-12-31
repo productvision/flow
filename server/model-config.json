@@ -1,7 +1,8 @@
 {
   "_meta": {
     "sources": [
-      "../config/models"
+      "../config/models",
+      "../module/grolba/issue/config/models"
     ]
   },
   "User": {
@@ -49,10 +50,6 @@
     "public": true
   },
   "Issue": {
-    "dataSource": "memory",
-    "public": true
-  },
-  "IssueType": {
     "dataSource": "memory",
     "public": true
   }

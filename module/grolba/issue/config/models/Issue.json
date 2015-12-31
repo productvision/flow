@@ -2,7 +2,6 @@
   "name": "Issue",
   "plural": "issues",
   "base": "PersistedModel",
-  "idInjection": true,
   "properties": {
     "summary": {
       "type": "string",
@@ -16,9 +15,5 @@
       "type": "boolean",
       "description": "Aktiviert"
     }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+  }
 }
