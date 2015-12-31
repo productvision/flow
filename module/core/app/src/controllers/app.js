@@ -48,7 +48,7 @@ angular
             $rootScope.space = spaces[0];
             $rootScope.spaces = spaces;
 
-            $rootScope.openModuleModal = function () {
+            $rootScope.openCreateDialog = function () {
                 var modal = $uibModal.open({
                     animation: true,
                     templateUrl: 'module/core/app/view/module-modal.html',

@@ -3,7 +3,20 @@
   "plural": "issues",
   "base": "PersistedModel",
   "idInjection": true,
-  "properties": {},
+  "properties": {
+    "summary": {
+      "type": "string",
+      "description": "Zusammenfassung"
+    },
+    "description": {
+      "type": "string",
+      "description": "Beschreibung"
+    },
+    "created": {
+      "type": "date",
+      "description": "Erstellt"
+    }
+  },
   "validations": [],
   "relations": {},
   "acls": [],

@@ -40,7 +40,16 @@ module.exports = function (app, config) {
             },
             {
                 label: 'Vorgänge',
-                sref: 'app.issue'
+                children: [
+                    {
+                        label: 'Übersicht',
+                        sref: 'app.issue.list'
+                    },
+                    {
+                        label: 'Vorgang erstellen',
+                        sref: 'app.issue.create'
+                    }
+                ]
             },
             {
                 label: 'Personen',
