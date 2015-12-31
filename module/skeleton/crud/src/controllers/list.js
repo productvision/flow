@@ -1,18 +1,18 @@
 angular
-    .module('grolba.issue')
-    .controller('grolba.issue.ListController', [
-        '$scope', 'Issue', 'entities', 'entityReflector',
-        function ($scope, Issue, entities, entityReflector) {
+    .module('skeleton.crud')
+    .controller('skeleton.crud.ListController', [
+        '$scope', 'createEntity', 'entities', 'entityReflector',
+        function ($scope, createEntity, entities, entityReflector) {
             $scope.entities = entities;
 
             $scope.addEntity = function () {
-                $scope.entities.push(Issue.create({
+                $scope.entities.push(createEntity({
                     summary: 'Generated'
                 }));
             };
             $scope.deleteEntity = function (id) {
                 //$scope.gridOptions.data.splice(0,1);
-                //Issue.deleteById({
+                //deleteEntity({
                 //    id: id
                 //})
             };
@@ -51,7 +51,7 @@ angular
                         renderableRows.forEach(function (row) {
                             var match = false;
                             columnNames.forEach(function (field) {
-                                if (row.entity.hasOwnProperty(field)) {
+                                if (row.entity.hasOwnProperty(field) && typeof row.entity[field] === 'string') {
                                     if (row.entity[field].match(matcher)) {
                                         match = true;
                                     }

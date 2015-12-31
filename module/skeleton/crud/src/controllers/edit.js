@@ -1,6 +1,6 @@
 angular
-    .module('grolba.issue')
-    .controller('grolba.issue.EditController', [
+    .module('skeleton.crud')
+    .controller('skeleton.crud.EditController', [
         '$scope', '$state', 'entity', 'entityReflector',
         function ($scope, $state, entity, entityReflector) {
             var formFields = entityReflector.mapProperties(function (property) {
@@ -18,7 +18,7 @@ angular
                 fields: formFields,
                 submit: function () {
                     $scope.form.model.$save(function (entity) {
-                        $state.go('app.issue.show', {
+                        $state.go('^.show', {
                             id: entity.id
                         });
                     });

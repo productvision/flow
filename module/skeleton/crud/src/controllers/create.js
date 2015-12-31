@@ -1,8 +1,8 @@
 angular
-    .module('grolba.issue')
-    .controller('grolba.issue.CreateController', [
-        '$scope', '$state', 'Issue', 'entityReflector',
-        function ($scope, $state, Issue, entityReflector) {
+    .module('skeleton.crud')
+    .controller('skeleton.crud.CreateController', [
+        '$scope', '$state', 'createEntity', 'entityReflector',
+        function ($scope, $state, createEntity, entityReflector) {
             var formFields = entityReflector.mapProperties(function (property) {
                 return {
                     key: property.key,
@@ -18,8 +18,8 @@ angular
                 fields: formFields,
 
                 submit: function () {
-                    Issue.create($scope.form.model, function (entity) {
-                        $state.go('app.issue.show', {
+                    createEntity($scope.form.model, function (entity) {
+                        $state.go('^.show', {
                             id: entity.id
                         });
                     });

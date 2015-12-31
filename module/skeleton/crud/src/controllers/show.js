@@ -1,6 +1,6 @@
 angular
-    .module('grolba.issue')
-    .controller('grolba.issue.ShowController', [
+    .module('skeleton.crud')
+    .controller('skeleton.crud.ShowController', [
         '$scope', 'entity', 'entityReflector',
         function ($scope, entity, entityReflector) {
             $scope.entity = entity;

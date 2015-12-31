@@ -12,9 +12,9 @@
       "type": "string",
       "description": "Beschreibung"
     },
-    "created": {
-      "type": "date",
-      "description": "Erstellt"
+    "active": {
+      "type": "boolean",
+      "description": "Aktiviert"
     }
   },
   "validations": [],
