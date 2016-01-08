@@ -18,27 +18,34 @@ module.exports = function (app, config) {
                     },
                     {
                         label: 'Tabelle',
-                        sref: "app.goal({'view': 'grid'})"
+                        sref: "app.goal.list.grid"
                     },
                     {
                         label: 'Widgets',
-                        sref: "app.goal({'view': 'widgets'})"
+                        sref: "app.goal.list.widget"
                     },
                     {
                         label: 'Diagramme',
-                        sref: "app.goal({'view': 'charts'})"
+                        sref: "app.goal.list.chart"
                     },
                     {
                         label: 'Kalender',
-                        sref: "app.goal({'view': 'calendar'})"
+                        sref: "app.goal.list"
                     },
                     {
                         label: 'Zeitleiste',
-                        sref: "app.goal({'view': 'timeline'})"
+                        sref: "app.goal.list.timeline"
                     },
                     {
                         label: 'Debug',
-                        sref: "app.goal({'view': 'debug'})"
+                        sref: "app.goal.list.debug"
+                    },
+                    {
+                        type: 'divider'
+                    },
+                    {
+                        label: 'Vorgang erstellen',
+                        sref: 'app.goal.create'
                     }
                 ]
             },
