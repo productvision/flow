@@ -69,10 +69,10 @@ angular
                     spaceModule.$save();
 
                     if (item.hasOwnProperty('addToMenu') && item.addToMenu) {
-                        $rootScope.space.menu.push({
-                            label: spaceModule.name,
-                            sref: 'module.' + spaceModule.slug
-                        });
+                        //$rootScope.space.menu.push({
+                        //    label: spaceModule.name,
+                        //    sref: 'module.' + spaceModule.slug
+                        //});
                         $rootScope.space.$save();
 
                         addState(spaceModule);

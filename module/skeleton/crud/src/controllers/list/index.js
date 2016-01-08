@@ -1,6 +1,6 @@
 angular
     .module('skeleton.crud')
-    .controller('skeleton.crud.ListController', [
+    .controller('skeleton.crud.list.IndexController', [
         '$scope', 'createEntity', 'entities', 'entityReflector',
         function ($scope, createEntity, entities, entityReflector) {
             $scope.entities = entities;

@@ -16,7 +16,9 @@ var frontendAssets = [
     './module/core/app/**/*.{js,json,css,html}',
 
     './module/**/module.js',
-    './module/**/*.{js,json,css,html}'
+    './module/**/config.js',
+    './module/**/src/**/*.{js,json,css,html}',
+    './module/**/public/**/*.{js,json,css,html}'
 ];
 
 gulp.task('frontend-assets', function () {

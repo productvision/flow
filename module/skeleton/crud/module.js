@@ -5,13 +5,13 @@ angular
         function ($stateProvider) {
             this.create = function (config) {
                 var entitiesResolver = [
-                    config.entityName,
+                    config.model,
                     function (Entity) {
                         return Entity.find().$promise;
                     }
                 ];
                 var entityResolver = [
-                    config.entityName, '$stateParams',
+                    config.model, '$stateParams',
                     function (Entity, $stateParams) {
                         return Entity.get({
                             id: $stateParams.id
@@ -19,7 +19,7 @@ angular
                     }
                 ];
                 var entitySchemaResolver = [
-                    config.entityName,
+                    config.model,
                     function (Entity) {
                         return Entity.schema().$promise;
                     }
@@ -31,7 +31,7 @@ angular
                     }
                 ];
                 var entityFactoryResolver = [
-                    config.entityName,
+                    config.model,
                     function (Entity) {
                         return Entity.create;
                     }
@@ -49,13 +49,51 @@ angular
                     })
                     .state('app.' + config.id + '.list', {
                         url: '/list',
-                        templateUrl: 'module/skeleton/crud/view/list.html',
-                        controller: 'skeleton.crud.ListController',
+                        templateUrl: 'module/skeleton/crud/view/list/index.html',
+                        controller: 'skeleton.crud.list.IndexController',
                         resolve: {
                             createEntity: entityFactoryResolver,
                             entities: entitiesResolver
                         }
                     })
+                    .state('app.' + config.id + '.list.chart', {
+                        url: '/chart',
+                        templateUrl: 'module/skeleton/crud/view/list/chart.html',
+                        controller: 'skeleton.crud.list.ChartController',
+                        resolve: {
+                            createEntity: entityFactoryResolver,
+                            entities: entitiesResolver
+                        }
+                    })
+                    .state('app.' + config.id + '.list.grid', {
+                        url: '/grid',
+                        templateUrl: 'module/skeleton/crud/view/list/grid.html',
+                        controller: 'skeleton.crud.list.GridController',
+                        resolve: {
+                            createEntity: entityFactoryResolver,
+                            entities: entitiesResolver
+                        }
+                    })
+                    .state('app.' + config.id + '.list.timeline', {
+                        url: '/timeline',
+                        templateUrl: 'module/skeleton/crud/view/list/timeline.html',
+                        controller: 'skeleton.crud.list.TimeLineController',
+                        resolve: {
+                            createEntity: entityFactoryResolver,
+                            entities: entitiesResolver
+                        }
+                    })
+                    .state('app.' + config.id + '.list.widget', {
+                        url: '/widget',
+                        templateUrl: 'module/skeleton/crud/view/list/widget.html',
+                        controller: 'skeleton.crud.list.WidgetController',
+                        resolve: {
+                            createEntity: entityFactoryResolver,
+                            entities: entitiesResolver
+                        }
+                    })
+
+
                     .state('app.' + config.id + '.create', {
                         url: '/create',
                         templateUrl: 'module/skeleton/crud/view/edit.html',

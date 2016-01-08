@@ -1,0 +1,60 @@
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-md-4" data-ng-repeat="goal in goals">
+            <div class="panel b-a">
+                <div class="panel-heading no-border bg-primary">
+                    <span class="text-lt">goal.category</span>
+                </div>
+                <div class="item m-l-n-xxs m-r-n-xxs">
+                    <div class="center text-center w-full" style="margin-top:-60px">
+                        <div data-ui-jq="easyPieChart" data-ui-data-ui-refresh="x" data-ui-options="{
+                            percent: 30,
+                            lineWidth: 60,
+                            trackColor: 'rgba(255,255,255,0)',
+                            barColor: 'rgba(35,183,229,0.7)',
+                            scaleColor: false,
+                            size: 120,
+                            lineCap: 'butt',
+                            rotate: 0,
+                            animate: 1000
+                        }" class="inline">
+                        </div>
+                    </div>
+                    <div class="bottom wrapper bg-gd-dk text-white">
+                        <div class="text-u-c h3 m-b-sm text-primary-lter">{{ goal.objective }}</div>
+                        <div>
+                            <ng-pluralize count="goal.keyResults.length"
+                                          when="{'0': 'Keine Ergebnisse', 'one': '1 Ergebnis', 'other': '{} Ergebnisse'}">
+                            </ng-pluralize>
+                        </div>
+                    </div>
+                    <img src="module/grolba/music/public/img/c0.jpg" class="img-full">
+                </div>
+                <div class="padder-v b-t b-light bg-light lter row text-center no-gutter">
+                    <div class="col-xs-6" data-ng-repeat="keyResult in goal.keyResults">
+                        <div><b>{{ keyResult.title }}</b></div>
+                        <div><i>endet am {{ keyResult.dueDate | date:'dd.MM.yyyy' }}</i></div>
+                        <div class="inline m-t-sm">
+                            <div data-ui-jq="easyPieChart" data-ui-data-ui-refresh="x" data-ui-data-ui-options="{
+                                  percent: 30,
+                                  lineWidth: 3,
+                                  trackColor: '{{app.color.light}}',
+                                  barColor: '{{app.color.primary}}',
+                                  scaleColor: false,
+                                  color: '#fff',
+                                  size: 65,
+                                  lineCap: 'butt',
+                                  rotate: 45,
+                                  animate: 1000
+                                }">
+                                <div>
+                                    <span class="step">30</span>%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

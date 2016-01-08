@@ -13,6 +13,10 @@ module.exports = function (app, config) {
                 label: 'Ziele',
                 children: [
                     {
+                        label: 'Übersicht',
+                        sref: 'app.goal.list'
+                    },
+                    {
                         label: 'Tabelle',
                         sref: "app.goal({'view': 'grid'})"
                     },
@@ -44,6 +48,29 @@ module.exports = function (app, config) {
                     {
                         label: 'Übersicht',
                         sref: 'app.issue.list'
+                    },
+                    {
+                        label: 'Chart',
+                        sref: 'app.issue.list.chart'
+                    },
+                    {
+                        label: 'Grid',
+                        sref: 'app.issue.list.grid'
+                    },
+                    {
+                        label: 'Zeitleiste',
+                        sref: 'app.issue.list.timeline'
+                    },
+                    {
+                        label: 'Widgets',
+                        sref: 'app.issue.list.widget'
+                    },
+                    {
+                        label: 'Chart',
+                        sref: 'app.issue.list.chart'
+                    },
+                    {
+                        type: 'divider'
                     },
                     {
                         label: 'Vorgang erstellen',

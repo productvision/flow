@@ -34,8 +34,8 @@
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" data-ng-if="menuItem.children">
-                <li data-ng-repeat="child in menuItem.children">
-                    <a href data-ui-sref="{{ child.sref }}">{{ child.label }}</a>
+                <li data-ng-repeat="child in menuItem.children" class="{{ child.type }}">
+                    <a href data-ui-sref="{{ child.sref }}" data-ng-if="child.type != 'divider'">{{ child.label }}</a>
                 </li>
             </ul>
         </li>

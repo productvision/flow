@@ -17,12 +17,6 @@ angular
                 .otherwise('/app/dashboard');
 
             $stateProvider
-                .state('module', {
-                    abstract: true,
-                    url: '/module',
-                    templateUrl: "module/core/app/view/layout.html"
-                })
-
                 .state('app', {
                     abstract: true,
                     url: '/app',

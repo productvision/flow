@@ -3,6 +3,7 @@
 
 angular.module('app', [
     'core.loader',
+    'oc.lazyLoad',
 
     'ngAnimate',
     'ngCookies',
@@ -11,14 +12,13 @@ angular.module('app', [
     'ngSanitize',
     'ngTouch',
     'ngStorage',
+    'ngAria',
     'ui.router',
     'ui.utils',
     'ui.load',
-    'oc.lazyLoad',
-    'pascalprecht.translate',
-    'ngAria',
     'ui.bootstrap',
     'ui.jq',
+    'pascalprecht.translate',
     'formly',
     'formlyBootstrap',
 

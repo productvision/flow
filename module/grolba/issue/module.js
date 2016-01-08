@@ -8,8 +8,7 @@ angular
             CrudModuleFactoryProvider.create({
                 id: 'issue',
                 url: '/issue',
-                entityName: 'Issue',
-                type: 'skeleton.crud'
+                model: 'Issue'
             });
         }
     ]);

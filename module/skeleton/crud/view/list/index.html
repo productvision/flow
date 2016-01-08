@@ -1,0 +1,46 @@
+<div class="clearfix">
+    <div class="pull-left">
+        <h2 class="pull-left">Vorgänge</h2>
+        <a href data-ui-sref="^.create" class="btn btn-default">Erstellen</a>
+    </div>
+    <div class="pull-right">
+        <a href class="dropdown-toggle btn btn-default" data-dropdown-toggle>Darstellung</a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href data-ui-sref="app.goal({'view': 'grid'})">Tabelle</a>
+            </li>
+            <li>
+                <a href data-ui-sref="app.goal({'view': 'widgets'})">Widgets</a>
+            </li>
+            <li>
+                <a href data-ui-sref="app.goal({'view': 'charts'})">Diagramme</a>
+            </li>
+            <li>
+                <a href data-ui-sref="app.goal({'view': 'calendar'})">Kalender</a>
+            </li>
+            <li>
+                <a href data-ui-sref="app.goal({'view': 'timeline'})">Zeitleiste</a>
+            </li>
+            <li>
+                <a href data-ui-sref="app.goal({'view': 'debug'})">Debug</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <form class="form-inline">
+        <div class="form-group">
+            <input placeholder="Enthält Text" data-ng-model="searcher.data.query"/>
+        </div>
+        <button type="submit" class="btn btn-default" data-ng-click="searcher.search()">
+            <i class="glyphicon glyphicon-search"></i>
+        </button>
+    </form>
+</div>
+
+<div class="col-md-12" data-ui-view>
+    <div id="grid" class="grid" data-ui-grid="gridOptions" data-ui-grid-edit data-ui-grid-exporter
+         data-ui-grid-selection></div>
+</div>
+
