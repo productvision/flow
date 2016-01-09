@@ -52,5 +52,9 @@
   "Issue": {
     "dataSource": "memory",
     "public": true
+  },
+  "Word": {
+    "dataSource": "memory",
+    "public": true
   }
 }

@@ -1,6 +1,6 @@
 angular
     .module('skeleton.crud')
-    .controller('skeleton.crud.list.TimeLineController', [
+    .controller('skeleton.crud.show.IndexController', [
         '$scope', 'entity', 'entityReflector',
         function ($scope, entity, entityReflector) {
             $scope.entity = entity;

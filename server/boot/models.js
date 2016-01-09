@@ -5,4 +5,5 @@ module.exports = function (app) {
     require('./models/goal')(app);
     require('./models/user')(app);
     require('./models/issue')(app);
+    require('./models/word')(app);
 };

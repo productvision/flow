@@ -10670,13 +10670,13 @@ module.factory(
 
 /**
  * @ngdoc object
- * @name Loopback.IssueType
- * @header Loopback.IssueType
+ * @name Loopback.Word
+ * @header Loopback.Word
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `IssueType` model.
+ * A $resource object for interacting with the `Word` model.
  *
  * ## Example
  *
@@ -10686,17 +10686,17 @@ module.factory(
  *
  */
 module.factory(
-  "IssueType",
+  "Word",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/issue-types/:id",
+      urlBase + "/words/:id",
       { 'id': '@id' },
       {
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#create
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#create
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -10723,18 +10723,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         "create": {
-          url: urlBase + "/issue-types",
+          url: urlBase + "/words",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#createMany
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#createMany
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -10761,19 +10761,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         "createMany": {
           isArray: true,
-          url: urlBase + "/issue-types",
+          url: urlBase + "/words",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#upsert
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#upsert
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -10800,18 +10800,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         "upsert": {
-          url: urlBase + "/issue-types",
+          url: urlBase + "/words",
           method: "PUT"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#exists
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#exists
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -10836,14 +10836,14 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/issue-types/:id/exists",
+          url: urlBase + "/words/:id/exists",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#findById
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#findById
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -10867,18 +10867,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         "findById": {
-          url: urlBase + "/issue-types/:id",
+          url: urlBase + "/words/:id",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#find
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#find
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -10900,19 +10900,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         "find": {
           isArray: true,
-          url: urlBase + "/issue-types",
+          url: urlBase + "/words",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#findOne
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#findOne
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -10934,18 +10934,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         "findOne": {
-          url: urlBase + "/issue-types/findOne",
+          url: urlBase + "/words/findOne",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#updateAll
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#updateAll
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -10972,14 +10972,14 @@ module.factory(
          * The number of instances updated
          */
         "updateAll": {
-          url: urlBase + "/issue-types/update",
+          url: urlBase + "/words/update",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#deleteById
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#deleteById
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11001,18 +11001,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         "deleteById": {
-          url: urlBase + "/issue-types/:id",
+          url: urlBase + "/words/:id",
           method: "DELETE"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#count
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#count
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11037,14 +11037,14 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/issue-types/count",
+          url: urlBase + "/words/count",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#prototype$updateAttributes
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#prototype$updateAttributes
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11070,18 +11070,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         "prototype$updateAttributes": {
-          url: urlBase + "/issue-types/:id",
+          url: urlBase + "/words/:id",
           method: "PUT"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#createChangeStream
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#createChangeStream
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11111,14 +11111,14 @@ module.factory(
          *  - `changes` – `{ReadableStream=}` - 
          */
         "createChangeStream": {
-          url: urlBase + "/issue-types/change-stream",
+          url: urlBase + "/words/change-stream",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#schema
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#schema
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11146,7 +11146,7 @@ module.factory(
          *  - `schema` – `{string=}` - 
          */
         "schema": {
-          url: urlBase + "/issue-types/schema",
+          url: urlBase + "/words/schema",
           method: "GET"
         },
       }
@@ -11156,8 +11156,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#updateOrCreate
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#updateOrCreate
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11184,15 +11184,15 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         R["updateOrCreate"] = R["upsert"];
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#update
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#update
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11222,8 +11222,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#destroyById
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#destroyById
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11245,15 +11245,15 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         R["destroyById"] = R["deleteById"];
 
         /**
          * @ngdoc method
-         * @name Loopback.IssueType#removeById
-         * @methodOf Loopback.IssueType
+         * @name Loopback.Word#removeById
+         * @methodOf Loopback.Word
          *
          * @description
          *
@@ -11275,7 +11275,7 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `IssueType` object.)
+         * This usually means the response is a `Word` object.)
          * </em>
          */
         R["removeById"] = R["deleteById"];
@@ -11283,13 +11283,13 @@ module.factory(
 
     /**
     * @ngdoc property
-    * @name Loopback.IssueType#modelName
-    * @propertyOf Loopback.IssueType
+    * @name Loopback.Word#modelName
+    * @propertyOf Loopback.Word
     * @description
     * The name of the model represented by this $resource,
-    * i.e. `IssueType`.
+    * i.e. `Word`.
     */
-    R.modelName = "IssueType";
+    R.modelName = "Word";
 
 
     return R;

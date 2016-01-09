@@ -1,0 +1,12 @@
+<div data-ui-view>
+    <div class="col-md-12">
+        <table class="table">
+            <tr data-ng-repeat="property in properties">
+                <th>{{ property.label }}</th>
+                <td>{{ entity[property.key] }}</td>
+            </tr>
+        </table>
+
+        <a href data-ui-sref="^.edit({ id: entity.id })" class="btn btn-default">Bearbeiten</a>
+    </div>
+</div>

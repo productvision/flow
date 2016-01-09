@@ -74,15 +74,6 @@ angular
                             entities: entitiesResolver
                         }
                     })
-                    .state('app.' + config.id + '.list.timeline', {
-                        url: '/timeline',
-                        templateUrl: 'module/skeleton/crud/view/list/timeline.html',
-                        controller: 'skeleton.crud.list.TimeLineController',
-                        resolve: {
-                            createEntity: entityFactoryResolver,
-                            entities: entitiesResolver
-                        }
-                    })
                     .state('app.' + config.id + '.list.widget', {
                         url: '/widget',
                         templateUrl: 'module/skeleton/crud/view/list/widget.html',
@@ -93,6 +84,23 @@ angular
                         }
                     })
 
+                    .state('app.' + config.id + '.show', {
+                        url: '/show/:id',
+                        templateUrl: 'module/skeleton/crud/view/show/index.html',
+                        controller: 'skeleton.crud.show.IndexController',
+                        resolve: {
+                            entity: entityResolver
+                        }
+                    })
+                    .state('app.' + config.id + '.show.timeline', {
+                        url: '/timeline',
+                        templateUrl: 'module/skeleton/crud/view/show/timeline.html',
+                        controller: 'skeleton.crud.list.TimeLineController',
+                        resolve: {
+                            createEntity: entityFactoryResolver,
+                            entities: entitiesResolver
+                        }
+                    })
 
                     .state('app.' + config.id + '.create', {
                         url: '/create',
@@ -100,14 +108,6 @@ angular
                         controller: 'skeleton.crud.CreateController',
                         resolve: {
                             createEntity: entityFactoryResolver
-                        }
-                    })
-                    .state('app.' + config.id + '.show', {
-                        url: '/show/:id',
-                        templateUrl: 'module/skeleton/crud/view/show.html',
-                        controller: 'skeleton.crud.ShowController',
-                        resolve: {
-                            entity: entityResolver
                         }
                     })
                     .state('app.' + config.id + '.edit', {

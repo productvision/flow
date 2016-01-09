@@ -5,10 +5,6 @@ module.exports = function (app, config) {
         slug: 'team',
         name: 'Team',
         menu: [
-            //{
-            //    label: 'Dashboard',
-            //    sref: 'app.dashboard'
-            //},
             {
                 label: 'Ziele',
                 children: [
@@ -31,10 +27,6 @@ module.exports = function (app, config) {
                     {
                         label: 'Kalender',
                         sref: "app.goal.list"
-                    },
-                    {
-                        label: 'Zeitleiste',
-                        sref: "app.goal.list.timeline"
                     },
                     {
                         label: 'Debug',
@@ -63,10 +55,6 @@ module.exports = function (app, config) {
                     {
                         label: 'Grid',
                         sref: 'app.issue.list.grid'
-                    },
-                    {
-                        label: 'Zeitleiste',
-                        sref: 'app.issue.list.timeline'
                     },
                     {
                         label: 'Widgets',
@@ -109,37 +97,33 @@ module.exports = function (app, config) {
             {
                 label: 'Netzwerk',
                 sref: 'app.network'
+            },
+            {
+                label: 'Wörterbuch',
+                children: [
+                    {
+                        label: 'Übersicht',
+                        sref: 'app.dictionary.list'
+                    },
+                    {
+                        label: 'Suche',
+                        sref: 'app.dictionary.search'
+                    },
+                    {
+                        type: 'divider'
+                    },
+                    {
+                        label: 'Neuen Eintrag erstellen',
+                        sref: 'app.dictionary.create'
+                    }
+                ]
             }
-            //{
-            //    label: 'Nachrichten',
-            //    sref: 'app.messenger.list'
-            //},
-            //{
-            //    label: 'Kalender',
-            //    sref: 'app.calendar'
-            //},
-            //{
-            //    label: 'Notizen',
-            //    sref: 'app.note'
-            //},
-            //{
-            //    label: 'Dateien',
-            //    sref: 'app.form.fileupload'
-            //}
         ]
     }, function (err, space) {
         require('./space-config')(app, config, space, 'Team Tecis');
     });
 
     return;
-
-    Space.create({
-        slug: 'dictionary',
-        name: 'Wörterbuch',
-        sref: 'app.dictionary'
-    }, function (err, space) {
-        require('./space-config')(app, config, space);
-    });
 
     Space.create({
         slug: 'food',
