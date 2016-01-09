@@ -4,6 +4,8 @@ angular
         '$stateProvider',
         function ($stateProvider) {
             this.create = function (config) {
+                config.layout = config.hasOwnProperty('layout') ? config.layout : 'default';
+
                 var entitiesResolver = [
                     config.model,
                     function (Entity) {
@@ -41,7 +43,7 @@ angular
                     .state('app.' + config.id, {
                         abstract: true,
                         url: config.url,
-                        template: '<div data-ui-view></div>',
+                        templateUrl: 'module/skeleton/crud/view/layout/' + config.layout + '.html',
                         resolve: {
                             entitySchema: entitySchemaResolver,
                             entityReflector: entityReflectorResolver
