@@ -9,7 +9,10 @@ angular
             CrudModuleFactoryProvider.create({
                 id: 'portal',
                 url: '/portal',
-                model: 'Portal'
+                model: {
+                    type: 'loopback',
+                    name: 'Portal'
+                }
             });
         }
     ]);

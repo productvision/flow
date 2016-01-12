@@ -9,7 +9,10 @@ angular
             CrudModuleFactoryProvider.create({
                 id: 'dictionary',
                 url: '/dictionary',
-                model: 'Word'
+                model: {
+                    type: 'loopback',
+                    name: 'Word'
+                }
             });
 
             $stateProvider

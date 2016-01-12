@@ -14,7 +14,10 @@ angular
             CrudModuleFactoryProvider.create({
                 id: 'goal',
                 url: '/goal',
-                model: 'Goal'
+                model: {
+                    type: 'loopback',
+                    name: 'Goal'
+                }
             });
         }
     ]);

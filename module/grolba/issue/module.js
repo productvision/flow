@@ -8,7 +8,10 @@ angular
             CrudModuleFactoryProvider.create({
                 id: 'issue',
                 url: '/issue',
-                model: 'Issue'
+                model: {
+                    type: 'loopback',
+                    name: 'Issue'
+                }
             });
         }
     ]);
