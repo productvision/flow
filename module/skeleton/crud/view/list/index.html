@@ -1,45 +1,37 @@
-<div class="clearfix">
+<div class="col-md-12 clearfix">
     <div class="pull-left">
-        <h2 class="pull-left">Vorgänge</h2>
-        <a href data-ui-sref="^.create" class="btn btn-default">Erstellen</a>
+        <h2>Vorgänge&nbsp;<a href data-ui-sref="^.create" class="btn btn-default">Erstellen</a></h2>
+    </div>
+    <div class="pull-left">
+        <form class="form-inline">
+            <div class="form-group">
+                <input placeholder="Enthält Text" data-ng-model="searcher.data.query"/>
+            </div>
+            <button type="submit" class="btn btn-default" data-ng-click="searcher.search()">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+        </form>
     </div>
     <div class="pull-right">
-        <a href class="dropdown-toggle btn btn-default" data-dropdown-toggle>Darstellung</a>
+        <a href class="dropdown-toggle btn btn-default" data-toggle="dropdown">Ansicht</a>
         <ul class="dropdown-menu">
             <li>
-                <a href data-ui-sref="app.goal({'view': 'grid'})">Tabelle</a>
+                <a href data-ui-sref="^.list">Tabelle</a>
             </li>
             <li>
-                <a href data-ui-sref="app.goal({'view': 'widgets'})">Widgets</a>
+                <a href data-ui-sref="^.list.widget">Widgets</a>
             </li>
             <li>
-                <a href data-ui-sref="app.goal({'view': 'charts'})">Diagramme</a>
+                <a href data-ui-sref="^.list.chart">Diagramme</a>
             </li>
             <li>
-                <a href data-ui-sref="app.goal({'view': 'calendar'})">Kalender</a>
-            </li>
-            <li>
-                <a href data-ui-sref="app.goal({'view': 'timeline'})">Zeitleiste</a>
-            </li>
-            <li>
-                <a href data-ui-sref="app.goal({'view': 'debug'})">Debug</a>
+                <a href data-ui-sref="^.list.calendar">Kalender</a>
             </li>
         </ul>
     </div>
 </div>
 
-<div class="col-md-12">
-    <form class="form-inline">
-        <div class="form-group">
-            <input placeholder="Enthält Text" data-ng-model="searcher.data.query"/>
-        </div>
-        <button type="submit" class="btn btn-default" data-ng-click="searcher.search()">
-            <i class="glyphicon glyphicon-search"></i>
-        </button>
-    </form>
-</div>
-
-<div data-ui-view>
+<div data-ui-view class="col-md-12">
     <div id="grid" class="grid" data-ui-grid="gridOptions" data-ui-grid-edit data-ui-grid-exporter
          data-ui-grid-selection></div>
 </div>

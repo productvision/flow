@@ -2,7 +2,8 @@
   "_meta": {
     "sources": [
       "../config/models",
-      "../module/grolba/issue/config/models"
+      "../module/grolba/issue/config/models",
+      "../module/grolba/website/config/models"
     ]
   },
   "User": {
@@ -54,6 +55,10 @@
     "public": true
   },
   "Word": {
+    "dataSource": "memory",
+    "public": true
+  },
+  "Page": {
     "dataSource": "memory",
     "public": true
   }

@@ -11,6 +11,6 @@ angular
                     resolve: AutoloaderProvider.load([
                         'module/grolba/contact/src/controllers/index.js'
                     ])
-                })
+                });
         }
     ]);

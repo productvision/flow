@@ -9,7 +9,7 @@ module.exports = function (app) {
         Config.create({
             "customerId": user.id
         }, function (err, config) {
-            require('./space')(app, config);
+            require('./children/space')(app, config);
         });
     });
 };

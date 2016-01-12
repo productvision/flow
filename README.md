@@ -4,17 +4,9 @@
 - Zielstrebigkeit
 
 
-# Module
-- Kalender
-- Kontakte
-- Dashboard
-- Wörterbuch
-- Dateien
-- Nachrichten
-- Musik
-- Netzwerke
-- Notizen
-- Aufgaben
+# Neues Modul hinzufügen
+- touch ./module/{vendor}/{module}/module.js
+
 
 
 # Rollen: Benutzer

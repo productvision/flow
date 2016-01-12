@@ -1,0 +1,44 @@
+{
+  "name": "Page",
+  "plural": "pages",
+  "base": "PersistedModel",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title"
+    },
+    "author": {
+      "type": "string",
+      "description": "Autor"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Permalink"
+    },
+    "content": {
+      "type": "string",
+      "description": "Inhalt"
+    },
+    "date": {
+      "type": "date",
+      "description": "Datum"
+    },
+    "updated": {
+      "type": "date",
+      "description": "Zuletzt geändert"
+    },
+
+    "status": {
+      "type": "string",
+      "description": "Status"
+    },
+    "visibility": {
+      "type": "string",
+      "description": "Sichtbarkeit"
+    },
+    "parent": {
+      "type": "string",
+      "description": "Eltern"
+    }
+  }
+}

@@ -1,9 +1,9 @@
+const glob = require('glob');
+
 module.exports = function (app) {
-    require('./models/module')(app);
-    require('./models/message')(app);
-    require('./models/event')(app);
-    require('./models/goal')(app);
-    require('./models/user')(app);
-    require('./models/issue')(app);
-    require('./models/word')(app);
+    glob('server/**/models/*.js', function (err, files) {
+        files.forEach(function(file) {
+            require(__dirname + '/../../' + file)(app);
+        });
+    });
 };
