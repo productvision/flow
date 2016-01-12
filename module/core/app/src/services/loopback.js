@@ -2007,92 +2007,6 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use Space.configs.findById() instead.
-        "::findById::Space::configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Space.configs.destroyById() instead.
-        "::destroyById::Space::configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Space.configs.updateById() instead.
-        "::updateById::Space::configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/:fk",
-          method: "PUT"
-        },
-
-        // INTERNAL. Use Space.configs.link() instead.
-        "::link::Space::configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/rel/:fk",
-          method: "PUT"
-        },
-
-        // INTERNAL. Use Space.configs.unlink() instead.
-        "::unlink::Space::configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/rel/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Space.configs.exists() instead.
-        "::exists::Space::configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/rel/:fk",
-          method: "HEAD"
-        },
-
-        // INTERNAL. Use Space.configs() instead.
-        "::get::Space::configs": {
-          isArray: true,
-          url: urlBase + "/spaces/:id/configs",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Space.configs.create() instead.
-        "::create::Space::configs": {
-          url: urlBase + "/spaces/:id/configs",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Space.configs.createMany() instead.
-        "::createMany::Space::configs": {
-          isArray: true,
-          url: urlBase + "/spaces/:id/configs",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Space.configs.destroyAll() instead.
-        "::delete::Space::configs": {
-          url: urlBase + "/spaces/:id/configs",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Space.configs.count() instead.
-        "::count::Space::configs": {
-          url: urlBase + "/spaces/:id/configs/count",
-          method: "GET"
-        },
-
         // INTERNAL. Use SpaceConfig.config() instead.
         "::get::SpaceConfig::config": {
           url: urlBase + "/space-configs/:id/config",
@@ -2679,60 +2593,6 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Space.configs.findById() instead.
-        "prototype$__findById__configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Space.configs.destroyById() instead.
-        "prototype$__destroyById__configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Space.configs.updateById() instead.
-        "prototype$__updateById__configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/:fk",
-          method: "PUT"
-        },
-
-        // INTERNAL. Use Space.configs.link() instead.
-        "prototype$__link__configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/rel/:fk",
-          method: "PUT"
-        },
-
-        // INTERNAL. Use Space.configs.unlink() instead.
-        "prototype$__unlink__configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/rel/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Space.configs.exists() instead.
-        "prototype$__exists__configs": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/spaces/:id/configs/rel/:fk",
-          method: "HEAD"
-        },
-
         // INTERNAL. Use Space.modules.findById() instead.
         "prototype$__findById__modules": {
           params: {
@@ -2785,31 +2645,6 @@ module.factory(
           },
           url: urlBase + "/spaces/:id/modules/rel/:fk",
           method: "HEAD"
-        },
-
-        // INTERNAL. Use Space.configs() instead.
-        "prototype$__get__configs": {
-          isArray: true,
-          url: urlBase + "/spaces/:id/configs",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Space.configs.create() instead.
-        "prototype$__create__configs": {
-          url: urlBase + "/spaces/:id/configs",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Space.configs.destroyAll() instead.
-        "prototype$__delete__configs": {
-          url: urlBase + "/spaces/:id/configs",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Space.configs.count() instead.
-        "prototype$__count__configs": {
-          url: urlBase + "/spaces/:id/configs/count",
-          method: "GET"
         },
 
         // INTERNAL. Use Space.modules() instead.
@@ -3619,416 +3454,6 @@ module.factory(
     */
     R.modelName = "Space";
 
-    /**
-     * @ngdoc object
-     * @name Loopback.Space.configs
-     * @header Loopback.Space.configs
-     * @object
-     * @description
-     *
-     * The object `Space.configs` groups methods
-     * manipulating `Config` instances related to `Space`.
-     *
-     * Call {@link Loopback.Space#configs Space.configs()}
-     * to query all related instances.
-     */
-
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space#configs
-         * @methodOf Loopback.Space
-         *
-         * @description
-         *
-         * Queries configs of Space.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `filter` – `{object=}` - 
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Config` object.)
-         * </em>
-         */
-        R.configs = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::get::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#count
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Counts configs of Space.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `count` – `{number=}` - 
-         */
-        R.configs.count = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::count::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#create
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Creates a new instance in configs of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Config` object.)
-         * </em>
-         */
-        R.configs.create = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::create::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#createMany
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Creates a new instance in configs of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Config` object.)
-         * </em>
-         */
-        R.configs.createMany = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::createMany::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#destroyAll
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Deletes all configs of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.configs.destroyAll = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::delete::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#destroyById
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Delete a related item by id for configs.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for configs
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.configs.destroyById = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::destroyById::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#exists
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Check the existence of configs relation to an item by id.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for configs
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Config` object.)
-         * </em>
-         */
-        R.configs.exists = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::exists::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#findById
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Find a related item by id for configs.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for configs
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Config` object.)
-         * </em>
-         */
-        R.configs.findById = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::findById::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#link
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Add a related item by id for configs.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for configs
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Config` object.)
-         * </em>
-         */
-        R.configs.link = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::link::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#unlink
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Remove the configs relation to an item by id.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for configs
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.configs.unlink = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::unlink::Space::configs"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name Loopback.Space.configs#updateById
-         * @methodOf Loopback.Space.configs
-         *
-         * @description
-         *
-         * Update a related item by id for configs.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for configs
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Config` object.)
-         * </em>
-         */
-        R.configs.updateById = function() {
-          var TargetResource = $injector.get("Config");
-          var action = TargetResource["::updateById::Space::configs"];
-          return action.apply(R, arguments);
-        };
     /**
      * @ngdoc object
      * @name Loopback.Space.modules
@@ -11776,6 +11201,65 @@ module.factory(
           url: urlBase + "/pages/schema",
           method: "GET"
         },
+
+        // INTERNAL. Use Portal.pages.findById() instead.
+        "::findById::Portal::pages": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/portals/:id/pages/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Portal.pages.destroyById() instead.
+        "::destroyById::Portal::pages": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/portals/:id/pages/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Portal.pages.updateById() instead.
+        "::updateById::Portal::pages": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/portals/:id/pages/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Portal.pages() instead.
+        "::get::Portal::pages": {
+          isArray: true,
+          url: urlBase + "/portals/:id/pages",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Portal.pages.create() instead.
+        "::create::Portal::pages": {
+          url: urlBase + "/portals/:id/pages",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Portal.pages.createMany() instead.
+        "::createMany::Portal::pages": {
+          isArray: true,
+          url: urlBase + "/portals/:id/pages",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Portal.pages.destroyAll() instead.
+        "::delete::Portal::pages": {
+          url: urlBase + "/portals/:id/pages",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Portal.pages.count() instead.
+        "::count::Portal::pages": {
+          url: urlBase + "/portals/:id/pages/count",
+          method: "GET"
+        },
       }
     );
 
@@ -11918,6 +11402,986 @@ module.factory(
     */
     R.modelName = "Page";
 
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name Loopback.Portal
+ * @header Loopback.Portal
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Portal` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Portal",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/portals/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use Portal.pages.findById() instead.
+        "prototype$__findById__pages": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/portals/:id/pages/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Portal.pages.destroyById() instead.
+        "prototype$__destroyById__pages": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/portals/:id/pages/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Portal.pages.updateById() instead.
+        "prototype$__updateById__pages": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/portals/:id/pages/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Portal.pages() instead.
+        "prototype$__get__pages": {
+          isArray: true,
+          url: urlBase + "/portals/:id/pages",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Portal.pages.create() instead.
+        "prototype$__create__pages": {
+          url: urlBase + "/portals/:id/pages",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Portal.pages.destroyAll() instead.
+        "prototype$__delete__pages": {
+          url: urlBase + "/portals/:id/pages",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Portal.pages.count() instead.
+        "prototype$__count__pages": {
+          url: urlBase + "/portals/:id/pages/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#create
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/portals",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#createMany
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/portals",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#upsert
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/portals",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#exists
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/portals/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#findById
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/portals/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#find
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/portals",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#findOne
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/portals/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#updateAll
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/portals/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#deleteById
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/portals/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#count
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/portals/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#prototype$updateAttributes
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/portals/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#createChangeStream
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/portals/change-stream",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#schema
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `schema` – `{string=}` - 
+         */
+        "schema": {
+          url: urlBase + "/portals/schema",
+          method: "GET"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#updateOrCreate
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#update
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#destroyById
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#removeById
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Portal` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name Loopback.Portal#modelName
+    * @propertyOf Loopback.Portal
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `Portal`.
+    */
+    R.modelName = "Portal";
+
+    /**
+     * @ngdoc object
+     * @name Loopback.Portal.pages
+     * @header Loopback.Portal.pages
+     * @object
+     * @description
+     *
+     * The object `Portal.pages` groups methods
+     * manipulating `Page` instances related to `Portal`.
+     *
+     * Call {@link Loopback.Portal#pages Portal.pages()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal#pages
+         * @methodOf Loopback.Portal
+         *
+         * @description
+         *
+         * Queries pages of Portal.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Page` object.)
+         * </em>
+         */
+        R.pages = function() {
+          var TargetResource = $injector.get("Page");
+          var action = TargetResource["::get::Portal::pages"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal.pages#count
+         * @methodOf Loopback.Portal.pages
+         *
+         * @description
+         *
+         * Counts pages of Portal.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.pages.count = function() {
+          var TargetResource = $injector.get("Page");
+          var action = TargetResource["::count::Portal::pages"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal.pages#create
+         * @methodOf Loopback.Portal.pages
+         *
+         * @description
+         *
+         * Creates a new instance in pages of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Page` object.)
+         * </em>
+         */
+        R.pages.create = function() {
+          var TargetResource = $injector.get("Page");
+          var action = TargetResource["::create::Portal::pages"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal.pages#createMany
+         * @methodOf Loopback.Portal.pages
+         *
+         * @description
+         *
+         * Creates a new instance in pages of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Page` object.)
+         * </em>
+         */
+        R.pages.createMany = function() {
+          var TargetResource = $injector.get("Page");
+          var action = TargetResource["::createMany::Portal::pages"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal.pages#destroyAll
+         * @methodOf Loopback.Portal.pages
+         *
+         * @description
+         *
+         * Deletes all pages of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.pages.destroyAll = function() {
+          var TargetResource = $injector.get("Page");
+          var action = TargetResource["::delete::Portal::pages"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal.pages#destroyById
+         * @methodOf Loopback.Portal.pages
+         *
+         * @description
+         *
+         * Delete a related item by id for pages.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for pages
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.pages.destroyById = function() {
+          var TargetResource = $injector.get("Page");
+          var action = TargetResource["::destroyById::Portal::pages"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal.pages#findById
+         * @methodOf Loopback.Portal.pages
+         *
+         * @description
+         *
+         * Find a related item by id for pages.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for pages
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Page` object.)
+         * </em>
+         */
+        R.pages.findById = function() {
+          var TargetResource = $injector.get("Page");
+          var action = TargetResource["::findById::Portal::pages"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name Loopback.Portal.pages#updateById
+         * @methodOf Loopback.Portal.pages
+         *
+         * @description
+         *
+         * Update a related item by id for pages.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for pages
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Page` object.)
+         * </em>
+         */
+        R.pages.updateById = function() {
+          var TargetResource = $injector.get("Page");
+          var action = TargetResource["::updateById::Portal::pages"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);

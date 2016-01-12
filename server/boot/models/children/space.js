@@ -8,6 +8,40 @@ module.exports = function (app, config) {
             {
                 label: 'Startseite',
                 sref: 'app.dashboard'
+            },
+            {
+                label: 'Kunden',
+                children: [
+                    {
+                        label: 'Übersicht',
+                        sref: 'app.contact'
+                    },
+                    {
+                        label: 'Kundenkontakte',
+                        sref: 'app.contact'
+                    },
+                    {
+                        label: 'Kunden',
+                        sref: 'app.contact'
+                    },
+                    {
+                        label: 'Partner',
+                        sref: 'app.contact'
+                    }
+                ]
+            },
+            {
+                label: 'Mein Kundenportal',
+                children: [
+                    {
+                        label: 'Übersicht',
+                        sref: 'app.portal.list'
+                    },
+                    {
+                        label: 'Bearbeiten',
+                        sref: 'app.portal.edit({"id": "1"})'
+                    }
+                ]
             }
         ]
     }, function (err, space) {

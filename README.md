@@ -20,4 +20,24 @@
 - Startpaket für Studenten (Block, Kalender, Stift, Deutschland Trikot)
 
 ## Riecexco: Wolfgang Riedel
+- Kundenportal erstellen
+
 ## Opus
+
+
+
+# Root structure
+- app/module
+- config
+- data/drafts
+- data/log
+- server/
+- public/components
+
+
+# Module structure
+- module.js
+- data/fixtures
+- data/models
+- src/controllers
+- view/

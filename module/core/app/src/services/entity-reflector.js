@@ -24,6 +24,37 @@ angular
                         return cb.apply(entityReflector, [property]);
                     });
             };
+            EntityReflector.prototype.mapRelations = function (cb) {
+                var entityReflector = this;
+
+                var relations = this.entitySchema.relations;
+                var relationKeys = Object.keys(relations);
+
+                return relationKeys
+                    .filter(function (relationKey) {
+                        return ['id'].indexOf(relationKey) === -1;
+                    })
+                    .map(function (relationKey) {
+                        var relation = relations[relationKey];
+                        relation.key = relationKey;
+
+                        return cb.apply(entityReflector, [relation]);
+                    });
+            };
+
+            EntityReflector.prototype.guessDirective = function(entityRelationType) {
+                var entityRelationTypeToDirectiveMap = {
+                    belongsTo: 'select',
+                    hasMany: 'select',
+                    hasOne: 'select'
+                };
+
+                if (!entityRelationTypeToDirectiveMap.hasOwnProperty(entityRelationType)) {
+                    return entityRelationType;
+                }
+
+                return entityRelationTypeToDirectiveMap[entityRelationType];
+            };
             EntityReflector.prototype.guessFormType = function(entityPropertyType) {
                 var entityPropertyTypeToFormTypeMap = {
                     string: 'input',

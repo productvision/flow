@@ -1,10 +1,11 @@
 module.exports = function (Module) {
     Module.schema = function (cb) {
+        console.log(Module.definition);
         cb(null, {
             name: Module.definition.name,
             properties: Module.definition.rawProperties,
             settings: Module.definition.settings,
-            relations: Module.definition.relations
+            relations: Module.definition.settings.relations
         });
     };
     Module.remoteMethod(

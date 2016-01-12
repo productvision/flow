@@ -1,0 +1,26 @@
+{
+  "name": "Portal",
+  "plural": "portals",
+  "base": "PersistedModel",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titel"
+    },
+    "description": {
+      "type": "string",
+      "description": "Beschreibung"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Permalink"
+    }
+  },
+  "relations": {
+    "pages": {
+      "type": "hasMany",
+      "model": "Page",
+      "foreignKey": "portalId"
+    }
+  }
+}

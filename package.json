@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "lb-ng server/server.js module/core/app/src/services/loopback.js -m Loopback -u http://localhost:3000/api",
-    "client": "gulp",
-    "server": "node server/server.js"
+    "frontend": "gulp frontend",
+    "backend": "node server/server.js"
   },
   "author": "Tobias Oberrauch <to@gew.io>",
   "license": "ISC",

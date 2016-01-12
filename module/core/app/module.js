@@ -36,7 +36,7 @@ angular.module('app', [
     'grolba.dictionary',
     'grolba.issue',
     'grolba.goal',
-    'grolba.website',
+    'grolba.portal',
 
     'Loopback'
 ]);

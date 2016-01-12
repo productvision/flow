@@ -1,6 +1,6 @@
 const faker = require('faker');
 
-module.exports = function (app) {
+module.exports = function (app, portal) {
     var Page = app.models.Page;
 
     var properties = Page.definition.rawProperties;
@@ -42,7 +42,9 @@ module.exports = function (app) {
 
     var issues = [];
     for (var i = 0; i < 50; i++) {
-        issues.push(createPage());
+        var page = createPage();
+        page.portalId = portal.id;
+        issues.push(page);
     }
 
     Page.create(issues);
