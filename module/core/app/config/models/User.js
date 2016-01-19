@@ -1,6 +1,5 @@
-var config = require('../../server/config.json');
 var path = require('path');
-var exposeSchema = require('../../../../../config/helpers/SchemaExposer');
+var exposeSchema = require('../../../../../server/helpers/SchemaExposer');
 
 module.exports = function (user) {
     exposeSchema(user);
@@ -34,19 +33,19 @@ module.exports = function (user) {
     });
 
     //send password reset link when requested
-    user.on('resetPasswordRequest', function (info) {
-        var url = 'http://' + config.host + ':' + config.port + '/reset-password';
-        var html = 'Click <a href="' + url + '?access_token=' +
-            info.accessToken.id + '">here</a> to reset your password';
-
-        user.app.models.Email.send({
-            to: info.email,
-            from: info.email,
-            subject: 'Password reset',
-            html: html
-        }, function (err) {
-            if (err) return console.log('> error sending password reset email');
-            console.log('> sending password reset email to:', info.email);
-        });
-    });
+    //user.on('resetPasswordRequest', function (info) {
+    //    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    //    var html = 'Click <a href="' + url + '?access_token=' +
+    //        info.accessToken.id + '">here</a> to reset your password';
+    //
+    //    user.app.models.Email.send({
+    //        to: info.email,
+    //        from: info.email,
+    //        subject: 'Password reset',
+    //        html: html
+    //    }, function (err) {
+    //        if (err) return console.log('> error sending password reset email');
+    //        console.log('> sending password reset email to:', info.email);
+    //    });
+    //});
 };

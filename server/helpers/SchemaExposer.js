@@ -1,6 +1,5 @@
 module.exports = function (Module) {
     Module.schema = function (cb) {
-        console.log(Module.definition);
         cb(null, {
             name: Module.definition.name,
             properties: Module.definition.rawProperties,

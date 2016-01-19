@@ -9,26 +9,32 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-var modelSources = [];
-glob("./module/{core,grolba}/**/config/models", function (err, files) {
-    modelSources = modelSources.concat(files);
+var modelSources = glob.sync("../module/{core,grolba}/**/config/models", {
+    cwd: __dirname
 });
 
 var models = {
     "_meta": {
         "sources": modelSources
+    },
+    "ACL": {
+        "dataSource": "memory",
+        "public": true
     }
 };
 
-var modelNames = [
-    "User", "ACL", "Config", "Space", "SpaceConfig", "Module", "SpaceModule", "Message", "Event", "Goal",
-    "KeyResult", "Issue", "Word", "Page", "Portal"
-];
-modelNames.forEach(function (modelName) {
-    models[modelName] = {
-        "dataSource": "memory",
-        "public": true
-    };
+modelSources.forEach(function (modelSource) {
+    var modelFiles = glob.sync(modelSource + "/*.json", {
+        cwd: __dirname
+    });
+    modelFiles.forEach(function (modelFile) {
+        var modelConfigFile = require(modelFile);
+
+        models[modelConfigFile.name] = {
+            "dataSource": "memory",
+            "public": true
+        };
+    });
 });
 
 boot(app, {
