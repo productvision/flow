@@ -1,6 +1,6 @@
 var config = require('../../server/config.json');
 var path = require('path');
-var exposeSchema = require('../helpers/SchemaExposer');
+var exposeSchema = require('../../../../../config/helpers/SchemaExposer');
 
 module.exports = function (user) {
     exposeSchema(user);
