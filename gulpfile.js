@@ -5,21 +5,31 @@ const inject = require('gulp-inject');
 const child = require('child_process');
 const fs = require('fs');
 
-var frontendAssets = [
-    './index.html',
+function AssetManager() {
+    this.assets = [
+        './index.html',
+        './bower.json'
+    ];
 
-    './bower.json',
+    this.add = function (id) {
+        this.assets.push('./module/' + id + '/module.js');
+        this.assets.push('./module/' + id + '/config/config.js');
+        this.assets.push('/module/' + id + '/src/**/*.{js,json,css,html}');
+        this.assets.push('./module/' + id + '/public/**/*.{js,json,css,html}');
+    };
 
-    './module/core/loader/module.js',
-    './module/core/loader/**/*.{js,json,css,html}',
-    './module/core/app/module.js',
-    './module/core/app/**/*.{js,json,css,html}',
+    this.getAssets = function () {
+        return this.assets;
+    }
+}
 
-    './module/**/module.js',
-    './module/**/config.js',
-    './module/**/src/**/*.{js,json,css,html}',
-    './module/**/public/**/*.{js,json,css,html}'
-];
+var assetManager = new AssetManager();
+assetManager.add('core/loader');
+assetManager.add('core/app');
+assetManager.add('skeleton/**');
+assetManager.add('editor/**');
+assetManager.add('grolba/**');
+
 
 gulp.task('frontend-assets', function () {
     gulp.src('./index.html')
@@ -28,7 +38,7 @@ gulp.task('frontend-assets', function () {
         }), {
             name: 'bower'
         }))
-        .pipe(inject(gulp.src(frontendAssets), {
+        .pipe(inject(gulp.src(assetManager.getAssets()), {
             read: false
         }))
         .pipe(gulp.dest('.'));
@@ -42,7 +52,7 @@ gulp.task('frontend-serve', function () {
 });
 
 gulp.task('frontend-watch', function () {
-    gulp.watch(frontendAssets, ['frontend-assets', 'frontend-reload']);
+    gulp.watch(assetManager.getAssets(), ['frontend-assets', 'frontend-reload']);
 });
 
 gulp.task('frontend-reload', function () {

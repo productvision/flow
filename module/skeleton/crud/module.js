@@ -1,10 +1,57 @@
 angular
     .module('skeleton.crud', [])
     .provider('CrudModuleFactory', [
-        '$stateProvider', 'ModelService',
-        function ($stateProvider, ModelService) {
+        '$stateProvider',
+        function ($stateProvider) {
             this.create = function (config) {
                 config.layout = config.hasOwnProperty('layout') ? config.layout : 'default';
+
+                function ModelService(config) {
+                    this.config = config;
+
+                    this.getEntitiesResolver = function () {
+                        return [
+                            this.config.name,
+                            function (Entity) {
+                                return Entity.find().$promise;
+                            }
+                        ];
+                    };
+                    this.getEntityResolver = function () {
+                        return [
+                            this.config.name, '$stateParams',
+                            function (Entity, $stateParams) {
+                                return Entity.get({
+                                    id: $stateParams.id
+                                }).$promise;
+                            }
+                        ];
+                    };
+                    this.getEntitySchemaResolver = function () {
+                        return [
+                            this.config.name,
+                            function (Entity) {
+                                return Entity.schema().$promise;
+                            }
+                        ];
+                    };
+                    this.getEntityReflectorResolver = function () {
+                        return [
+                            'EntityReflectorFactory', 'entitySchema',
+                            function (EntityReflectorFactory, entitySchema) {
+                                return EntityReflectorFactory.create(entitySchema.schema);
+                            }
+                        ];
+                    };
+                    this.getEntityFactoryResolver = function () {
+                        return [
+                            this.config.name,
+                            function (Entity) {
+                                return Entity.create;
+                            }
+                        ];
+                    };
+                }
 
                 var model = new ModelService(config.model);
 
