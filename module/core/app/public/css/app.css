@@ -320,9 +320,14 @@ a.list-group-item.hover {
     background-color: #19a9d5;
 }
 
-.nav > li > a:hover,
-.nav > li > a:focus {
-    background-color: rgba(0, 0, 0, 0.05);
+.navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:active,
+.navbar-nav > li > a:focus {
+    background-color: #3572b0;
 }
 
 .nav.nav-lg > li > a {
@@ -352,7 +357,7 @@ a.list-group-item.hover {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #3572b0;
 }
 
 .nav-tabs {
@@ -682,6 +687,10 @@ body {
     content: "";
 }
 
+.app-header .btn {
+    margin-top: 8px;
+}
+
 .app-header-fixed {
     padding-top: 50px;
 }
@@ -693,6 +702,7 @@ body {
 }
 
 .app-header {
+    background-color: #205081;
     z-index: 1025;
     border-radius: 0;
 }

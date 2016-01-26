@@ -14,7 +14,7 @@ function AssetManager() {
     this.add = function (id) {
         this.assets.push('./module/' + id + '/module.js');
         this.assets.push('./module/' + id + '/config/config.js');
-        this.assets.push('/module/' + id + '/src/**/*.{js,json,css,html}');
+        this.assets.push('./module/' + id + '/src/**/*.{js,json,css,html}');
         this.assets.push('./module/' + id + '/public/**/*.{js,json,css,html}');
     };
 

@@ -2,54 +2,8 @@ module.exports = function (app, config) {
     var Space = app.models.Space;
 
     Space.create({
-        slug: 'riedexco',
-        name: 'Riedexco',
-        menu: [
-            {
-                label: 'Startseite',
-                sref: 'app.dashboard'
-            },
-            {
-                label: 'Kunden',
-                children: [
-                    {
-                        label: 'Übersicht',
-                        sref: 'app.contact'
-                    },
-                    {
-                        label: 'Kundenkontakte',
-                        sref: 'app.contact'
-                    },
-                    {
-                        label: 'Kunden',
-                        sref: 'app.contact'
-                    },
-                    {
-                        label: 'Partner',
-                        sref: 'app.contact'
-                    }
-                ]
-            },
-            {
-                label: 'Mein Kundenportal',
-                children: [
-                    {
-                        label: 'Übersicht',
-                        sref: 'app.portal.list'
-                    },
-                    {
-                        label: 'Bearbeiten',
-                        sref: 'app.portal.edit({"id": "1"})'
-                    }
-                ]
-            }
-        ]
-    }, function (err, space) {
-        require('./space-config')(app, config, space, 'Riedexco');
-    });
-    Space.create({
-        slug: 'team',
-        name: 'Team',
+        slug: 'tfrt',
+        name: 'TF RT',
         menu: [
             {
                 label: 'Ziele',
@@ -137,50 +91,51 @@ module.exports = function (app, config) {
                     {
                         label: 'Partner',
                         sref: 'app.contact'
-                    }
-                ]
-            },
-            {
-                label: 'Netzwerk',
-                sref: 'app.network'
-            },
-            {
-                label: 'Wörterbuch',
-                children: [
-                    {
-                        label: 'Übersicht',
-                        sref: 'app.dictionary.list'
-                    },
-                    {
-                        label: 'Suche',
-                        sref: 'app.dictionary.search'
                     },
                     {
                         type: 'divider'
                     },
                     {
-                        label: 'Neuen Eintrag erstellen',
-                        sref: 'app.dictionary.create'
+                        label: 'Netzwerke',
+                        sref: 'app.network'
                     }
                 ]
             },
             {
-                label: 'Webseite',
+                label: 'Bereiche',
                 children: [
                     {
                         label: 'Übersicht',
-                        sref: 'app.website.list'
+                        sref: 'app.portal.list'
                     },
-                    //{
-                    //    label: 'Suche',
-                    //    sref: 'app.website.search'
-                    //},
                     {
                         type: 'divider'
                     },
                     {
-                        label: 'Neue Seite erstellen',
-                        sref: 'app.website.create'
+                        label: 'Privater Bereich',
+                        sref: 'app.portal.edit({"id": "1"})'
+                    },
+                    {
+                        label: 'Team Bereich',
+                        sref: 'app.portal.edit({"id": "1"})'
+                    },
+                    {
+                        label: 'Öffentlicher Bereich',
+                        sref: 'app.portal.edit({"id": "1"})'
+                    }
+                ]
+            },
+            {
+                label: 'Lösungen',
+                sref: 'app.dashboard',
+                children: [
+                    {
+                        label: 'Produkte',
+                        sref: 'app.dashboard'
+                    },
+                    {
+                        label: 'Dienstleistungen',
+                        sref: 'app.dashboard'
                     }
                 ]
             }
@@ -188,5 +143,52 @@ module.exports = function (app, config) {
     }, function (err, space) {
         require('./space-config')(app, config, space, 'Team Tecis');
     });
+
+    //Space.create({
+    //    slug: 'riedexco',
+    //    name: 'Riedexco',
+    //    menu: [
+    //        {
+    //            label: 'Startseite',
+    //            sref: 'app.dashboard'
+    //        },
+    //        {
+    //            label: 'Kunden',
+    //            children: [
+    //                {
+    //                    label: 'Übersicht',
+    //                    sref: 'app.contact'
+    //                },
+    //                {
+    //                    label: 'Kundenkontakte',
+    //                    sref: 'app.contact'
+    //                },
+    //                {
+    //                    label: 'Kunden',
+    //                    sref: 'app.contact'
+    //                },
+    //                {
+    //                    label: 'Partner',
+    //                    sref: 'app.contact'
+    //                }
+    //            ]
+    //        },
+    //        {
+    //            label: 'Mein Kundenportal',
+    //            children: [
+    //                {
+    //                    label: 'Übersicht',
+    //                    sref: 'app.portal.list'
+    //                },
+    //                {
+    //                    label: 'Bearbeiten',
+    //                    sref: 'app.portal.edit({"id": "1"})'
+    //                }
+    //            ]
+    //        }
+    //    ]
+    //}, function (err, space) {
+    //    require('./space-config')(app, config, space, 'Riedexco');
+    //});
 
 };
