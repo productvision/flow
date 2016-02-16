@@ -14,4 +14,21 @@ angular
                 }
             });
         }
+    ])
+    .run([
+        '$rootScope', '$uibModal',
+        function ($rootScope, $uibModal) {
+            $rootScope.openCreateDialog = function () {
+                var modal = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'module/grolba/issue/view/modals/create.html',
+                    controller: 'grolba.issue.CreateController'
+                });
+                modal.result.then(function (item) {
+
+                }, function () {
+                    console.log('Modal dismissed at: ' + new Date());
+                });
+            };
+        }
     ]);

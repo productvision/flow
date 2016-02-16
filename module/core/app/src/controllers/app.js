@@ -48,40 +48,6 @@ angular
             $rootScope.space = spaces[0];
             $rootScope.spaces = spaces;
 
-            $rootScope.openCreateDialog = function () {
-                var modal = $uibModal.open({
-                    animation: true,
-                    templateUrl: 'module/core/app/view/module-modal.html',
-                    controller: 'core.app.ModuleModalController',
-                    resolve: {
-                        modules: [
-                            'Module',
-                            function (Module) {
-                                return Module.query().$promise;
-                            }
-                        ]
-                    }
-                });
-                modal.result.then(function (item) {
-                    item.spaceId = $rootScope.space.id;
-
-                    var spaceModule = new SpaceModule(item);
-                    spaceModule.$save();
-
-                    if (item.hasOwnProperty('addToMenu') && item.addToMenu) {
-                        //$rootScope.space.menu.push({
-                        //    label: spaceModule.name,
-                        //    sref: 'module.' + spaceModule.slug
-                        //});
-                        $rootScope.space.$save();
-
-                        addState(spaceModule);
-                    }
-                }, function () {
-                    console.log('Modal dismissed at: ' + new Date());
-                });
-            };
-
             $rootScope.openSpace = function (spaceId) {
                 var space = $rootScope.spaces[spaceId];
                 var state;
