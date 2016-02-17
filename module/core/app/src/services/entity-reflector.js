@@ -100,7 +100,9 @@ angular
             };
 
             EntityReflector.prototype.guessHtmlComponent = function (entityRelationType) {
+/*
                 return 'issueTypeCollection';
+*/
 
                 var entityRelationTypeToDirectiveMap = {
                     belongsTo: 'select',
