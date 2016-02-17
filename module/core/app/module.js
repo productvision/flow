@@ -38,5 +38,8 @@ angular.module('app', [
     'grolba.goal',
     'grolba.portal',
 
+    'community.core',
+    'community.customer',
+
     'Loopback'
 ]);

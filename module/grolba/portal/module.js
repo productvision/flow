@@ -8,10 +8,14 @@ angular
         function (CrudModuleFactoryProvider) {
             CrudModuleFactoryProvider.create({
                 id: 'portal',
-                url: '/portal',
+                url: '/portals',
                 model: {
                     type: 'loopback',
-                    name: 'Portal'
+                    name: 'Portal',
+                    relations: {
+                        name: 'Page',
+                        plural: 'pages'
+                    }
                 }
             });
         }

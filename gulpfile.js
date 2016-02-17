@@ -29,6 +29,7 @@ assetManager.add('core/app');
 assetManager.add('skeleton/**');
 assetManager.add('editor/**');
 assetManager.add('grolba/**');
+assetManager.add('community/**');
 
 
 gulp.task('frontend-assets', function () {

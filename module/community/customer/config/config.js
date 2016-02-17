@@ -1,27 +1,14 @@
 angular
-    .module('app')
+    .module('community.customer')
     .config([
-        '$ocLazyLoadProvider', 'AutoloaderProvider',
-        function ($ocLazyLoadProvider, AutoloaderProvider) {
-            $ocLazyLoadProvider.config({
-                debug: false,
-                events: true,
-                modules: AutoloaderProvider.getModules()
-            });
-        }
-    ])
-    .config([
-        '$stateProvider', '$urlRouterProvider',
-        function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider
-                .otherwise('/app/dashboard');
-
+        '$stateProvider',
+        function ($stateProvider) {
             $stateProvider
-                .state('app', {
+                .state('community', {
                     abstract: true,
-                    url: '/app',
-                    controller: 'AppController',
-                    templateUrl: "module/core/app/view/layout.html",
+                    url: '/community',
+                    templateUrl: "module/community/core/view/layout.html",
+                    controller: 'community.core.IndexController',
                     resolve: {
                         user: [
                             'User',
@@ -63,32 +50,11 @@ angular
                             }
                         ]
                     }
+                })
+                .state('community.customer', {
+                    url: '/customer',
+                    templateUrl: 'module/community/customer/view/index.html',
+                    controller: 'community.customer.IndexController'
                 });
-        }
-    ])
-    .config([
-        '$translateProvider',
-        function ($translateProvider) {
-            $translateProvider.useStaticFilesLoader({
-                prefix: './module/core/app/translations/',
-                suffix: '.json'
-            });
-            $translateProvider.preferredLanguage('de');
-            $translateProvider.useLocalStorage();
-        }
-    ])
-    .run([
-        '$rootScope', 'formlyConfig',
-        function ($rootScope, formlyConfig) {
-            $rootScope.showNotice = function (message) {
-                angular.element('#notices .text').text(message);
-            };
-
-            formlyConfig.extras.removeChromeAutoComplete = true;
-            formlyConfig.setType({
-                name: 'ui-select2',
-                extends: 'select',
-                templateUrl: 'module/core/app/view/form/type/select2.html'
-            });
         }
     ]);
