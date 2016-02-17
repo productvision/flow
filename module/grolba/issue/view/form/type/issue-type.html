@@ -1,0 +1,16 @@
+<div class="{{ hideRepeat }}">
+    <div class="repeatSection col-md-4" data-ng-repeat="element in model[options.key]">
+        <div class="row">
+            <formly-form fields="to.fields" model="element" form="form"></formly-form>
+        </div>
+
+        <button type="button" class="btn btn-sm btn-danger"
+                data-ng-click="model[options.key].splice($index, 1)">
+            Remove
+        </button>
+        <hr>
+    </div>
+    <p>
+        <button type="button" class="btn btn-primary" data-ng-click="create()">Seite hinzufügen</button>
+    </p>
+</div>

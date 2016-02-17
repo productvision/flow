@@ -11,6 +11,9 @@ angular
                 var entityReflector = this;
 
                 var properties = this.entitySchema.properties;
+                if (!properties) {
+                    return [];
+                }
                 var propertyKeys = Object.keys(properties);
 
                 return propertyKeys
@@ -28,6 +31,10 @@ angular
                 var entityReflector = this;
 
                 var relations = this.entitySchema.relations;
+                if (!relations) {
+                    return [];
+                }
+
                 var relationKeys = Object.keys(relations);
 
                 return relationKeys
@@ -42,7 +49,59 @@ angular
                     });
             };
 
-            EntityReflector.prototype.guessDirective = function(entityRelationType) {
+            EntityReflector.prototype.createComponent = function (relation) {
+                var relationType = this.guessHtmlComponent(relation.type);
+
+                var templateOptions = {
+                    label: relation.model
+                };
+
+                if (relationType === 'issueTypeCollection') {
+                    templateOptions.fields = [
+                        {
+                            className: 'row',
+                            fieldGroup: [
+                                {
+                                    type: 'input',
+                                    key: 'title',
+                                    templateOptions: {
+                                        label: 'Überschrift',
+                                        required: true
+                                    }
+                                }, {
+                                    type: 'input',
+                                    key: 'content',
+                                    templateOptions: {
+                                        label: 'Inhalt'
+                                    }
+                                }, {
+                                    type: 'input',
+                                    key: 'slug',
+                                    templateOptions: {
+                                        label: 'Permalink'
+                                    }
+                                }, {
+                                    type: 'input',
+                                    key: 'author',
+                                    templateOptions: {
+                                        label: 'Autor'
+                                    }
+                                }
+                            ]
+                        }
+                    ];
+                }
+
+                return {
+                    key: relation.key,
+                    type: relationType,
+                    templateOptions: templateOptions
+                };
+            };
+
+            EntityReflector.prototype.guessHtmlComponent = function (entityRelationType) {
+                return 'issueTypeCollection';
+
                 var entityRelationTypeToDirectiveMap = {
                     belongsTo: 'select',
                     hasMany: 'select',
@@ -55,7 +114,7 @@ angular
 
                 return entityRelationTypeToDirectiveMap[entityRelationType];
             };
-            EntityReflector.prototype.guessFormType = function(entityPropertyType) {
+            EntityReflector.prototype.guessFormType = function (entityPropertyType) {
                 var entityPropertyTypeToFormTypeMap = {
                     string: 'input',
                     number: 'input',

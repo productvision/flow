@@ -1,0 +1,23 @@
+{
+  "name": "IssueType",
+  "plural": "issue-types",
+  "base": "PersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name",
+      "required": "true"
+    },
+    "fields": {
+      "type": "object",
+      "description": "Felder"
+    }
+  },
+  "relations": {
+    "issues": {
+      "type": "hasMany",
+      "model": "Issue",
+      "foreignKey": "issueTypeId"
+    }
+  }
+}

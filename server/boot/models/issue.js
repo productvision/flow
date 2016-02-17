@@ -2,14 +2,15 @@ const faker = require('faker');
 
 module.exports = function (app) {
     var Issue = app.models.Issue;
+    var IssueType = app.models.IssueType;
 
     var properties = Issue.definition.rawProperties;
     var propertyKeys = Object.keys(properties).filter(function (propertyKey) {
         return ['id'].indexOf(propertyKey) === -1;
     });
 
-    function guessValue(propertyType) {
-        switch (propertyType) {
+    function guessValue(property) {
+        switch (property.type) {
             case 'string':
                 return faker.lorem.sentence();
             case 'number':
@@ -28,22 +29,37 @@ module.exports = function (app) {
                 return '';
         }
     }
-    function createIssue() {
+
+    function createIssue(issueType) {
         var issue = {};
         for (var index in propertyKeys) {
             if (propertyKeys.hasOwnProperty(index)) {
                 var propertyKey = propertyKeys[index];
                 var property = properties[propertyKey];
-                issue[propertyKey] = guessValue(property.type);
+
+                if (propertyKey === 'issueTypeId') {
+                    issue[propertyKey] = issueType.id;
+                } else {
+                    issue[propertyKey] = guessValue(property);
+                }
             }
         }
         return issue;
     }
 
-    var issues = [];
-    for (var i = 0; i < 50; i++) {
-        issues.push(createIssue());
-    }
+    IssueType.create({
+        name: 'Existenzgründung',
+        fields: {
+            "type": "string",
+            "description": "Name",
+            "required": "true"
+        }
+    }, function (err, issueType) {
+        var issues = [];
+        for (var i = 0; i < 5; i++) {
+            issues.push(createIssue(issueType));
+        }
 
-    Issue.create(issues);
+        Issue.create(issues);
+    });
 };

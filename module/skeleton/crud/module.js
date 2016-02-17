@@ -13,6 +13,7 @@ angular
                         return [
                             this.config.name,
                             function (Entity) {
+
                                 return Entity.find().$promise;
                             }
                         ];
@@ -21,8 +22,14 @@ angular
                         return [
                             this.config.name, '$stateParams',
                             function (Entity, $stateParams) {
-                                return Entity.get({
-                                    id: $stateParams.id
+
+                                return Entity.findOne({
+                                    filter: {
+                                        include: 'pages',
+                                        where: {
+                                            id: $stateParams.id
+                                        }
+                                    }
                                 }).$promise;
                             }
                         ];
@@ -31,6 +38,7 @@ angular
                         return [
                             this.config.name,
                             function (Entity) {
+
                                 return Entity.schema().$promise;
                             }
                         ];
@@ -39,6 +47,7 @@ angular
                         return [
                             'EntityReflectorFactory', 'entitySchema',
                             function (EntityReflectorFactory, entitySchema) {
+
                                 return EntityReflectorFactory.create(entitySchema.schema);
                             }
                         ];
@@ -47,6 +56,7 @@ angular
                         return [
                             this.config.name,
                             function (Entity) {
+
                                 return Entity.create;
                             }
                         ];

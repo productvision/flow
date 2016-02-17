@@ -1,10 +1,5 @@
 <div class="col-md-12">
     <formly-form model="form.model" fields="form.fields" options="form.options" form="vm.form">
-        <div>
-            <label for="foo" class="control-label">Inhalte</label>
-            <textarea id="foo" data-ui-tinymce data-ng-model="editor.model"></textarea>
-
-        </div>
         <button class="btn btn-primary submit-button" type="submit" data-ng-click="form.submit()"
                 data-ng-disabled="form.$invalid">Speichern
         </button>

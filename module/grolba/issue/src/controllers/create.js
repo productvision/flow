@@ -4,13 +4,9 @@ angular
         '$scope', '$uibModalInstance',
         function ($scope, $uibModalInstance) {
             $scope.model = {};
-            $scope.onSubmit = function () {
-                console.log(JSON.stringify($scope.model), null, 2);
-            };
-
             $scope.fields = [
                 {
-                    key: 'entityName',
+                    key: 'issueTypeId',
                     type: 'select',
                     templateOptions: {
                         label: 'Vorgangsart',
@@ -27,12 +23,7 @@ angular
             $scope.options = {};
 
             $scope.ok = function () {
-                $scope.fields.push({
-                    key: 'asd',
-                    type: 'input'
-                });
-                debugger;
-                //$uibModalInstance.close($scope.model);
+                $uibModalInstance.close($scope.model);
             };
 
             $scope.cancel = function () {
