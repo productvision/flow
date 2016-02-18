@@ -1,8 +1,17 @@
 angular
     .module('skeleton.crud')
     .controller('skeleton.crud.show.IndexController', [
-        '$scope', 'entity', 'entityReflector',
-        function ($scope, entity, entityReflector) {
+        '$scope', '$state', 'entity', 'entityReflector', 'hotkeys',
+        function ($scope, $state, entity, entityReflector, hotkeys) {
+            hotkeys.add({
+                combo: 'e',
+                callback: function () {
+                    $state.go('^.edit', {
+                        id: entity.id
+                    });
+                }
+            });
+
             $scope.entity = entity;
             $scope.properties = entityReflector.mapProperties(function (property) {
                 return {

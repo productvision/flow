@@ -70,7 +70,21 @@ angular
                 url: '/pages',
                 model: {
                     name: 'Page',
-                    type: 'loopback'
+                    type: 'loopback',
+                    properties: {
+                        content: 'ckeditor'
+                    }
+                },
+                view: {
+                    list: {
+                        properties: ['title', 'author', 'date']
+                    },
+                    show: {
+                        templateUrl: 'module/community/customer/view/show.html'
+                    },
+                    edit: {
+                        properties: ['title', 'author', 'content', 'slug', 'status', 'visibility']
+                    }
                 }
             });
             CrudModuleFactoryProvider.create({
@@ -79,6 +93,11 @@ angular
                 model: {
                     name: 'User',
                     type: 'loopback'
+                },
+                view: {
+                    list: {
+                        columns: ['username', 'email']
+                    }
                 }
             });
         }

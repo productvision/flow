@@ -7,7 +7,7 @@ angular
                 this.entity = entity;
             }
 
-            EntityReflector.prototype.mapProperties = function (cb) {
+            EntityReflector.prototype.mapProperties = function (cb, config) {
                 var entityReflector = this;
 
                 var properties = this.entitySchema.properties;
@@ -24,10 +24,10 @@ angular
                         var property = properties[propertyKey];
                         property.key = propertyKey;
 
-                        return cb.apply(entityReflector, [property]);
+                        return cb.apply(entityReflector, [property, config]);
                     });
             };
-            EntityReflector.prototype.mapRelations = function (cb) {
+            EntityReflector.prototype.mapRelations = function (cb, config) {
                 var entityReflector = this;
 
                 var relations = this.entitySchema.relations;
@@ -45,7 +45,7 @@ angular
                         var relation = relations[relationKey];
                         relation.key = relationKey;
 
-                        return cb.apply(entityReflector, [relation]);
+                        return cb.apply(entityReflector, [relation, config]);
                     });
             };
 

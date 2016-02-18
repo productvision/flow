@@ -90,5 +90,9 @@ angular
                 extends: 'select',
                 templateUrl: 'module/core/app/view/form/type/select2.html'
             });
+            formlyConfig.setType({
+                name: 'ckeditor',
+                templateUrl: 'module/core/app/view/form/type/ckeditor.html'
+            });
         }
     ]);

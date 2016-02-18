@@ -3,6 +3,21 @@ angular
     .provider('skeleton.crud.CrudModuleFactory', [
         '$stateProvider',
         function ($stateProvider) {
+            function extractValueOrUseDefault(element, keys, defaultValue) {
+                if (typeof keys === 'string') {
+                    keys = keys.split('.');
+                }
+
+                for (var i = 0; i < keys.length; i++) {
+                    if (!element || !element.hasOwnProperty(keys[i])) {
+                        return defaultValue;
+                    }
+                    element = element[keys[i]];
+                }
+                return element;
+            }
+
+
             this.create = function (config) {
                 config.layout = config.hasOwnProperty('layout') ? config.layout : 'default';
 
@@ -27,13 +42,14 @@ angular
                             this.config.name, '$stateParams',
                             function (Entity, $stateParams) {
 
-                                return Entity.findOne({
-                                    filter: {
-                                        include: 'pages',
-                                        where: {
-                                            id: $stateParams.id
-                                        }
+                                var filter = {
+                                    where: {
+                                        id: $stateParams.id
                                     }
+                                };
+                                //filter['include'] = 'pages';
+                                return Entity.findOne({
+                                    filter: filter
                                 }).$promise;
                             }
                         ];
@@ -77,6 +93,9 @@ angular
                         resolve: {
                             entitySchema: model.getEntitySchemaResolver(),
                             entityReflector: model.getEntityReflectorResolver()
+                        },
+                        data: {
+                            config: config
                         }
                     })
                     .state(config.name + '.list', {
@@ -103,11 +122,10 @@ angular
                         templateUrl: 'module/skeleton/crud/view/list/widget.html',
                         controller: 'skeleton.crud.list.WidgetController'
                     })
-
                     .state(config.name + '.show', {
                         url: '/show/:id',
-                        templateUrl: 'module/skeleton/crud/view/show/index.html',
-                        controller: 'skeleton.crud.show.IndexController',
+                        templateUrl: extractValueOrUseDefault(config, 'view.show.templateUrl', 'module/skeleton/crud/view/show/index.html'),
+                        controller: extractValueOrUseDefault(config, 'view.show.controller', 'skeleton.crud.show.IndexController'),
                         resolve: {
                             entity: model.getEntityResolver()
                         }

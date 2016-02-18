@@ -7,62 +7,62 @@
                 <nav data-ui-nav class="navi clearfix">
                     <ul class="nav dk">
                         <li class="hidden-folded padder m-t m-b-sm text-muted text-u-c text-xs">
-                            <span>Admin</span>
+                            <span>Kundenportal</span>
                         </li>
                         <li data-ui-sref-active="active">
                             <a data-ui-sref="community.customer.dashboard">
                                 <i class="icon-home icon"></i>
-                                <span>Übersicht</span>
+                                <span>Dashboard</span>
                             </a>
+                        </li>
+                        <li class="hidden-folded padder m-t m-b-sm text-muted text-u-c text-xs">
+                            <span>Seiten</span>
                         </li>
                         <li data-ui-sref-active="active">
-                            <a data-ui-sref="community.customer.pages.list">
-                                <i class="icon-docs icon"></i>
-                                <span>Seiten</span>
+                            <a data-ui-sref="community.customer.pages.show({'id': '1'})">
+                                <i class="icon-doc icon"></i>
+                                <span>Startseite</span>
                             </a>
                         </li>
-                        <li data-ui-sref-active="active">
-                            <a data-ui-sref="community.customer.users.list">
-                                <i class="icon-people icon"></i>
-                                <span>User</span>
-                            </a>
-                        </li>
-                        <li data-ui-sref-active="active">
-                            <a data-ui-sref="community.customer.dashboard">
-                                <i class="icon-bulb icon"></i>
-                                <span>Erkenntnisse</span>
-                            </a>
-                        </li>
-                        <li data-ui-sref-active="active">
-                            <a data-ui-sref="community.customer.dashboard">
-                                <i class="icon-menu icon"></i>
-                                <span>Menu</span>
-                            </a>
-                        </li>
-                        <li data-ui-sref-active="active">
-                            <a data-ui-sref="community.customer.dashboard">
-                                <i class="icon-chemistry icon"></i>
-                                <span>Branding</span>
-                            </a>
-                        </li>
-                        <li data-ui-sref-active="active">
-                            <a data-ui-sref="community.customer.dashboard">
-                                <i class="icon-login icon"></i>
-                                <span>Login & Anmeldung</span>
-                            </a>
-                        </li>
-                        <li data-ui-sref-active="active">
-                            <a data-ui-sref="community.customer.dashboard">
-                                <i class="icon-settings icon"></i>
-                                <span>Einstellungen</span>
-                            </a>
-                        </li>
+                        <!--<li class="hidden-folded padder m-t m-b-sm text-muted text-u-c text-xs">-->
+                            <!--<span>Admin</span>-->
+                        <!--</li>-->
+                        <!--<li data-ui-sref-active="active">-->
+                            <!--<a data-ui-sref="community.customer.pages.list">-->
+                                <!--<i class="icon-docs icon"></i>-->
+                                <!--<span>Seiten</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li data-ui-sref-active="active">-->
+                            <!--<a data-ui-sref="community.customer.users.list">-->
+                                <!--<i class="icon-people icon"></i>-->
+                                <!--<span>Kunden</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li data-ui-sref-active="active">-->
+                            <!--<a data-ui-sref="community.customer.dashboard">-->
+                                <!--<i class="icon-bulb icon"></i>-->
+                                <!--<span>Erkenntnisse</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li data-ui-sref-active="active">-->
+                            <!--<a data-ui-sref="community.customer.dashboard">-->
+                                <!--<i class="icon-chemistry icon"></i>-->
+                                <!--<span>Branding</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li data-ui-sref-active="active">-->
+                            <!--<a data-ui-sref="community.customer.dashboard">-->
+                                <!--<i class="icon-settings icon"></i>-->
+                                <!--<span>Einstellungen</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
     <div class="app-content col-md-10">
-        <div class="app-content-body fade-in" ui-view></div>
+        <div class="app-content-body fade-in" data-ui-view></div>
     </div>
 </div>
