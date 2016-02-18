@@ -1,4 +1,5 @@
 angular
     .module('community.customer', [
-        'core.loader'
+        'core.loader',
+        'skeleton.dashboard'
     ]);

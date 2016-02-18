@@ -4,23 +4,18 @@ angular
         'skeleton.crud'
     ])
     .config([
-        '$stateProvider', 'AutoloaderProvider', 'CrudModuleFactoryProvider',
-        function ($stateProvider, AutoloaderProvider, CrudModuleFactoryProvider) {
+        '$stateProvider', 'skeleton.crud.CrudModuleFactoryProvider',
+        function ($stateProvider, CrudModuleFactoryProvider) {
             CrudModuleFactoryProvider.create({
-                id: 'dictionary',
+                name: 'app.dictionary',
                 url: '/dictionary',
                 model: {
-                    type: 'loopback',
-                    name: 'Word'
+                    name: 'Word',
+                    type: 'loopback'
                 }
             });
 
             $stateProvider
-                //.state('app.dictionary', {
-                //    abstract: true,
-                //    url: '/dictionary',
-                //    template: '<div data-ui-view></div>'
-                //})
                 .state('app.dictionary.search', {
                     url: '/search',
                     templateUrl: 'module/grolba/dictionary/view/index.html'

@@ -1,8 +1,68 @@
-<div data-ng-include="'module/core/app/view/blocks/header.html'" class="app-header navbar"></div>
+<div data-ng-include="'module/core/app/view/blocks/header.html'" class="app-header navbar navbar-fixed-top"></div>
 
-<div class="app-content">
-    <div data-ui-butterbar></div>
-    <a href class="off-screen-toggle hide" data-ui-toggle-class="off-screen" data-target=".app-aside"></a>
-
-    <div class="app-content-body fade-in" ui-view></div>
+<div class="row" style="margin-top:50px;">
+    <div class="app-aside hidden-xs col-md-2">
+        <div class="aside-wrap">
+            <div class="navi-wrap">
+                <nav data-ui-nav class="navi clearfix">
+                    <ul class="nav dk">
+                        <li class="hidden-folded padder m-t m-b-sm text-muted text-u-c text-xs">
+                            <span>Admin</span>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="community.customer.dashboard">
+                                <i class="icon-home icon"></i>
+                                <span>Übersicht</span>
+                            </a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="community.customer.pages.list">
+                                <i class="icon-docs icon"></i>
+                                <span>Seiten</span>
+                            </a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="community.customer.users.list">
+                                <i class="icon-people icon"></i>
+                                <span>User</span>
+                            </a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="community.customer.dashboard">
+                                <i class="icon-bulb icon"></i>
+                                <span>Erkenntnisse</span>
+                            </a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="community.customer.dashboard">
+                                <i class="icon-menu icon"></i>
+                                <span>Menu</span>
+                            </a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="community.customer.dashboard">
+                                <i class="icon-chemistry icon"></i>
+                                <span>Branding</span>
+                            </a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="community.customer.dashboard">
+                                <i class="icon-login icon"></i>
+                                <span>Login & Anmeldung</span>
+                            </a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="community.customer.dashboard">
+                                <i class="icon-settings icon"></i>
+                                <span>Einstellungen</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="app-content col-md-10">
+        <div class="app-content-body fade-in" ui-view></div>
+    </div>
 </div>

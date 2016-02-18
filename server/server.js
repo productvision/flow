@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-var modelSources = glob.sync("../module/{core,grolba}/**/config/models", {
+var modelSources = glob.sync("../module/{community,core,grolba}/**/config/models", {
     cwd: __dirname
 });
 

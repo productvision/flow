@@ -1,6 +1,6 @@
 angular
     .module('skeleton.crud', [])
-    .provider('CrudModuleFactory', [
+    .provider('skeleton.crud.CrudModuleFactory', [
         '$stateProvider',
         function ($stateProvider) {
             this.create = function (config) {
@@ -14,7 +14,11 @@ angular
                             this.config.name,
                             function (Entity) {
 
-                                return Entity.find().$promise;
+                                return Entity.find({
+                                    filter: {
+                                        limit: 10
+                                    }
+                                }).$promise;
                             }
                         ];
                     };
@@ -66,7 +70,7 @@ angular
                 var model = new ModelService(config.model);
 
                 $stateProvider
-                    .state('app.' + config.id, {
+                    .state(config.name, {
                         abstract: true,
                         url: config.url,
                         templateUrl: 'module/skeleton/crud/view/layout/' + config.layout + '.html',
@@ -75,7 +79,7 @@ angular
                             entityReflector: model.getEntityReflectorResolver()
                         }
                     })
-                    .state('app.' + config.id + '.list', {
+                    .state(config.name + '.list', {
                         url: '/list',
                         templateUrl: 'module/skeleton/crud/view/list/index.html',
                         controller: 'skeleton.crud.list.IndexController',
@@ -84,23 +88,23 @@ angular
                             entities: model.getEntitiesResolver()
                         }
                     })
-                    .state('app.' + config.id + '.list.chart', {
+                    .state(config.name + '.list.chart', {
                         url: '/chart',
                         templateUrl: 'module/skeleton/crud/view/list/chart.html',
                         controller: 'skeleton.crud.list.ChartController'
                     })
-                    .state('app.' + config.id + '.list.grid', {
+                    .state(config.name + '.list.grid', {
                         url: '/grid',
                         templateUrl: 'module/skeleton/crud/view/list/grid.html',
                         controller: 'skeleton.crud.list.GridController'
                     })
-                    .state('app.' + config.id + '.list.widget', {
+                    .state(config.name + '.list.widget', {
                         url: '/widget',
                         templateUrl: 'module/skeleton/crud/view/list/widget.html',
                         controller: 'skeleton.crud.list.WidgetController'
                     })
 
-                    .state('app.' + config.id + '.show', {
+                    .state(config.name + '.show', {
                         url: '/show/:id',
                         templateUrl: 'module/skeleton/crud/view/show/index.html',
                         controller: 'skeleton.crud.show.IndexController',
@@ -108,13 +112,13 @@ angular
                             entity: model.getEntityResolver()
                         }
                     })
-                    .state('app.' + config.id + '.show.timeline', {
+                    .state(config.name + '.show.timeline', {
                         url: '/timeline',
                         templateUrl: 'module/skeleton/crud/view/show/timeline.html',
                         controller: 'skeleton.crud.list.TimeLineController'
                     })
 
-                    .state('app.' + config.id + '.create', {
+                    .state(config.name + '.create', {
                         url: '/create',
                         templateUrl: 'module/skeleton/crud/view/edit.html',
                         controller: 'skeleton.crud.CreateController',
@@ -122,7 +126,7 @@ angular
                             createEntity: model.getEntityFactoryResolver()
                         }
                     })
-                    .state('app.' + config.id + '.edit', {
+                    .state(config.name + '.edit', {
                         url: '/edit/:id',
                         templateUrl: 'module/skeleton/crud/view/edit.html',
                         controller: 'skeleton.crud.EditController',

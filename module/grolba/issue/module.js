@@ -3,14 +3,14 @@ angular
         'skeleton.crud'
     ])
     .config([
-        'CrudModuleFactoryProvider',
+        'skeleton.crud.CrudModuleFactoryProvider',
         function (CrudModuleFactoryProvider) {
             CrudModuleFactoryProvider.create({
-                id: 'issue',
+                name: 'app.issue',
                 url: '/issue',
                 model: {
-                    type: 'loopback',
-                    name: 'Issue'
+                    name: 'Issue',
+                    type: 'loopback'
                 }
             });
         }

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/module/grolba/music/public/css/videogular.css">
     <!-- endinject -->
 </head>
-<body>
+<body class="{{ bodyClass }}">
 <div class="app" id="app" data-ui-view></div>
 
 <!-- bower:js -->
@@ -84,6 +84,9 @@
 <script src="/module/core/app/src/controllers/uigrid.js"></script>
 <script src="/module/core/app/src/controllers/vectormap.js"></script>
 <script src="/module/core/app/src/controllers/xeditable.js"></script>
+<script src="/module/core/app/src/filters/fromNow.js"></script>
+<script src="/module/core/app/src/providers/lazy-state.js"></script>
+<script src="/module/core/app/src/providers/module-reflector.js"></script>
 <script src="/module/core/app/src/directives/setnganimate.js"></script>
 <script src="/module/core/app/src/directives/ui-butterbar.js"></script>
 <script src="/module/core/app/src/directives/ui-focus.js"></script>
@@ -94,9 +97,6 @@
 <script src="/module/core/app/src/directives/ui-scroll.js"></script>
 <script src="/module/core/app/src/directives/ui-shift.js"></script>
 <script src="/module/core/app/src/directives/ui-toggleclass.js"></script>
-<script src="/module/core/app/src/filters/fromNow.js"></script>
-<script src="/module/core/app/src/providers/lazy-state.js"></script>
-<script src="/module/core/app/src/providers/module-reflector.js"></script>
 <script src="/module/core/app/src/services/entity-reflector.js"></script>
 <script src="/module/core/app/src/services/loopback.js"></script>
 <script src="/module/core/app/src/services/ui-load.js"></script>
@@ -110,6 +110,7 @@
 <script src="/module/skeleton/crud/src/controllers/create.js"></script>
 <script src="/module/skeleton/crud/src/controllers/edit.js"></script>
 <script src="/module/skeleton/crud/src/controllers/index.js"></script>
+<script src="/module/skeleton/dashboard/src/controllers/index.js"></script>
 <script src="/module/skeleton/crud/src/controllers/list/chart.js"></script>
 <script src="/module/skeleton/crud/src/controllers/list/grid.js"></script>
 <script src="/module/skeleton/crud/src/controllers/list/index.js"></script>
@@ -155,12 +156,13 @@
 <script src="/module/grolba/messenger/src/controllers/index.js"></script>
 <script src="/module/grolba/messenger/src/controllers/list.js"></script>
 <script src="/module/grolba/music/src/controllers/index.js"></script>
-<script src="/module/grolba/network/src/controllers/index.js"></script>
 <script src="/module/grolba/note/src/controllers/index.js"></script>
+<script src="/module/grolba/network/src/controllers/index.js"></script>
 <script src="/module/grolba/portal/src/controllers/index.js"></script>
 <script src="/module/grolba/todo/src/controllers/index.js"></script>
 <script src="/module/community/core/module.js"></script>
 <script src="/module/community/customer/module.js"></script>
+<script src="/module/community/core/config/config.js"></script>
 <script src="/module/community/customer/config/config.js"></script>
 <script src="/module/community/core/src/controllers/index.js"></script>
 <script src="/module/community/customer/src/controllers/index.js"></script>

@@ -4,10 +4,10 @@ angular
         'skeleton.crud'
     ])
     .config([
-        'CrudModuleFactoryProvider',
+        'skeleton.crud.CrudModuleFactoryProvider',
         function (CrudModuleFactoryProvider) {
             CrudModuleFactoryProvider.create({
-                id: 'portal',
+                name: 'app.portal',
                 url: '/portals',
                 model: {
                     type: 'loopback',

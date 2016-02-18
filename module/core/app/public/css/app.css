@@ -709,6 +709,7 @@ body {
 
 .app-aside {
     float: left;
+    background-color: #f5f5f5;
 }
 
 .app-aside:before {
@@ -743,6 +744,7 @@ body {
 }
 
 .app-content {
+    border-left: 1px solid #ccc;
     position: relative;
     height: 100%;
 }

@@ -53,8 +53,33 @@ angular
                 })
                 .state('community.customer', {
                     url: '/customer',
-                    templateUrl: 'module/community/customer/view/index.html',
-                    controller: 'community.customer.IndexController'
+                    template: '<div data-ui-view></div>'
                 });
+        }
+    ])
+    .config([
+        'skeleton.crud.CrudModuleFactoryProvider', 'skeleton.dashboard.DashboardModuleFactoryProvider',
+        function (CrudModuleFactoryProvider, DashboardModuleFactoryProvider) {
+            DashboardModuleFactoryProvider.create({
+                name: 'community.customer.dashboard',
+                url: '/dashboard'
+            });
+
+            CrudModuleFactoryProvider.create({
+                name: 'community.customer.pages',
+                url: '/pages',
+                model: {
+                    name: 'Page',
+                    type: 'loopback'
+                }
+            });
+            CrudModuleFactoryProvider.create({
+                name: 'community.customer.users',
+                url: '/users',
+                model: {
+                    name: 'User',
+                    type: 'loopback'
+                }
+            });
         }
     ]);
