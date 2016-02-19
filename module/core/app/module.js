@@ -40,6 +40,7 @@ angular.module('app', [
 
     'community.core',
     'community.customer',
+    'community.pages',
 
     'Loopback'
 ]);

@@ -53,7 +53,7 @@ angular
                 })
                 .state('community.customer', {
                     url: '/customer',
-                    template: '<div data-ui-view></div>'
+                    templateUrl: "module/community/core/view/show.html"
                 });
         }
     ])
