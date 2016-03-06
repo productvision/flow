@@ -3,12 +3,6 @@
 - Softwarebaukasten
 - Zielstrebigkeit
 
-
-# Neues Modul hinzufügen
-- touch ./module/{vendor}/{module}/module.js
-
-
-
 # Rollen: Benutzer
 ## Wifoe: Diethelm Rumpel
 ## Gew: Roland
@@ -21,23 +15,3 @@
 
 ## Riecexco: Wolfgang Riedel
 - Kundenportal erstellen
-
-## Opus
-
-
-
-# Root structure
-- app/module
-- config
-- data/drafts
-- data/log
-- server/
-- public/components
-
-
-# Module structure
-- module.js
-- data/fixtures
-- data/models
-- src/controllers
-- view/

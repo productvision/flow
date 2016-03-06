@@ -9,8 +9,8 @@ angular
     ])
 
     .config([
-        'skeleton.crud.CrudModuleFactoryProvider',
-        function (CrudModuleFactoryProvider) {
+        '$stateProvider', 'skeleton.crud.CrudModuleFactoryProvider',
+        function ($stateProvider, CrudModuleFactoryProvider) {
             CrudModuleFactoryProvider.create({
                 name: 'app.goal',
                 url: '/goal',
@@ -19,5 +19,12 @@ angular
                     type: 'loopback'
                 }
             });
+
+            $stateProvider
+                .state('app.goal.search', {
+                    url: '/search',
+                    templateUrl: 'module/grolba/goal/view/search.html',
+                    controller: 'grolba.goal.SearchController'
+                });
         }
     ]);

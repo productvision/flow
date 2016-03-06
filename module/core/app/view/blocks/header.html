@@ -35,29 +35,34 @@
             </a>
             <ul class="dropdown-menu" data-ng-if="menuItem.children">
                 <li data-ng-repeat="child in menuItem.children" class="{{ child.type }}">
-                    <a href data-ui-sref="{{ child.sref }}" data-ng-if="child.type != 'divider'">{{ child.label }}</a>
+                    <a href data-ui-sref="{{ child.sref }}" data-ng-if="child.sref">{{ child.label }}</a>
+                    <span data-ng-if="child.label && !child.sref" style="padding: 5px 15px; opacity:.75;"><small>{{ child.label }}</small></span>
                 </li>
             </ul>
         </li>
         <li>
-            <button data-ng-click="openCreateDialog()" class="btn btn-default">Erstellen</button>
+            <button class="btn btn-default" data-toggle="dropdown">Erstellen</button>
+
+            <ul class="dropdown-menu">
+                <li>
+                    <a href data-ng-click="openCreateDialog('goal')">Ziel</a>
+                </li>
+                <li>
+                    <a href data-ng-click="openCreateDialog('solution')">Lösung</a>
+                </li>
+                <li>
+                    <a href data-ng-click="openCreateDialog('issue')">Vorgang</a>
+                </li>
+                <li>
+                    <a href data-ng-click="openCreateDialog('space')">Bereich</a>
+                </li>
+                <li>
+                    <a href data-ng-click="openCreateDialog('person')">Person</a>
+                </li>
+            </ul>
         </li>
     </ul>
     <div class="navbar-right" id="notices">
         <p class="navbar-text"><span class="text"></span></p>
     </div>
 </div>
-
-<!--<div class="collapse pos-rlt navbar-collapse box-shadow bg-light">-->
-    <!--<form class="m-b-md navbar-form navbar-form-sm navbar-left shift ng-pristine ng-valid ng-scope" ui-shift="prependTo"-->
-          <!--target=".navbar-collapse" role="search">-->
-        <!--<div class="form-group">-->
-            <!--<div class="input-group">-->
-                <!--<input type="text" class="form-control input-lg" placeholder="Type keyword">-->
-      <!--<span class="input-group-btn">-->
-        <!--<button class="btn btn-lg btn-default" type="button">Suche</button>-->
-      <!--</span>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</form>-->
-<!--</div>-->

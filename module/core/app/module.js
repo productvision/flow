@@ -23,6 +23,7 @@ angular.module('app', [
     'formlyBootstrap',
 
     'editor.ui',
+    'skeleton.crud',
 
     'grolba.calendar',
     'grolba.contact',

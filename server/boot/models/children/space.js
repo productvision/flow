@@ -1,43 +1,49 @@
 module.exports = function (app, config) {
+    var Module = app.models.Module;
     var Space = app.models.Space;
+    var SpaceModule = app.models.SpaceModule;
 
     Space.create({
         slug: 'tfrt',
         name: 'TF RT',
         menu: [
             {
-                label: 'Ziele',
+                label: 'Ziele und Lösungen',
                 children: [
                     {
-                        label: 'Übersicht',
+                        label: 'Meine Ziele & Lösungen',
                         sref: 'app.goal.list'
                     },
                     {
-                        label: 'Tabelle',
-                        sref: "app.goal.list.grid"
+                        label: 'Ziele ermitteln',
+                        sref: 'app.goal.create'
                     },
                     {
-                        label: 'Widgets',
-                        sref: "app.goal.list.widget"
-                    },
-                    {
-                        label: 'Diagramme',
-                        sref: "app.goal.list.chart"
-                    },
-                    {
-                        label: 'Kalender',
-                        sref: "app.goal.list"
-                    },
-                    {
-                        label: 'Debug',
-                        sref: "app.goal.list.debug"
+                        label: 'Lösungen finden',
+                        sref: 'app.solution.search'
                     },
                     {
                         type: 'divider'
                     },
                     {
-                        label: 'Vorgang erstellen',
-                        sref: 'app.goal.create'
+                        type: 'headline',
+                        label: 'Nächste Ziele'
+                    },
+                    {
+                        label: 'Ziel #1',
+                        sref: 'app.goal.show({"id": 1})'
+                    },
+                    {
+                        label: 'Ziel #2',
+                        sref: 'app.goal.show({"id": 2})'
+                    },
+                    {
+                        label: 'Ziel #3',
+                        sref: 'app.goal.show({"id": 3})'
+                    },
+                    {
+                        label: 'Alle Ziele',
+                        sref: 'app.goal.list'
                     }
                 ]
             },
@@ -53,28 +59,55 @@ module.exports = function (app, config) {
                         sref: 'app.issue.list.chart'
                     },
                     {
-                        label: 'Grid',
-                        sref: 'app.issue.list.grid'
-                    },
-                    {
-                        label: 'Widgets',
-                        sref: 'app.issue.list.widget'
-                    },
-                    {
-                        label: 'Chart',
-                        sref: 'app.issue.list.chart'
-                    },
-                    {
                         type: 'divider'
                     },
                     {
                         label: 'Vorgang erstellen',
                         sref: 'app.issue.create'
+                    },
+                    {
+                        type: 'divider'
+                    },
+                    {
+                        type: 'headline',
+                        label: 'Kürzlich bearbeitet'
+                    },
+                    {
+                        label: 'Vorgang #1',
+                        sref: 'app.issue.show({"id": 1})'
+                    },
+                    {
+                        label: 'Vorgang #2',
+                        sref: 'app.issue.show({"id": 2})'
+                    },
+                    {
+                        label: 'Vorgang #3',
+                        sref: 'app.issue.show({"id": 3})'
+                    },
+                    {
+                        label: 'Alle Vorgänge',
+                        sref: 'app.issue.list'
                     }
                 ]
             },
             {
-                label: 'Netzwerke',
+                label: 'Bereiche',
+                children: [
+                    {
+                        label: 'Meine Bereiche',
+                        sref: 'community.customer'
+                    },
+                    {
+                        type: 'divider'
+                    },
+                    {
+                        label: 'Existenzgründer',
+                        sref: 'community.customer'
+                    }
+                ]
+            },
+            {
+                label: 'Personen',
                 children: [
                     {
                         label: 'Übersicht',
@@ -85,7 +118,7 @@ module.exports = function (app, config) {
                         sref: 'app.contact'
                     },
                     {
-                        label: 'Kunden',
+                        label: 'Existenzgründer',
                         sref: 'app.contact'
                     },
                     {
@@ -100,80 +133,31 @@ module.exports = function (app, config) {
                         sref: 'app.network'
                     }
                 ]
-            },
-            {
-                label: 'Bereiche',
-                children: [
-                    {
-                        label: 'Kunden Bereich',
-                        sref: 'community.customer'
-                    }
-                ]
-            },
-            {
-                label: 'Lösungen',
-                sref: 'app.dashboard',
-                children: [
-                    {
-                        label: 'Produkte',
-                        sref: 'app.dashboard'
-                    },
-                    {
-                        label: 'Dienstleistungen',
-                        sref: 'app.dashboard'
-                    }
-                ]
             }
         ]
     }, function (err, space) {
         require('./space-config')(app, config, space, 'Team Tecis');
+
+        Module.create([
+                {
+                    "name": 'app.solution',
+                    "url": '/solutions',
+                    "model": {
+                        "name": 'Solution',
+                        "type": 'loopback'
+                    },
+                    "type": "skeleton.crud.CrudModuleFactoryProvider"
+                }
+            ],
+            function (err, module) {
+                SpaceModule.create({
+                    "name": "string",
+                    "label": "string",
+                    "slug": "string",
+                    "moduleId": module.id,
+                    "spaceId": space.id
+                });
+            }
+        );
     });
-
-    //Space.create({
-    //    slug: 'riedexco',
-    //    name: 'Riedexco',
-    //    menu: [
-    //        {
-    //            label: 'Startseite',
-    //            sref: 'app.dashboard'
-    //        },
-    //        {
-    //            label: 'Kunden',
-    //            children: [
-    //                {
-    //                    label: 'Übersicht',
-    //                    sref: 'app.contact'
-    //                },
-    //                {
-    //                    label: 'Kundenkontakte',
-    //                    sref: 'app.contact'
-    //                },
-    //                {
-    //                    label: 'Kunden',
-    //                    sref: 'app.contact'
-    //                },
-    //                {
-    //                    label: 'Partner',
-    //                    sref: 'app.contact'
-    //                }
-    //            ]
-    //        },
-    //        {
-    //            label: 'Mein Kundenportal',
-    //            children: [
-    //                {
-    //                    label: 'Übersicht',
-    //                    sref: 'app.portal.list'
-    //                },
-    //                {
-    //                    label: 'Bearbeiten',
-    //                    sref: 'app.portal.edit({"id": "1"})'
-    //                }
-    //            ]
-    //        }
-    //    ]
-    //}, function (err, space) {
-    //    require('./space-config')(app, config, space, 'Riedexco');
-    //});
-
 };

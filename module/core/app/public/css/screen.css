@@ -30,3 +30,29 @@
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
 }
+
+.app-header {
+    padding-left: 8px;
+}
+
+body.animated-header .app-header {
+    opacity: .4;
+}
+
+body.animated-header .app-header:hover {
+    opacity: .9;
+}
+
+body.animated-header .header-default {
+    opacity: .4;
+}
+
+body.animated-header .header-default:hover {
+    opacity: .9;
+}
+
+.header-fixed-top {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}

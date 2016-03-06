@@ -6,7 +6,16 @@ angular
     .module('app')
     .controller('AppController', [
         '$rootScope', '$state', '$uibModal', 'LazyState', 'SpaceModule', 'modules', 'spaces', 'spaceModules',
-        function ($rootScope, $state, $uibModal, LazyState, SpaceModule, modules, spaces, spaceModules) {
+        'skeleton.crud.CrudModuleFactory',
+        function ($rootScope, $state, $uibModal, LazyState, SpaceModule, modules, spaces, spaceModules, CrudModuleFactory) {
+            modules.map(function (module) {
+                switch (module.type) {
+                    case 'skeleton.crud.CrudModuleFactoryProvider':
+                        CrudModuleFactory.create(module);
+                        break;
+                }
+            });
+
             $rootScope.currentStateName = $state.current.name;
             $rootScope.$on("$stateChangeStart", function (event, toState) {
                 $rootScope.currentStateName = toState.name;

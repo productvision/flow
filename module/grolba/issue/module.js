@@ -18,7 +18,7 @@ angular
     .run([
         '$rootScope', '$state', '$uibModal', 'formlyConfig', 'Issue',
         function ($rootScope, $state, $uibModal, formlyConfig, Issue) {
-            $rootScope.openCreateDialog = function () {
+            $rootScope.openCreateDialog = function (type) {
                 var modal = $uibModal.open({
                     animation: true,
                     templateUrl: 'module/grolba/issue/view/modals/create.html',
