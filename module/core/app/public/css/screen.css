@@ -37,10 +37,6 @@ h1.wrapper {
     padding-left: 0;
 }
 
-.app-header {
-    padding-left: 8px;
-}
-
 body.animated-header .app-header {
     opacity: .4;
 }

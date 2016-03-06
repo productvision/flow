@@ -20,7 +20,7 @@ module.exports = function (app, config) {
                     },
                     {
                         label: 'Lösungen finden',
-                        sref: 'app.solution.search'
+                        sref: 'app.solutions.list'
                     },
                     {
                         type: 'divider'
