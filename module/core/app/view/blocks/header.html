@@ -36,7 +36,9 @@
             <ul class="dropdown-menu" data-ng-if="menuItem.children">
                 <li data-ng-repeat="child in menuItem.children" class="{{ child.type }}">
                     <a href data-ui-sref="{{ child.sref }}" data-ng-if="child.sref">{{ child.label }}</a>
-                    <span data-ng-if="child.label && !child.sref" style="padding: 5px 15px; opacity:.75;"><small>{{ child.label }}</small></span>
+                    <span data-ng-if="child.label && !child.sref" style="padding: 5px 15px; opacity:.75;"><small>{{
+                        child.label }}
+                    </small></span>
                 </li>
             </ul>
         </li>
@@ -62,7 +64,14 @@
             </ul>
         </li>
     </ul>
-    <div class="navbar-right" id="notices">
-        <p class="navbar-text"><span class="text"></span></p>
-    </div>
+    <form class="navbar-form navbar-form-sm navbar-right no-padder" role="search">
+        <div class="form-group">
+            <div class="input-group w-lg w-auto-xs">
+                <input type="text" class="form-control" placeholder="Search songs and artists...">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-sm bg-light"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+    </form>
 </div>

@@ -31,6 +31,12 @@
     border-right: 1px solid #ccc;
 }
 
+h1.wrapper {
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 0;
+}
+
 .app-header {
     padding-left: 8px;
 }
@@ -41,6 +47,10 @@ body.animated-header .app-header {
 
 body.animated-header .app-header:hover {
     opacity: .9;
+}
+
+.header-default {
+    padding: 20px 20px 10px;
 }
 
 body.animated-header .header-default {

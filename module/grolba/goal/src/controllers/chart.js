@@ -3,12 +3,10 @@ angular
     .controller('grolba.goal.ChartController', [
         '$scope', '$stateParams', 'goals',
         function ($scope, $stateParams, goals) {
-            debugger;
             $scope.goals = goals;
             $scope.view = $stateParams.view;
 
             $scope.charts = jQuery.map(goals, function (goal) {
-                debugger;
                 var chart = [{
                     data: [
                         {
