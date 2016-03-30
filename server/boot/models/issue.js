@@ -50,9 +50,15 @@ module.exports = function (app) {
     IssueType.create({
         name: 'Existenzgründung',
         fields: {
-            "type": "string",
-            "description": "Name",
-            "required": "true"
+            name: {
+                type: "string",
+                description: "Name",
+                required: "true"
+            },
+            start: {
+                type: "string",
+                description: "Startup!"
+            }
         }
     }, function (err, issueType) {
         var issues = [];

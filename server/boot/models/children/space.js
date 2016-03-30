@@ -7,6 +7,46 @@ module.exports = function (app, config) {
         slug: 'tfrt',
         name: 'TF RT',
         menu: [
+
+            {
+                label: 'Vorgänge',
+                children: [
+                    {
+                        label: 'Existenzgründungen',
+                        sref: 'app.issue.list({"id": 1})'
+                    },
+                    {
+                        label: 'Existengründung starten',
+                        sref: 'app.issue.create({"id": 1})'
+                    },
+                    {
+                        type: 'divider'
+                    },
+                    {
+                        type: 'headline',
+                        label: 'Aktuelle Existenzgründungen'
+                    },
+                    {
+                        label: 'Vorgang #1',
+                        sref: 'app.issue.show({"id": 1})'
+                    },
+                    {
+                        label: 'Vorgang #2',
+                        sref: 'app.issue.show({"id": 2})'
+                    },
+                    {
+                        label: 'Vorgang #3',
+                        sref: 'app.issue.show({"id": 3})'
+                    },
+                    {
+                        type: 'divider'
+                    },
+                    {
+                        label: 'Vorgangsarten',
+                        sref: 'app.issueType.list'
+                    }
+                ]
+            },
             {
                 label: 'Ziele und Lösungen',
                 children: [
@@ -44,49 +84,6 @@ module.exports = function (app, config) {
                     {
                         label: 'Alle Ziele',
                         sref: 'app.goal.list'
-                    }
-                ]
-            },
-            {
-                label: 'Vorgänge',
-                children: [
-                    {
-                        label: 'Übersicht',
-                        sref: 'app.issue.list'
-                    },
-                    {
-                        label: 'Chart',
-                        sref: 'app.issue.list.chart'
-                    },
-                    {
-                        type: 'divider'
-                    },
-                    {
-                        label: 'Vorgang erstellen',
-                        sref: 'app.issue.create'
-                    },
-                    {
-                        type: 'divider'
-                    },
-                    {
-                        type: 'headline',
-                        label: 'Kürzlich bearbeitet'
-                    },
-                    {
-                        label: 'Vorgang #1',
-                        sref: 'app.issue.show({"id": 1})'
-                    },
-                    {
-                        label: 'Vorgang #2',
-                        sref: 'app.issue.show({"id": 2})'
-                    },
-                    {
-                        label: 'Vorgang #3',
-                        sref: 'app.issue.show({"id": 3})'
-                    },
-                    {
-                        label: 'Alle Vorgänge',
-                        sref: 'app.issue.list'
                     }
                 ]
             },

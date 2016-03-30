@@ -1,15 +1,68 @@
 angular
     .module('grolba.issue', [
+        'ui.bootstrap',
         'skeleton.crud'
     ])
     .config([
-        'skeleton.crud.CrudModuleFactoryProvider',
-        function (CrudModuleFactoryProvider) {
+        '$stateProvider', 'skeleton.crud.CrudModuleFactoryProvider',
+        function ($stateProvider, CrudModuleFactoryProvider) {
+            $stateProvider
+                .state('app.issue', {
+                    abstract: true,
+                    url: '/issue',
+                    template: '<div class="col-md-12" data-ui-view></div>'
+                })
+                .state('app.issue.show', {
+                    url: '/show/:id',
+                    templateUrl: 'module/grolba/issue/view/issue/show.html',
+                    controller: 'grolba.issue.ShowController'
+                })
+                .state('app.issue.list', {
+                    url: '/list/:id',
+                    templateUrl: 'module/grolba/issue/view/issue/list.html',
+                    controller: 'grolba.issue.ListController'
+                })
+                .state('app.issue.create', {
+                    url: '/create/:id',
+                    templateUrl: 'module/grolba/issue/view/issue/create.html',
+                    controller: 'grolba.issue.CreateController',
+                    resolve: {
+                        issueType: [
+                            'IssueType', '$stateParams',
+                            function (Entity, $stateParams) {
+                                var filter = {
+                                    where: {
+                                        id: $stateParams.id
+                                    }
+                                };
+
+                                return Entity.findOne({
+                                    filter: filter
+                                }).$promise;
+                            }
+                        ],
+                        entitySchema: [
+                            'IssueType',
+                            function (Entity) {
+
+                                return Entity.schema().$promise;
+                            }
+                        ],
+                        entityReflector: [
+                            'EntityReflectorFactory', 'entitySchema',
+                            function (EntityReflectorFactory, entitySchema) {
+
+                                return EntityReflectorFactory.create(entitySchema.schema);
+                            }
+                        ]
+                    }
+                });
+
             CrudModuleFactoryProvider.create({
-                name: 'app.issue',
-                url: '/issue',
+                name: 'app.issueType',
+                url: '/issue-type',
                 model: {
-                    name: 'Issue',
+                    name: 'IssueType',
                     type: 'loopback'
                 }
             });
@@ -25,6 +78,7 @@ angular
                     controller: 'grolba.issue.CreateController'
                 });
                 modal.result.then(function (item) {
+                    debugger;
                     var issue = new Issue();
                     issue.issueTypeId = item.issueTypeId;
 

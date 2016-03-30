@@ -1,3 +1,20 @@
+body > .app > .app-content {
+    margin-top: 50px;
+}
+
+body .header-secondary {
+    display: none;
+}
+
+body.has-header-secondary .header-secondary {
+    display: block;
+}
+
+body.has-header-secondary > .app > .app-content {
+    margin-top: 120px;
+}
+
+
 .dropdown-menu {
     top: 105%;
     border: 0 none;
@@ -46,7 +63,7 @@ body.animated-header .app-header:hover {
 }
 
 .header-default {
-    padding: 20px 20px 10px;
+    padding: 20px 20px 16px;
 }
 
 body.animated-header .header-default {

@@ -1,0 +1,8 @@
+<form data-ng-submit="onSubmit()" name="form" novalidate>
+    <formly-form model="model" fields="fields" options="options" form="vm.form">
+        <button class="btn btn-primary submit-button" type="submit" data-ng-click="ok()"
+                data-ng-disabled="form.$invalid">Erstellen
+        </button>
+        <button class="btn btn-warning" type="button" data-ng-click="cancel()">Abbrechen</button>
+    </formly-form>
+</form>

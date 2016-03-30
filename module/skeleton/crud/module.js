@@ -41,13 +41,12 @@ angular
                         return [
                             this.config.name, '$stateParams',
                             function (Entity, $stateParams) {
-
                                 var filter = {
                                     where: {
                                         id: $stateParams.id
                                     }
                                 };
-                                //filter['include'] = 'pages';
+
                                 return Entity.findOne({
                                     filter: filter
                                 }).$promise;
